@@ -102,7 +102,7 @@ export function Header() {
           {/* Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
 
-            <div className="flex items-center space-x-1 bg-blue-800 rounded-xl p-1 border border-blue-700">
+            <div className="flex items-center space-x-1 rounded-xl p-1 border border-blue-700 bg-[#1e40af00]">
               <Globe className="w-4 h-4 text-blue-200 ml-2" />
               <Button
                 variant={language === 'ko' ? 'default' : 'ghost'}
