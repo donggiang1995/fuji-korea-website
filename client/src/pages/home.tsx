@@ -120,7 +120,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +143,7 @@ export default function Home() {
               return (
                 <Card key={index} className="industrial-card border-0 hover:shadow-xl transition-all duration-300 group">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
+                    <div className="w-16 h-16 from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25 bg-[#1a66ff]">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
@@ -156,7 +155,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Smart Elevator Showcase */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 tech-pattern opacity-30"></div>
@@ -255,7 +253,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Awards Section */}
       <section className="py-24 bg-gradient-to-br from-[hsl(var(--industrial-dark))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] text-white relative overflow-hidden">
         <div className="absolute inset-0 tech-pattern opacity-20"></div>
