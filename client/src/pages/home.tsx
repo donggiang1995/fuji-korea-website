@@ -125,7 +125,7 @@ export default function Home() {
       <section className="py-24 text-white relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={WEBSITE_IMAGES.products.sectionBackground}
+            src={(WEBSITE_IMAGES.products as any).sectionBackground}
             alt="Industrial Technology Background"
             className="w-full h-full object-cover"
             onError={(e) => {
