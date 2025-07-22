@@ -142,9 +142,9 @@ export default function Home() {
               const Icon = feature.icon;
               // Hình ảnh công nghệ thang máy cho từng feature
               const featureImages = [
-                "https://fuji-global-korea.com/wp-content/uploads/2024/05/control-system.jpg", // Smart Control
-                "https://fuji-global-korea.com/wp-content/uploads/2024/05/safety-tech.jpg",   // Safety System  
-                "https://fuji-global-korea.com/wp-content/uploads/2024/05/iot-monitoring.jpg" // IoT Monitoring
+                "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Smart Control Systems
+                "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Safety Technology
+                "https://images.unsplash.com/photo-1518709268805-4e9042af2ac1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"  // IoT Monitoring
               ];
               
               return (
@@ -191,7 +191,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/manufacturing.jpg"
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
                   alt="Manufacturing Process"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -203,7 +203,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/testing.jpg"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
                   alt="Quality Testing"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -215,7 +215,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/installation.jpg"
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
                   alt="Installation Process"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -227,7 +227,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/maintenance.jpg"
+                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
                   alt="Maintenance Service"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
