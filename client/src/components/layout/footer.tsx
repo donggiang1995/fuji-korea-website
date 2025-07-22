@@ -6,7 +6,7 @@ export function Footer() {
   const { t, language } = useLanguage();
 
   return (
-    <footer className="bg-gradient-to-br from-[hsl(var(--fuji-purple))] via-[hsl(var(--fuji-indigo))] to-[hsl(var(--fuji-cyan))] text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-[hsl(var(--fuji-blue))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] text-white relative overflow-hidden">
       <div className="absolute inset-0 tech-pattern opacity-10"></div>
       <div className="relative">
         {/* Main Footer Content */}
@@ -20,16 +20,16 @@ export function Footer() {
                 </div>
                 <div>
                   <div className="text-2xl font-black tracking-tight">
-                    <span className="text-white drop-shadow-lg">FUJI</span>
-                    <span className="text-[hsl(var(--fuji-orange))] ml-1 drop-shadow-lg">Global</span>
+                    <span className="text-blue-100">FUJI</span>
+                    <span className="text-[hsl(var(--fuji-orange))] ml-1">Global</span>
                   </div>
-                  <div className="text-xs font-semibold text-white/90 tracking-widest mono">
+                  <div className="text-xs font-semibold text-blue-200 tracking-widest mono">
                     KOREA
                   </div>
                 </div>
               </div>
               
-              <p className="text-white/90 leading-relaxed max-w-md">
+              <p className="text-blue-200 leading-relaxed max-w-md">
                 {t.footer.description}
               </p>
 

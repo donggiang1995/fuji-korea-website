@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(var(--fuji-purple))] via-[hsl(var(--fuji-indigo))] to-[hsl(var(--fuji-cyan))] min-h-screen flex items-center">
+      <section className="relative overflow-hidden hero-bg min-h-screen flex items-center">
         <div className="absolute inset-0 tech-pattern"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -61,13 +61,13 @@ export default function Home() {
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link href="/products">
-                  <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--fuji-orange))] to-[hsl(var(--fuji-pink))] text-white font-bold px-8 py-4 text-lg group shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <Button size="lg" className="industrial-button text-white font-bold px-8 py-4 text-lg group">
                     {t.hero.viewProducts}
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="/about">
-                  <Button variant="outline" size="lg" className="glass-morphism border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-4 text-lg backdrop-blur-sm floating-animation">
+                  <Button variant="outline" size="lg" className="glass-morphism border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg backdrop-blur-sm">
                     {t.hero.readMore}
                   </Button>
                 </Link>
@@ -98,11 +98,11 @@ export default function Home() {
             
             {/* Enhanced Visual */}
             <div className="lg:ml-8 space-y-6">
-              <div className="relative floating-animation">
+              <div className="relative">
                 <img
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
                   alt="FUJI Global Korea Office Building"
-                  className="rounded-2xl shadow-2xl w-full h-auto pulse-glow"
+                  className="rounded-2xl shadow-2xl w-full h-auto industrial-card"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/20 to-transparent rounded-2xl"></div>
                 <div className="absolute bottom-6 left-6 right-6">
@@ -122,10 +122,10 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 via-purple-50 to-cyan-50">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <Badge className="mb-6 bg-gradient-to-r from-[hsl(var(--fuji-purple))]/10 to-[hsl(var(--fuji-cyan))]/10 text-[hsl(var(--fuji-purple))] border-[hsl(var(--fuji-purple))]/20 font-semibold tracking-wide">
+            <Badge className="mb-6 bg-[hsl(var(--fuji-blue))]/10 text-[hsl(var(--fuji-blue))] border-[hsl(var(--fuji-blue))]/20 font-semibold tracking-wide">
               {language === 'ko' ? '핵심 기능' : 'Core Features'}
             </Badge>
             <h2 className="text-slate-800 mb-6">
@@ -142,9 +142,9 @@ export default function Home() {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="bg-white/80 backdrop-blur-sm border-0 hover:shadow-2xl transition-all duration-500 group hover:scale-105 hover:bg-white/90">
+                <Card key={index} className="industrial-card border-0 hover:shadow-xl transition-all duration-300 group">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-purple))] to-[hsl(var(--fuji-cyan))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-purple-500/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
@@ -162,7 +162,7 @@ export default function Home() {
         <div className="absolute inset-0 tech-pattern opacity-30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <Badge className="mb-6 bg-gradient-to-r from-[hsl(var(--fuji-orange))]/10 to-[hsl(var(--fuji-pink))]/10 text-[hsl(var(--fuji-orange))] border-[hsl(var(--fuji-orange))]/20 font-semibold tracking-wide">
+            <Badge className="mb-6 bg-[hsl(var(--fuji-orange))]/10 text-[hsl(var(--fuji-orange))] border-[hsl(var(--fuji-orange))]/20 font-semibold tracking-wide">
               {language === 'ko' ? '제품 라인업' : 'Product Lineup'}
             </Badge>
             <h2 className="text-slate-800 mb-6">
@@ -247,7 +247,7 @@ export default function Home() {
 
           <div className="text-center mt-16">
             <Link href="/products">
-              <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--fuji-orange))] to-[hsl(var(--fuji-pink))] text-white font-bold px-8 py-4 group shadow-xl hover:shadow-2xl transition-all duration-300 floating-animation">
+              <Button size="lg" className="industrial-button text-white font-bold px-8 py-4 group">
                 {language === 'ko' ? '모든 제품 보기' : 'View All Products'}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
