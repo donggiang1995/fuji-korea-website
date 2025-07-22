@@ -8,6 +8,20 @@ This is a bilingual (Korean/English) corporate website for FUJI Global Korea, an
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (January 2025)
+
+✓ Complete website redesign with modern industrial aesthetic
+✓ Enhanced typography with stronger, more powerful fonts (Inter font family)
+✓ Added search functionality for elevator serial numbers in header
+✓ Modernized header with glass morphism effects and improved navigation
+✓ Redesigned hero section with gradient backgrounds and tech patterns
+✓ Enhanced footer with comprehensive company information and contact details
+✓ About page completely restructured with detailed company information, technology showcase, and timeline
+✓ Industrial design language with custom CSS components (glass-morphism, industrial-card, metric-display)
+✓ Improved color scheme with professional blue, navy, orange, and steel gray palette
+✓ Added comprehensive company metrics and achievement displays
+✓ Enhanced responsive design for all device sizes
+
 ## System Architecture
 
 ### Frontend Architecture

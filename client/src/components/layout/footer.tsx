@@ -1,71 +1,129 @@
 import { Link } from 'wouter';
-import { Facebook, Linkedin, Youtube } from 'lucide-react';
+import { Facebook, Linkedin, Youtube, Mail, Phone, MapPin, Zap } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
-    <footer className="bg-slate-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          {/* Company Info */}
-          <div className="col-span-2">
-            <div className="text-2xl font-bold mb-4">
-              FUJI<span className="text-[hsl(var(--fuji-orange))]">Global</span>
-              <span className="text-sm font-normal text-slate-400 ml-2">Korea</span>
-            </div>
-            <p className="text-slate-400 mb-4 leading-relaxed">
-              {t.footer.description}
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
+    <footer className="bg-gradient-to-br from-[hsl(var(--industrial-dark))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] text-white relative overflow-hidden">
+      <div className="absolute inset-0 tech-pattern opacity-10"></div>
+      <div className="relative">
+        {/* Main Footer Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid lg:grid-cols-4 gap-8 mb-12">
+            {/* Company Info */}
+            <div className="lg:col-span-2 space-y-6">
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
+                  <Zap className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <div className="text-2xl font-black tracking-tight">
+                    <span className="text-white">FUJI</span>
+                    <span className="text-[hsl(var(--fuji-orange))] ml-1">Global</span>
+                  </div>
+                  <div className="text-xs font-semibold text-slate-300 tracking-widest mono">
+                    KOREA
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-slate-300 leading-relaxed max-w-md">
+                {t.footer.description}
+              </p>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">{t.footer.quickLinks}</h4>
-            <div className="space-y-2">
-              <Link href="/" className="block text-slate-400 hover:text-white transition-colors">
-                {t.nav.home}
-              </Link>
-              <Link href="/about" className="block text-slate-400 hover:text-white transition-colors">
-                {t.nav.about}
-              </Link>
-              <Link href="/products" className="block text-slate-400 hover:text-white transition-colors">
-                {t.nav.products}
-              </Link>
-              <Link href="/contact" className="block text-slate-400 hover:text-white transition-colors">
-                {t.nav.contact}
-              </Link>
-            </div>
-          </div>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3 text-slate-300">
+                  <MapPin className="w-4 h-4 text-[hsl(var(--fuji-blue))]" />
+                  <span className="text-sm">{t.contact.addressText}</span>
+                </div>
+                <div className="flex items-center space-x-3 text-slate-300">
+                  <Phone className="w-4 h-4 text-[hsl(var(--fuji-blue))]" />
+                  <span className="text-sm">+82-2-xxxx-xxxx</span>
+                </div>
+                <div className="flex items-center space-x-3 text-slate-300">
+                  <Mail className="w-4 h-4 text-[hsl(var(--fuji-blue))]" />
+                  <span className="text-sm">info@fuji-global-korea.com</span>
+                </div>
+              </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">{t.footer.contactInfo}</h4>
-            <div className="space-y-2 text-slate-400">
-              <p>{t.contact.addressText}</p>
-              <p>+82-2-xxxx-xxxx</p>
-              <p>info@fuji-global-korea.com</p>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[hsl(var(--fuji-blue))] rounded-xl flex items-center justify-center transition-all duration-300 group">
+                  <Facebook className="h-5 w-5 text-slate-300 group-hover:text-white" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[hsl(var(--fuji-sky))] rounded-xl flex items-center justify-center transition-all duration-300 group">
+                  <Linkedin className="h-5 w-5 text-slate-300 group-hover:text-white" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[hsl(var(--fuji-orange))] rounded-xl flex items-center justify-center transition-all duration-300 group">
+                  <Youtube className="h-5 w-5 text-slate-300 group-hover:text-white" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-bold text-white mb-6">{t.footer.quickLinks}</h4>
+              <div className="space-y-3">
+                <Link href="/" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {t.nav.home}
+                </Link>
+                <Link href="/about" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {t.nav.about}
+                </Link>
+                <Link href="/products" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {t.nav.products}
+                </Link>
+                <Link href="/contact" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {t.nav.contact}
+                </Link>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-bold text-white mb-6">
+                {language === 'ko' ? '서비스' : 'Services'}
+              </h4>
+              <div className="space-y-3">
+                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {language === 'ko' ? '제어 시스템' : 'Control Systems'}
+                </a>
+                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {language === 'ko' ? '견인 기계' : 'Traction Machines'}
+                </a>
+                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {language === 'ko' ? '유지보수' : 'Maintenance'}
+                </a>
+                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                  {language === 'ko' ? '기술 지원' : 'Technical Support'}
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-slate-800 pt-8 text-center">
-          <p className="text-slate-400">
-            {t.footer.copyright}
-          </p>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-slate-400 text-sm">
+                {t.footer.copyright}
+              </p>
+              <div className="flex items-center space-x-6 text-sm text-slate-400">
+                <a href="#" className="hover:text-white transition-colors">
+                  {language === 'ko' ? '개인정보처리방침' : 'Privacy Policy'}
+                </a>
+                <a href="#" className="hover:text-white transition-colors">
+                  {language === 'ko' ? '이용약관' : 'Terms of Service'}
+                </a>
+                <span className="flex items-center space-x-2">
+                  <span>{language === 'ko' ? '제작:' : 'Made by:'}</span>
+                  <span className="text-[hsl(var(--fuji-blue))] font-semibold">FUJI Global Korea</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

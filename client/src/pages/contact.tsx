@@ -9,7 +9,7 @@ import { useLanguage } from '@/components/language-provider';
 import { useToast } from '@/hooks/use-toast';
 
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -24,8 +24,8 @@ export default function Contact() {
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: t.language === 'ko' ? '오류' : 'Error',
-        description: t.language === 'ko' ? '필수 항목을 모두 입력해주세요.' : 'Please fill in all required fields.',
+        title: language === 'ko' ? '오류' : 'Error',
+        description: language === 'ko' ? '필수 항목을 모두 입력해주세요.' : 'Please fill in all required fields.',
         variant: 'destructive'
       });
       return;
@@ -35,8 +35,8 @@ export default function Contact() {
     console.log('Contact form submitted:', formData);
     
     toast({
-      title: t.language === 'ko' ? '성공' : 'Success',
-      description: t.language === 'ko' ? '문의가 성공적으로 전송되었습니다.' : 'Your inquiry has been sent successfully.'
+      title: language === 'ko' ? '성공' : 'Success',
+      description: language === 'ko' ? '문의가 성공적으로 전송되었습니다.' : 'Your inquiry has been sent successfully.'
     });
 
     // Reset form
@@ -105,10 +105,10 @@ export default function Contact() {
               <h3 className="text-xl font-bold text-slate-900 mb-4">{t.contact.quickLinks}</h3>
               <div className="space-y-2">
                 <a href="/" className="block text-[hsl(var(--fuji-blue))] hover:text-[hsl(var(--fuji-sky))] transition-colors">
-                  {t.language === 'ko' ? '홈 페이지' : 'Home Page'}
+                  {language === 'ko' ? '홈 페이지' : 'Home Page'}
                 </a>
                 <a href="#" className="block text-[hsl(var(--fuji-blue))] hover:text-[hsl(var(--fuji-sky))] transition-colors">
-                  {t.language === 'ko' ? 'QR 코드' : 'QR Code'}
+                  {language === 'ko' ? 'QR 코드' : 'QR Code'}
                 </a>
                 <a href="/about" className="block text-[hsl(var(--fuji-blue))] hover:text-[hsl(var(--fuji-sky))] transition-colors">
                   {t.nav.about}

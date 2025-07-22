@@ -1,148 +1,323 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
 import { useLanguage } from '@/components/language-provider';
-import { Award, Code, Wrench, Palette } from 'lucide-react';
+import { Award, Code, Wrench, Palette, ArrowRight, Zap, Shield, Cpu, Gauge } from 'lucide-react';
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const stats = [
-    { icon: Award, number: '7', label: t.awards.patents, color: 'text-[hsl(var(--fuji-blue))]' },
-    { icon: Code, number: '30+', label: t.awards.software, color: 'text-[hsl(var(--fuji-sky))]' },
-    { icon: Wrench, number: '50+', label: t.awards.utility, color: 'text-[hsl(var(--fuji-orange))]' },
-    { icon: Palette, number: '50+', label: t.awards.design, color: 'text-green-600' },
+    { icon: Award, number: '7', label: t.awards.patents, color: 'text-[hsl(var(--fuji-blue))]', description: language === 'ko' ? '혁신적인 기술 특허' : 'Innovation Patents' },
+    { icon: Code, number: '30+', label: t.awards.software, color: 'text-[hsl(var(--fuji-sky))]', description: language === 'ko' ? '소프트웨어 저작권' : 'Software Copyrights' },
+    { icon: Wrench, number: '50+', label: t.awards.utility, color: 'text-[hsl(var(--fuji-orange))]', description: language === 'ko' ? '실용신안 특허' : 'Utility Patents' },
+    { icon: Palette, number: '50+', label: t.awards.design, color: 'text-[hsl(var(--fuji-gold))]', description: language === 'ko' ? '디자인 특허' : 'Design Patents' },
+  ];
+
+  const features = [
+    { 
+      icon: Shield, 
+      title: language === 'ko' ? '안전성' : 'Safety',
+      description: language === 'ko' ? '최고 수준의 안전 기준 준수' : 'Highest safety standards compliance'
+    },
+    { 
+      icon: Cpu, 
+      title: language === 'ko' ? '스마트 기술' : 'Smart Technology',
+      description: language === 'ko' ? 'IoT 및 AI 기반 제어 시스템' : 'IoT and AI-powered control systems'
+    },
+    { 
+      icon: Gauge, 
+      title: language === 'ko' ? '고성능' : 'High Performance',
+      description: language === 'ko' ? '최적화된 효율성과 내구성' : 'Optimized efficiency and durability'
+    }
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden hero-bg">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                {t.hero.title}<br />
-                <span className="text-[hsl(var(--fuji-sky))]">{t.hero.subtitle}</span>
-              </h1>
-              <p className="text-xl text-slate-200 mb-8 leading-relaxed">
+      <section className="relative overflow-hidden hero-bg min-h-screen flex items-center">
+        <div className="absolute inset-0 tech-pattern"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="text-white space-y-8">
+              <div className="space-y-4">
+                <Badge className="glass-morphism text-white/90 font-semibold tracking-wide border-white/20">
+                  <Zap className="w-4 h-4 mr-2" />
+                  {language === 'ko' ? '혁신적인 엘리베이터 기술' : 'Innovative Elevator Technology'}
+                </Badge>
+                <h1 className="font-black leading-tight text-white">
+                  {t.hero.title}
+                  <br />
+                  <span className="bg-gradient-to-r from-[hsl(var(--fuji-sky))] via-[hsl(var(--fuji-gold))] to-[hsl(var(--fuji-orange))] bg-clip-text text-transparent">
+                    {t.hero.subtitle}
+                  </span>
+                </h1>
+              </div>
+              
+              <p className="text-xl text-slate-200 leading-relaxed max-w-2xl font-medium">
                 {t.hero.description}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link href="/products">
-                  <Button size="lg" className="bg-[hsl(var(--fuji-orange))] hover:bg-orange-600">
+                  <Button size="lg" className="industrial-button text-white font-bold px-8 py-4 text-lg group">
                     {t.hero.viewProducts}
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="/about">
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900">
+                  <Button variant="outline" size="lg" className="glass-morphism border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg backdrop-blur-sm">
                     {t.hero.readMore}
                   </Button>
                 </Link>
               </div>
+
+              {/* Live Stats */}
+              <div className="grid grid-cols-3 gap-6 pt-8">
+                <div className="text-center">
+                  <div className="metric-display text-3xl font-black mono">99.9%</div>
+                  <div className="text-sm text-slate-300 font-medium">
+                    {language === 'ko' ? '가동률' : 'Uptime'}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="metric-display text-3xl font-black mono">2000+</div>
+                  <div className="text-sm text-slate-300 font-medium">
+                    {language === 'ko' ? '설치' : 'Installations'}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="metric-display text-3xl font-black mono">24/7</div>
+                  <div className="text-sm text-slate-300 font-medium">
+                    {language === 'ko' ? '지원' : 'Support'}
+                  </div>
+                </div>
+              </div>
             </div>
             
-            {/* Company Building Image */}
-            <div className="lg:ml-8">
-              <img
-                src="https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                alt="FUJI Global Korea Office Building"
-                className="rounded-xl shadow-2xl w-full h-auto"
-              />
+            {/* Enhanced Visual */}
+            <div className="lg:ml-8 space-y-6">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="FUJI Global Korea Office Building"
+                  className="rounded-2xl shadow-2xl w-full h-auto industrial-card"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/20 to-transparent rounded-2xl"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="glass-morphism rounded-xl p-4">
+                    <div className="text-white font-bold text-lg">
+                      {language === 'ko' ? '서울 본사' : 'Seoul Headquarters'}
+                    </div>
+                    <div className="text-white/80 text-sm">
+                      {language === 'ko' ? '광진구 광나루로' : 'Gwangnauru-ro, Gwangjin-gu'}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-24 bg-[hsl(var(--industrial-light))]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <Badge className="mb-6 bg-[hsl(var(--fuji-blue))]/10 text-[hsl(var(--fuji-blue))] border-[hsl(var(--fuji-blue))]/20 font-semibold tracking-wide">
+              {language === 'ko' ? '핵심 기능' : 'Core Features'}
+            </Badge>
+            <h2 className="text-[hsl(var(--industrial-dark))] mb-6">
+              {language === 'ko' ? '혁신적인 기술로 더 안전한 미래를' : 'Safer Future with Innovative Technology'}
+            </h2>
+            <p className="text-xl text-[hsl(var(--fuji-steel))] max-w-3xl mx-auto leading-relaxed">
+              {language === 'ko' 
+                ? '최첨단 IoT, AI 기술과 인간 중심 설계를 결합하여 차세대 엘리베이터 경험을 제공합니다.'
+                : 'Combining cutting-edge IoT, AI technology with human-centered design to deliver next-generation elevator experiences.'}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="industrial-card border-0 hover:shadow-xl transition-all duration-300 group">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[hsl(var(--industrial-dark))] mb-4">{feature.title}</h3>
+                    <p className="text-[hsl(var(--fuji-steel))] leading-relaxed">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Smart Elevator Showcase */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 tech-pattern opacity-30"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <Badge className="mb-6 bg-[hsl(var(--fuji-orange))]/10 text-[hsl(var(--fuji-orange))] border-[hsl(var(--fuji-orange))]/20 font-semibold tracking-wide">
+              {language === 'ko' ? '제품 라인업' : 'Product Lineup'}
+            </Badge>
+            <h2 className="text-[hsl(var(--industrial-dark))] mb-6">
               {t.showcase.title}
             </h2>
-            <p className="text-xl text-slate-600">{t.showcase.subtitle}</p>
+            <p className="text-xl text-[hsl(var(--fuji-steel))]">{t.showcase.subtitle}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group">
-              <div className="relative overflow-hidden rounded-xl mb-6">
+          <div className="grid lg:grid-cols-3 gap-8">
+            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500">
+              <div className="relative overflow-hidden h-64">
                 <img
                   src="https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-2.jpg"
                   alt="Smart Elevator System FJE1"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-semibold">FJE1 스마트 엘리베이터</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/80 via-transparent to-transparent"></div>
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-[hsl(var(--fuji-blue))] text-white font-bold border-0">
+                    FJE1
+                  </Badge>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h3 className="text-xl font-bold mb-2">
+                    {language === 'ko' ? 'FJE1 스마트 엘리베이터' : 'FJE1 Smart Elevator'}
+                  </h3>
+                  <p className="text-sm text-slate-200">
+                    {language === 'ko' ? 'IoT 기반 원격 제어' : 'IoT-based Remote Control'}
+                  </p>
                 </div>
               </div>
-            </div>
+            </Card>
 
-            <div className="group">
-              <div className="relative overflow-hidden rounded-xl mb-6">
+            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500">
+              <div className="relative overflow-hidden h-64">
                 <img
                   src="https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-1.jpg"
                   alt="Smart Elevator System FJE2"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-semibold">FJE2 스마트 엘리베이터</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/80 via-transparent to-transparent"></div>
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-[hsl(var(--fuji-sky))] text-white font-bold border-0">
+                    FJE2
+                  </Badge>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h3 className="text-xl font-bold mb-2">
+                    {language === 'ko' ? 'FJE2 스마트 엘리베이터' : 'FJE2 Smart Elevator'}
+                  </h3>
+                  <p className="text-sm text-slate-200">
+                    {language === 'ko' ? '고급 그룹 제어 시스템' : 'Advanced Group Control System'}
+                  </p>
                 </div>
               </div>
-            </div>
+            </Card>
 
-            <div className="group">
-              <div className="relative overflow-hidden rounded-xl mb-6">
+            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500">
+              <div className="relative overflow-hidden h-64">
                 <img
                   src="https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-3.jpg"
                   alt="Advanced Elevator Technology"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-semibold">차세대 엘리베이터 기술</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/80 via-transparent to-transparent"></div>
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-[hsl(var(--fuji-orange))] text-white font-bold border-0">
+                    FJK Series
+                  </Badge>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h3 className="text-xl font-bold mb-2">
+                    {language === 'ko' ? '차세대 엘리베이터 기술' : 'Next-Gen Elevator Tech'}
+                  </h3>
+                  <p className="text-sm text-slate-200">
+                    {language === 'ko' ? '고효율 견인 기계' : 'High-Efficiency Traction Machines'}
+                  </p>
                 </div>
               </div>
-            </div>
+            </Card>
+          </div>
+
+          <div className="text-center mt-16">
+            <Link href="/products">
+              <Button size="lg" className="industrial-button text-white font-bold px-8 py-4 group">
+                {language === 'ko' ? '모든 제품 보기' : 'View All Products'}
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Awards Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">{t.awards.title}</h2>
-            <p className="text-xl text-slate-600">
+      <section className="py-24 bg-gradient-to-br from-[hsl(var(--industrial-dark))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] text-white relative overflow-hidden">
+        <div className="absolute inset-0 tech-pattern opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <Badge className="mb-6 glass-morphism text-white/90 border-white/20 font-semibold tracking-wide">
+              {language === 'ko' ? '성과 및 인증' : 'Achievements & Certifications'}
+            </Badge>
+            <h2 className="text-white mb-6">{t.awards.title}</h2>
+            <p className="text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
               {t.awards.subtitle}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {stats.map((stat) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <Card key={stat.label} className="text-center">
-                  <CardContent className="pt-6">
-                    <div className={`bg-slate-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4`}>
-                      <Icon className={`h-8 w-8 ${stat.color}`} />
+                <Card key={stat.label} className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300">
+                  <CardContent className="pt-8 pb-6">
+                    <div className="relative mb-6">
+                      <div className={`w-20 h-20 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300`}>
+                        <Icon className="h-10 w-10 text-white" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-[hsl(var(--fuji-orange))] rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">#{index + 1}</span>
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{stat.number}</h3>
-                    <p className="text-slate-600">{stat.label}</p>
+                    <h3 className="metric-display text-4xl font-black mb-3">{stat.number}</h3>
+                    <p className="text-[hsl(var(--industrial-dark))] font-semibold mb-2">{stat.label}</p>
+                    <p className="text-[hsl(var(--fuji-steel))] text-sm">{stat.description}</p>
                   </CardContent>
                 </Card>
               );
             })}
           </div>
 
-          <div className="text-center">
-            <img
-              src="https://fuji-global-korea.com/wp-content/uploads/2024/05/hinh-1.jpg"
-              alt="FUJI Global Korea Awards and Achievements"
-              className="rounded-xl shadow-lg max-w-2xl mx-auto w-full h-auto"
-            />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h3 className="text-3xl font-bold text-white mb-4">
+                {language === 'ko' ? '업계 선도 기술력' : 'Industry-Leading Technology'}
+              </h3>
+              <p className="text-slate-200 leading-relaxed">
+                {language === 'ko' 
+                  ? '지속적인 연구개발과 혁신을 통해 엘리베이터 업계의 기술 표준을 선도하고 있습니다. 다수의 특허와 인증을 통해 검증된 기술력으로 고객에게 최고의 가치를 제공합니다.'
+                  : 'Leading the industry\'s technology standards through continuous R&D and innovation. We provide the highest value to customers with proven technology verified through numerous patents and certifications.'}
+              </p>
+              <div className="flex flex-wrap gap-3 pt-4">
+                <Badge className="glass-morphism text-white/90 border-white/20">ISO 9001</Badge>
+                <Badge className="glass-morphism text-white/90 border-white/20">CE Marking</Badge>
+                <Badge className="glass-morphism text-white/90 border-white/20">KS Certification</Badge>
+                <Badge className="glass-morphism text-white/90 border-white/20">Safety Standards</Badge>
+              </div>
+            </div>
+            <div className="relative">
+              <img
+                src="https://fuji-global-korea.com/wp-content/uploads/2024/05/hinh-1.jpg"
+                alt="FUJI Global Korea Awards and Achievements"
+                className="rounded-2xl shadow-2xl w-full h-auto industrial-card"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/20 to-transparent rounded-2xl"></div>
+            </div>
           </div>
         </div>
       </section>

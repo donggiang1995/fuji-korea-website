@@ -6,7 +6,7 @@ import { useLanguage } from '@/components/language-provider';
 import { productsData, ProductData } from '@/data/products';
 
 export default function Products() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<ProductData | null>(null);
 
   const controlProducts = productsData.filter(p => p.category === 'control');
@@ -76,15 +76,15 @@ export default function Products() {
         <div className="text-center mt-16">
           <div className="bg-slate-50 rounded-xl p-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
-              {t.language === 'ko' ? '더 자세한 정보가 필요하신가요?' : 'Need more detailed information?'}
+              {language === 'ko' ? '더 자세한 정보가 필요하신가요?' : 'Need more detailed information?'}
             </h2>
             <p className="text-slate-600 mb-6">
-              {t.language === 'ko'
+              {language === 'ko'
                 ? '저희 전문가들이 귀하의 프로젝트에 최적화된 솔루션을 제안해 드립니다.'
                 : 'Our experts can propose solutions optimized for your project.'}
             </p>
             <Button size="lg" className="bg-[hsl(var(--fuji-blue))] hover:bg-blue-700">
-              {t.language === 'ko' ? '전문가와 상담하기' : 'Consult with Expert'}
+              {language === 'ko' ? '전문가와 상담하기' : 'Consult with Expert'}
             </Button>
           </div>
         </div>
