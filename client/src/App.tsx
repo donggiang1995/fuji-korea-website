@@ -17,15 +17,14 @@ import AdminDashboard from "@/pages/admin-dashboard";
 import { useAdmin } from "@/hooks/useAdmin";
 
 function AdminRouter() {
-  const { isAuthenticated, isLoading } = useAdmin();
-  const [showLogin, setShowLogin] = useState(!isAuthenticated);
+  const { isAuthenticated, isLoading, login, logout } = useAdmin();
 
   const handleLoginSuccess = (sessionId: string) => {
-    setShowLogin(false);
+    login(sessionId);
   };
 
   const handleLogout = () => {
-    setShowLogin(true);
+    logout();
   };
 
   if (isLoading) {
@@ -39,7 +38,7 @@ function AdminRouter() {
     );
   }
 
-  if (showLogin || !isAuthenticated) {
+  if (!isAuthenticated) {
     return <AdminLogin onLoginSuccess={handleLoginSuccess} />;
   }
 
