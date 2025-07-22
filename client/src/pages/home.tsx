@@ -122,8 +122,19 @@ export default function Home() {
         </div>
       </section>
       {/* Products Section - Moved up for prominence */}
-      <section className="py-24 bg-gradient-to-br from-[hsl(var(--fuji-blue))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] text-white relative overflow-hidden">
-        <div className="absolute inset-0 tech-pattern opacity-20"></div>
+      <section className="py-24 text-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={WEBSITE_IMAGES.products.sectionBackground}
+            alt="Industrial Technology Background"
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = WEBSITE_IMAGES.fallback.industrial;
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--fuji-blue))]/90 via-[hsl(var(--fuji-navy))]/85 to-[hsl(var(--fuji-steel))]/80"></div>
+        </div>
+        <div className="absolute inset-0 tech-pattern opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge className="glass-morphism text-white/90 border-white/20 font-semibold tracking-wide text-[16px] mt-[0px] mb-[0px] pt-[5px] pb-[5px]">

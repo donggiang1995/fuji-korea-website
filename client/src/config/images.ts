@@ -26,7 +26,8 @@ export const WEBSITE_IMAGES = {
   products: {
     fje1: "https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-2.jpg",
     fje2: "https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-1.jpg", 
-    fjkSeries: "https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-3.jpg"
+    fjkSeries: "https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-3.jpg",
+    sectionBackground: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
   },
 
   // Awards Section
