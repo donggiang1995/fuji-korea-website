@@ -93,7 +93,7 @@ export function Header() {
                   placeholder={language === 'ko' ? '시리얼 번호 검색...' : 'Search serial number...'}
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-64 bg-white/90 border-white/30 rounded-xl text-sm font-medium placeholder:text-slate-500 focus:ring-2 focus:ring-white/20 focus:border-white transition-all text-slate-800"
+                  className="pl-10 pr-4 py-2 w-64 bg-white border-gray-300 rounded-xl text-sm font-medium placeholder:text-slate-500 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-slate-800"
                 />
               </div>
             </form>
@@ -102,7 +102,7 @@ export function Header() {
           {/* Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
 
-            <div className="flex items-center space-x-1 bg-white/20 rounded-xl p-1 border border-white/30">
+            <div className="flex items-center space-x-1 bg-blue-800 rounded-xl p-1 border border-blue-700">
               <Globe className="w-4 h-4 text-blue-200 ml-2" />
               <Button
                 variant={language === 'ko' ? 'default' : 'ghost'}
@@ -110,7 +110,7 @@ export function Header() {
                 className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
                   language === 'ko' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
-                    : 'text-blue-200 hover:text-blue-100 hover:bg-white/20'
+                    : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
                 }`}
                 onClick={() => setLanguage('ko')}
               >
@@ -122,7 +122,7 @@ export function Header() {
                 className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
                   language === 'en' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
-                    : 'text-blue-200 hover:text-blue-100 hover:bg-white/20'
+                    : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
                 }`}
                 onClick={() => setLanguage('en')}
               >
@@ -133,11 +133,11 @@ export function Header() {
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="icon" className="hover:bg-white/20 rounded-xl">
+                <Button variant="ghost" size="icon" className="hover:bg-blue-700 rounded-xl">
                   <Menu className="h-5 w-5 text-blue-100" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[320px] bg-white/95 backdrop-blur-md">
+              <SheetContent side="right" className="w-[320px] bg-white">
                 <div className="mt-8 space-y-6">
                   {/* Mobile Search */}
                   <form onSubmit={handleSearch} className="relative">
