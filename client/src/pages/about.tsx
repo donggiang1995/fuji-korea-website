@@ -333,7 +333,7 @@ export default function About() {
             
             {/* Timeline End Decoration */}
             <div className="flex justify-center mt-12">
-              <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-gold))] to-[hsl(var(--fuji-orange))] rounded-full flex items-center justify-center shadow-xl">
+              <div className="w-16 h-16 from-[hsl(var(--fuji-gold))] to-[hsl(var(--fuji-orange))] rounded-full flex items-center justify-center shadow-xl bg-[#192435]">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
