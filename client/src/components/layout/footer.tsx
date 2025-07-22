@@ -6,7 +6,7 @@ export function Footer() {
   const { t, language } = useLanguage();
 
   return (
-    <footer className="bg-gradient-to-br from-[hsl(var(--fuji-blue))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] text-white relative overflow-hidden">
+    <footer className="bg-black text-white relative overflow-hidden">
       <div className="absolute inset-0 tech-pattern opacity-10"></div>
       <div className="relative">
         {/* Main Footer Content */}
