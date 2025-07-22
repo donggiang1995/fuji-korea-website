@@ -140,18 +140,103 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {features.map((feature, index) => {
               const Icon = feature.icon;
+              // Hình ảnh công nghệ thang máy cho từng feature
+              const featureImages = [
+                "https://fuji-global-korea.com/wp-content/uploads/2024/05/control-system.jpg", // Smart Control
+                "https://fuji-global-korea.com/wp-content/uploads/2024/05/safety-tech.jpg",   // Safety System  
+                "https://fuji-global-korea.com/wp-content/uploads/2024/05/iot-monitoring.jpg" // IoT Monitoring
+              ];
+              
               return (
-                <Card key={index} className="industrial-card border-0 hover:shadow-xl transition-all duration-300 group">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25 bg-[#1a66ff]">
-                      <Icon className="w-8 h-8 text-white" />
+                <Card key={index} className="industrial-card border-0 hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                  {/* Hình ảnh nền */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={featureImages[index] || "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"}
+                      alt={feature.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    
+                    {/* Icon overlay */}
+                    <div className="absolute top-4 left-4">
+                      <div className="w-12 h-12 bg-[#1a66ff] rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
+                  </div>
+                  
+                  <CardContent className="p-8 text-center">
                     <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
                     <p className="text-slate-600 leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               );
             })}
+          </div>
+          
+          {/* Technology Gallery */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                {language === 'ko' ? '첨단 기술 갤러리' : 'Advanced Technology Gallery'}
+              </h3>
+              <p className="text-slate-600 max-w-2xl mx-auto">
+                {language === 'ko' 
+                  ? '최신 엘리베이터 기술과 제조 과정을 통해 FUJI Global Korea의 혁신을 확인하세요'
+                  : 'Discover FUJI Global Korea\'s innovation through cutting-edge elevator technology and manufacturing processes'}
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="relative group overflow-hidden rounded-xl industrial-card">
+                <img
+                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/manufacturing.jpg"
+                  alt="Manufacturing Process"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-bold text-sm">{language === 'ko' ? '제조 공정' : 'Manufacturing'}</h4>
+                </div>
+              </div>
+              
+              <div className="relative group overflow-hidden rounded-xl industrial-card">
+                <img
+                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/testing.jpg"
+                  alt="Quality Testing"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-bold text-sm">{language === 'ko' ? '품질 테스트' : 'Quality Testing'}</h4>
+                </div>
+              </div>
+              
+              <div className="relative group overflow-hidden rounded-xl industrial-card">
+                <img
+                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/installation.jpg"
+                  alt="Installation Process"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-bold text-sm">{language === 'ko' ? '설치 과정' : 'Installation'}</h4>
+                </div>
+              </div>
+              
+              <div className="relative group overflow-hidden rounded-xl industrial-card">
+                <img
+                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/maintenance.jpg"
+                  alt="Maintenance Service"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-bold text-sm">{language === 'ko' ? '유지보수' : 'Maintenance'}</h4>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
