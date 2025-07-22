@@ -383,7 +383,7 @@ export default function Home() {
               {language === 'ko' ? '성과 및 인증' : 'Achievements & Certifications'}
             </Badge>
             <h2 className="text-white mb-6">{t.awards.title}</h2>
-            <p className="text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed text-[#192435]">
               {t.awards.subtitle}
             </p>
           </div>
