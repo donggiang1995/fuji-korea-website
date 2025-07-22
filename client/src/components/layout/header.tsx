@@ -68,18 +68,19 @@ export function Header() {
 
           {/* Desktop Navigation & Search */}
           <div className="hidden lg:flex items-center space-x-8">
-            <nav className="flex items-center space-x-6 bg-gradient-to-r from-white/10 to-white/5 px-6 py-3 rounded-xl border border-white/20 backdrop-blur-md">
+            <nav className="flex items-center space-x-1 bg-gradient-to-r from-white/15 via-white/10 to-white/5 px-4 py-2 rounded-2xl border border-white/30 backdrop-blur-lg shadow-lg">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 ${
+                  className={`font-medium text-sm tracking-wide px-4 py-2 rounded-xl transition-all duration-300 relative group ${
                     isActive(item.href)
-                      ? 'text-blue-100 border-b-2 border-blue-100 pb-1'
-                      : 'text-blue-200 hover:text-blue-100'
+                      ? 'bg-white/20 text-white shadow-lg'
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {item.label}
+                  <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-[hsl(var(--fuji-orange))] transition-all duration-300 group-hover:w-3/4 transform -translate-x-1/2"></span>
                 </Link>
               ))}
             </nav>
