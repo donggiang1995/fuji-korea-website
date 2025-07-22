@@ -1,6 +1,6 @@
-import { products, inquiries, type Product, type Inquiry, type InsertProduct, type InsertInquiry } from "@shared/schema";
+import { products, inquiries, serialNumbers, type Product, type Inquiry, type InsertProduct, type InsertInquiry, type SerialNumber } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, ilike } from "drizzle-orm";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -11,6 +11,7 @@ export interface IStorage {
   createProduct(product: InsertProduct): Promise<Product>;
   getInquiries(): Promise<Inquiry[]>;
   createInquiry(inquiry: InsertInquiry): Promise<Inquiry>;
+  searchSerialNumber(serialNumber: string): Promise<{ serialNumber: SerialNumber; product: Product } | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -44,6 +45,20 @@ export class DatabaseStorage implements IStorage {
       })
       .returning();
     return inquiry;
+  }
+
+  async searchSerialNumber(serialNumber: string): Promise<{ serialNumber: SerialNumber; product: Product } | undefined> {
+    const result = await db
+      .select({
+        serialNumber: serialNumbers,
+        product: products
+      })
+      .from(serialNumbers)
+      .innerJoin(products, eq(serialNumbers.productId, products.id))
+      .where(ilike(serialNumbers.serialNumber, `%${serialNumber}%`))
+      .limit(1);
+    
+    return result[0] || undefined;
   }
 }
 

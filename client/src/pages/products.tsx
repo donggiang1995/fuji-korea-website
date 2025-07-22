@@ -3,35 +3,77 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ProductCard } from '@/components/product-card';
 import { useLanguage } from '@/components/language-provider';
-import { productsData, ProductData } from '@/data/products';
+import { useQuery } from '@tanstack/react-query';
+import { Loader2, Cpu, Settings } from 'lucide-react';
 
 export default function Products() {
   const { t, language } = useLanguage();
-  const [selectedProduct, setSelectedProduct] = useState<ProductData | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
-  const controlProducts = productsData.filter(p => p.category === 'control');
-  const tractionProducts = productsData.filter(p => p.category === 'traction');
+  const { data: products = [], isLoading, error } = useQuery({
+    queryKey: ['/api/products'],
+  });
 
-  const handleViewDetails = (product: ProductData) => {
+  const controlProducts = products.filter((p: any) => p.category === 'control');
+  const tractionProducts = products.filter((p: any) => p.category === 'traction');
+
+  const handleViewDetails = (product: any) => {
     setSelectedProduct(product);
     // In a real app, this would navigate to a product detail page
     alert(`Viewing details for ${product.name}`);
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen py-20 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-8 h-8 animate-spin text-[hsl(var(--fuji-blue))] mx-auto mb-4" />
+          <p className="text-[hsl(var(--fuji-steel))]">
+            {language === 'ko' ? '제품 정보를 불러오는 중...' : 'Loading products...'}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen py-20 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">
+            {language === 'ko' ? '제품 정보를 불러올 수 없습니다.' : 'Failed to load products.'}
+          </p>
+          <Button onClick={() => window.location.reload()}>
+            {language === 'ko' ? '다시 시도' : 'Retry'}
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">{t.products.title}</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-4 flex items-center justify-center gap-3">
+            <Settings className="w-8 h-8 text-[hsl(var(--fuji-blue))]" />
+            {t.products.title}
+          </h1>
           <p className="text-xl text-slate-600">{t.products.subtitle}</p>
         </div>
 
         {/* Product Categories */}
         <Tabs defaultValue="control" className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-            <TabsTrigger value="control">{t.products.control}</TabsTrigger>
-            <TabsTrigger value="traction">{t.products.traction}</TabsTrigger>
+            <TabsTrigger value="control" className="flex items-center gap-2">
+              <Cpu className="w-4 h-4" />
+              {t.products.control}
+            </TabsTrigger>
+            <TabsTrigger value="traction" className="flex items-center gap-2">
+              <Settings className="w-4 h-4" />
+              {t.products.traction}
+            </TabsTrigger>
           </TabsList>
 
           {/* Control Systems */}

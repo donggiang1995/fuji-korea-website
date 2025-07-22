@@ -5,12 +5,16 @@ import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Search, Globe, Zap } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
+import { SerialSearchDialog } from '@/components/serial-search-dialog';
+import { useQuery } from '@tanstack/react-query';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false);
+  const [searchTrigger, setSearchTrigger] = useState<string | null>(null);
 
   const navItems = [
     { href: '/', label: t.nav.home },
@@ -25,10 +29,17 @@ export function Header() {
     return false;
   };
 
+  const { data: searchResult, isLoading: isSearchLoading, error: searchError } = useQuery({
+    queryKey: ['/api/search-serial', searchTrigger],
+    enabled: !!searchTrigger,
+    retry: false,
+  });
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchValue.trim()) {
-      alert(`${language === 'ko' ? '검색 중' : 'Searching for'}: ${searchValue}`);
+      setSearchTrigger(searchValue.trim());
+      setIsSearchDialogOpen(true);
     }
   };
 
@@ -164,6 +175,19 @@ export function Header() {
           </div>
         </div>
       </div>
+
+      {/* Serial Search Dialog */}
+      <SerialSearchDialog
+        isOpen={isSearchDialogOpen}
+        onClose={() => {
+          setIsSearchDialogOpen(false);
+          setSearchTrigger(null);
+        }}
+        result={searchResult as any}
+        isLoading={isSearchLoading}
+        error={searchError?.message || null}
+        searchValue={searchTrigger || ''}
+      />
     </header>
   );
 }

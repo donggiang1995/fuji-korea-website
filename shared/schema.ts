@@ -23,6 +23,16 @@ export const inquiries = pgTable("inquiries", {
   createdAt: text("created_at").notNull().default(new Date().toISOString()),
 });
 
+export const serialNumbers = pgTable("serial_numbers", {
+  id: serial("id").primaryKey(),
+  serialNumber: text("serial_number").notNull().unique(),
+  productId: integer("product_id").references(() => products.id),
+  installationDate: text("installation_date"),
+  location: text("location"),
+  status: text("status").default("active"), // 'active', 'maintenance', 'retired'
+  createdAt: text("created_at").notNull().default(new Date().toISOString()),
+});
+
 export const insertProductSchema = createInsertSchema(products);
 export const insertInquirySchema = createInsertSchema(inquiries).pick({
   name: true,
@@ -30,8 +40,17 @@ export const insertInquirySchema = createInsertSchema(inquiries).pick({
   company: true,
   message: true,
 });
+export const insertSerialNumberSchema = createInsertSchema(serialNumbers).pick({
+  serialNumber: true,
+  productId: true,
+  installationDate: true,
+  location: true,
+  status: true,
+});
 
 export type InsertProduct = z.infer<typeof insertProductSchema>;
 export type Product = typeof products.$inferSelect;
 export type InsertInquiry = z.infer<typeof insertInquirySchema>;
 export type Inquiry = typeof inquiries.$inferSelect;
+export type InsertSerialNumber = z.infer<typeof insertSerialNumberSchema>;
+export type SerialNumber = typeof serialNumbers.$inferSelect;
