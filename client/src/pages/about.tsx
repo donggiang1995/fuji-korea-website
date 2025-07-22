@@ -283,7 +283,7 @@ export default function About() {
               return (
                 <Card key={index} className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300">
                   <CardContent className="pt-8 pb-6">
-                    <div className="w-20 h-20 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-blue-500/25 transition-all duration-300">
+                    <div className="w-20 h-20 from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-blue-500/25 transition-all duration-300 bg-[#2a2c37]">
                       <Icon className="h-10 w-10 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-[hsl(var(--industrial-dark))] mb-4">{value.title}</h3>
