@@ -102,17 +102,17 @@ export default function Home() {
               <div className="relative">
                 <img
                   src={WEBSITE_IMAGES.hero.headquarters}
-                  alt="FUJI Global Korea Office Building"
+                  alt="Smart Elevator in Operation - FUJI Global Korea"
                   className="rounded-2xl shadow-2xl w-full h-auto industrial-card"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/20 to-transparent rounded-2xl"></div>
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="glass-morphism rounded-xl p-4">
                     <div className="text-white font-bold text-lg">
-                      {language === 'ko' ? '서울 본사' : 'Seoul Headquarters'}
+                      {language === 'ko' ? '스마트 엘리베이터 운영' : 'Smart Elevator Operation'}
                     </div>
                     <div className="text-white/80 text-sm">
-                      {language === 'ko' ? '광진구 광나루로' : 'Gwangnauru-ro, Gwangjin-gu'}
+                      {language === 'ko' ? '실시간 모니터링 & 제어' : 'Real-time Monitoring & Control'}
                     </div>
                   </div>
                 </div>
