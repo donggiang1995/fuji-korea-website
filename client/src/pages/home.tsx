@@ -135,99 +135,99 @@ export default function Home() {
             <p className="text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">{t.showcase.subtitle}</p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16 items-stretch">
-            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col h-full">
-              <div className="relative overflow-hidden h-72 flex-shrink-0">
-                <img
-                  src={WEBSITE_IMAGES.products.fje1}
-                  alt="Smart Elevator System FJE1"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-[hsl(var(--fuji-blue))] text-white font-bold border-0 px-3 py-1">
-                    FJE1
-                  </Badge>
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            <div className="flex">
+              <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
+                <div className="relative overflow-hidden h-72 flex-shrink-0">
+                  <img
+                    src={WEBSITE_IMAGES.products.fje1}
+                    alt="Smart Elevator System FJE1"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-[hsl(var(--fuji-blue))] text-white font-bold border-0 px-3 py-1">
+                      FJE1
+                    </Badge>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6 text-white flex flex-col flex-grow justify-between">
-                <div>
-                  <h3 className="text-xl font-bold mb-3 h-14 flex items-start">
+                <div className="p-6 text-white flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
                     {language === 'ko' ? 'FJE1 스마트 엘리베이터' : 'FJE1 Smart Elevator'}
                   </h3>
-                  <p className="text-slate-200 text-sm leading-relaxed">
+                  <p className="text-slate-200 text-sm leading-relaxed mb-6 flex-grow">
                     {language === 'ko' ? 'IoT 기반 원격 제어 시스템으로 실시간 모니터링 및 제어가 가능한 차세대 엘리베이터' : 'Next-generation elevator with IoT-based remote control system for real-time monitoring and control'}
                   </p>
+                  <Link href="/products" className="mt-auto">
+                    <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
+                      {language === 'ko' ? '자세히 보기' : 'Learn More'}
+                    </Button>
+                  </Link>
                 </div>
-                <Link href="/products" className="mt-6">
-                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
-                    {language === 'ko' ? '자세히 보기' : 'Learn More'}
-                  </Button>
-                </Link>
-              </div>
-            </Card>
+              </Card>
+            </div>
 
-            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col h-full">
-              <div className="relative overflow-hidden h-72 flex-shrink-0">
-                <img
-                  src={WEBSITE_IMAGES.products.fje2}
-                  alt="Smart Elevator System FJE2"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-[hsl(var(--fuji-sky))] text-white font-bold border-0 px-3 py-1">
-                    FJE2
-                  </Badge>
+            <div className="flex">
+              <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
+                <div className="relative overflow-hidden h-72 flex-shrink-0">
+                  <img
+                    src={WEBSITE_IMAGES.products.fje2}
+                    alt="Smart Elevator System FJE2"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-[hsl(var(--fuji-sky))] text-white font-bold border-0 px-3 py-1">
+                      FJE2
+                    </Badge>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6 text-white flex flex-col flex-grow justify-between">
-                <div>
-                  <h3 className="text-xl font-bold mb-3 h-14 flex items-start">
+                <div className="p-6 text-white flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
                     {language === 'ko' ? 'FJE2 스마트 엘리베이터' : 'FJE2 Smart Elevator'}
                   </h3>
-                  <p className="text-slate-200 text-sm leading-relaxed">
+                  <p className="text-slate-200 text-sm leading-relaxed mb-6 flex-grow">
                     {language === 'ko' ? '고급 그룹 제어 시스템으로 최적화된 운행 효율성과 승객 편의성을 제공하는 프리미엄 솔루션' : 'Premium solution providing optimized operation efficiency and passenger convenience with advanced group control system'}
                   </p>
+                  <Link href="/products" className="mt-auto">
+                    <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
+                      {language === 'ko' ? '자세히 보기' : 'Learn More'}
+                    </Button>
+                  </Link>
                 </div>
-                <Link href="/products" className="mt-6">
-                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
-                    {language === 'ko' ? '자세히 보기' : 'Learn More'}
-                  </Button>
-                </Link>
-              </div>
-            </Card>
+              </Card>
+            </div>
 
-            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col h-full">
-              <div className="relative overflow-hidden h-72 flex-shrink-0">
-                <img
-                  src={WEBSITE_IMAGES.products.fjkSeries}
-                  alt="Advanced Elevator Technology"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-[hsl(var(--fuji-orange))] text-white font-bold border-0 px-3 py-1">
-                    FJK Series
-                  </Badge>
+            <div className="flex">
+              <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
+                <div className="relative overflow-hidden h-72 flex-shrink-0">
+                  <img
+                    src={WEBSITE_IMAGES.products.fjkSeries}
+                    alt="Advanced Elevator Technology"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-[hsl(var(--fuji-orange))] text-white font-bold border-0 px-3 py-1">
+                      FJK Series
+                    </Badge>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6 text-white flex flex-col flex-grow justify-between">
-                <div>
-                  <h3 className="text-xl font-bold mb-3 h-14 flex items-start">
+                <div className="p-6 text-white flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
                     {language === 'ko' ? 'FJK 시리즈 엘리베이터' : 'FJK Series Elevator'}
                   </h3>
-                  <p className="text-slate-200 text-sm leading-relaxed">
+                  <p className="text-slate-200 text-sm leading-relaxed mb-6 flex-grow">
                     {language === 'ko' ? '고효율 견인 기계와 첨단 제어 알고리즘을 적용한 차세대 엘리베이터 기술의 집약체' : 'Culmination of next-generation elevator technology with high-efficiency traction machines and advanced control algorithms'}
                   </p>
+                  <Link href="/products" className="mt-auto">
+                    <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
+                      {language === 'ko' ? '자세히 보기' : 'Learn More'}
+                    </Button>
+                  </Link>
                 </div>
-                <Link href="/products" className="mt-6">
-                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
-                    {language === 'ko' ? '자세히 보기' : 'Learn More'}
-                  </Button>
-                </Link>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
 
           <div className="text-center">
