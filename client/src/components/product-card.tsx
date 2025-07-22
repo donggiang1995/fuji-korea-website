@@ -35,12 +35,12 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
     <Card className="group hover:shadow-xl transition-shadow duration-300 industrial-card">
       <CardContent className="p-6">
         <div className="text-center mb-6 relative">
-          <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-[hsl(var(--industrial-light))] to-[hsl(var(--fuji-silver))]">
+          <div className="w-full aspect-square rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-[hsl(var(--industrial-light))] to-[hsl(var(--fuji-silver))]">
             {product.image ? (
               <img 
                 src={product.image} 
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 bg-white p-4"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   const parent = target.parentElement;
