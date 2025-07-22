@@ -21,6 +21,12 @@ Preferred communication style: Simple, everyday language.
 ✓ Improved color scheme with professional blue, navy, orange, and steel gray palette
 ✓ Added comprehensive company metrics and achievement displays
 ✓ Enhanced responsive design for all device sizes
+✓ **Database Integration (January 22, 2025)**: Implemented PostgreSQL database with Drizzle ORM
+  - Created database schema for products, inquiries, and serial numbers tables
+  - Migrated from memory storage to database storage layer
+  - Added sample elevator product data (FCA-9000 Series, TM-800S Traction Machine, SCP-2024 Control Panel)
+  - Implemented proper database relations between products and serial numbers
+  - Database connection configured with Neon serverless PostgreSQL
 
 ## System Architecture
 
@@ -54,10 +60,13 @@ Preferred communication style: Simple, everyday language.
 
 ### Database Schema (shared/schema.ts)
 - **Products Table**: Stores elevator product information with multilingual descriptions
-  - Fields: id, name, category (control/traction), model, image, specifications, features
-  - Supports both Korean and English descriptions
+  - Fields: id, name, category (control/traction), model, image, specifications (JSON), features (JSON array), descriptionKo, descriptionEn
+  - Supports both Korean and English descriptions with rich specification and feature data
 - **Inquiries Table**: Customer contact form submissions
   - Fields: id, name, email, company, message, createdAt
+- **Serial Numbers Table**: Tracks elevator serial numbers and their associated products
+  - Fields: id, serialNumber, productId (foreign key), installationDate, location, status, createdAt
+  - Enables serial number lookup functionality with product relationships
 
 ### Frontend Features
 - **Internationalization**: Built-in Korean/English language switching
