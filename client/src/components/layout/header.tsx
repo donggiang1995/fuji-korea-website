@@ -68,7 +68,7 @@ export function Header() {
 
           {/* Desktop Navigation & Search */}
           <div className="hidden lg:flex items-center space-x-8">
-            <nav className="flex items-center space-x-6 bg-gradient-to-r from-blue-800 to-blue-900 px-6 py-3 rounded-xl border border-blue-700">
+            <nav className="flex items-center space-x-6 bg-gradient-to-r from-white/10 to-white/5 px-6 py-3 rounded-xl border border-white/20 backdrop-blur-md">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
