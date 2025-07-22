@@ -137,7 +137,7 @@ export default function About() {
             
             <Card className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300">
               <CardContent className="pt-8 pb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-gold))] to-[hsl(var(--fuji-orange))] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg group-hover:shadow-yellow-500/25 transition-all duration-300">
+                <div className="w-16 h-16 from-[hsl(var(--fuji-gold))] to-[hsl(var(--fuji-orange))] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg group-hover:shadow-yellow-500/25 transition-all duration-300 bg-[#2a2c37]">
                   <Building2 className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="metric-display text-3xl font-black mb-2">{t.projects}</h3>
