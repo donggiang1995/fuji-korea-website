@@ -220,7 +220,13 @@ export default function AdminSerialManager() {
                     <FormItem>
                       <FormLabel>Installation Date</FormLabel>
                       <FormControl>
-                        <Input type="date" {...field} />
+                        <Input 
+                          type="text" 
+                          placeholder="YYYY (e.g. 2024)"
+                          pattern="[0-9]{4}"
+                          maxLength={4}
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -330,7 +336,7 @@ export default function AdminSerialManager() {
                         {serial.installationDate && (
                           <div className="flex items-center gap-1">
                             <Calendar className="w-4 h-4" />
-                            {new Date(serial.installationDate).toLocaleDateString()}
+                            {serial.installationDate}
                           </div>
                         )}
                       </div>

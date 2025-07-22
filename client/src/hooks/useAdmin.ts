@@ -20,18 +20,15 @@ export function useAdmin() {
 
   // Update authentication state
   useEffect(() => {
-    if (admin && sessionId) {
+    if (admin?.admin && sessionId) {
       setIsAuthenticated(true);
-    } else if (!isLoading) {
-      // Only update auth state when not loading to prevent premature false state
-      if (sessionId && !admin) {
-        // Invalid session, clear it
-        setSessionId(null);
-        localStorage.removeItem('adminSession');
-        setIsAuthenticated(false);
-      } else if (!sessionId) {
-        setIsAuthenticated(false);
-      }
+    } else if (!sessionId) {
+      setIsAuthenticated(false);
+    } else if (sessionId && !admin && !isLoading) {
+      // Invalid session, clear it
+      setSessionId(null);
+      localStorage.removeItem('adminSession');
+      setIsAuthenticated(false);
     }
   }, [admin, sessionId, isLoading]);
 
