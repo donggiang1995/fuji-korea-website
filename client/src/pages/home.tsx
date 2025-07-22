@@ -135,8 +135,8 @@ export default function Home() {
             <p className="text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">{t.showcase.subtitle}</p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col">
+          <div className="grid lg:grid-cols-3 gap-8 mb-16 items-stretch">
+            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col h-full">
               <div className="relative overflow-hidden h-72 flex-shrink-0">
                 <img
                   src={WEBSITE_IMAGES.products.fje1}
@@ -150,22 +150,24 @@ export default function Home() {
                   </Badge>
                 </div>
               </div>
-              <div className="p-6 text-white flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2 min-h-[3rem] flex items-center">
-                  {language === 'ko' ? 'FJE1 스마트 엘리베이터' : 'FJE1 Smart Elevator'}
-                </h3>
-                <p className="text-slate-200 mb-4 text-sm flex-grow">
-                  {language === 'ko' ? 'IoT 기반 원격 제어 시스템으로 실시간 모니터링 및 제어' : 'IoT-based remote control system with real-time monitoring'}
-                </p>
-                <Link href="/products" className="mt-auto">
-                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full">
+              <div className="p-6 text-white flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-start">
+                    {language === 'ko' ? 'FJE1 스마트 엘리베이터' : 'FJE1 Smart Elevator'}
+                  </h3>
+                  <p className="text-slate-200 text-sm leading-relaxed">
+                    {language === 'ko' ? 'IoT 기반 원격 제어 시스템으로 실시간 모니터링 및 제어가 가능한 차세대 엘리베이터' : 'Next-generation elevator with IoT-based remote control system for real-time monitoring and control'}
+                  </p>
+                </div>
+                <Link href="/products" className="mt-6">
+                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
                     {language === 'ko' ? '자세히 보기' : 'Learn More'}
                   </Button>
                 </Link>
               </div>
             </Card>
 
-            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col">
+            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col h-full">
               <div className="relative overflow-hidden h-72 flex-shrink-0">
                 <img
                   src={WEBSITE_IMAGES.products.fje2}
@@ -179,22 +181,24 @@ export default function Home() {
                   </Badge>
                 </div>
               </div>
-              <div className="p-6 text-white flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2 min-h-[3rem] flex items-center">
-                  {language === 'ko' ? 'FJE2 스마트 엘리베이터' : 'FJE2 Smart Elevator'}
-                </h3>
-                <p className="text-slate-200 mb-4 text-sm flex-grow">
-                  {language === 'ko' ? '고급 그룹 제어 시스템으로 최적화된 운행 효율성' : 'Advanced group control system for optimized operation efficiency'}
-                </p>
-                <Link href="/products" className="mt-auto">
-                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full">
+              <div className="p-6 text-white flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-start">
+                    {language === 'ko' ? 'FJE2 스마트 엘리베이터' : 'FJE2 Smart Elevator'}
+                  </h3>
+                  <p className="text-slate-200 text-sm leading-relaxed">
+                    {language === 'ko' ? '고급 그룹 제어 시스템으로 최적화된 운행 효율성과 승객 편의성을 제공하는 프리미엄 솔루션' : 'Premium solution providing optimized operation efficiency and passenger convenience with advanced group control system'}
+                  </p>
+                </div>
+                <Link href="/products" className="mt-6">
+                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
                     {language === 'ko' ? '자세히 보기' : 'Learn More'}
                   </Button>
                 </Link>
               </div>
             </Card>
 
-            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col">
+            <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col h-full">
               <div className="relative overflow-hidden h-72 flex-shrink-0">
                 <img
                   src={WEBSITE_IMAGES.products.fjkSeries}
@@ -208,15 +212,17 @@ export default function Home() {
                   </Badge>
                 </div>
               </div>
-              <div className="p-6 text-white flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2 min-h-[3rem] flex items-center">
-                  {language === 'ko' ? '차세대 엘리베이터 기술' : 'Next-Gen Elevator Tech'}
-                </h3>
-                <p className="text-slate-200 mb-4 text-sm flex-grow">
-                  {language === 'ko' ? '고효율 견인 기계와 첨단 제어 알고리즘' : 'High-efficiency traction machines with advanced control algorithms'}
-                </p>
-                <Link href="/products" className="mt-auto">
-                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full">
+              <div className="p-6 text-white flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-start">
+                    {language === 'ko' ? 'FJK 시리즈 엘리베이터' : 'FJK Series Elevator'}
+                  </h3>
+                  <p className="text-slate-200 text-sm leading-relaxed">
+                    {language === 'ko' ? '고효율 견인 기계와 첨단 제어 알고리즘을 적용한 차세대 엘리베이터 기술의 집약체' : 'Culmination of next-generation elevator technology with high-efficiency traction machines and advanced control algorithms'}
+                  </p>
+                </div>
+                <Link href="/products" className="mt-6">
+                  <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 w-full py-2">
                     {language === 'ko' ? '자세히 보기' : 'Learn More'}
                   </Button>
                 </Link>
