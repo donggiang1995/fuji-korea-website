@@ -57,9 +57,9 @@ export function Header() {
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-[hsl(var(--fuji-orange))] rounded-full border-2 border-white"></div>
               </div>
               <div className="text-2xl font-black tracking-tight">
-                <span className="text-white">FUJI</span>
+                <span className="text-blue-100">FUJI</span>
                 <span className="text-[hsl(var(--fuji-orange))] ml-1">Global</span>
-                <div className="text-xs font-semibold text-white/80 tracking-widest mono mt-0.5">
+                <div className="text-xs font-semibold text-blue-200 tracking-widest mono mt-0.5">
                   KOREA
                 </div>
               </div>
@@ -75,8 +75,8 @@ export function Header() {
                   href={item.href}
                   className={`font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 ${
                     isActive(item.href)
-                      ? 'text-white border-b-2 border-white pb-1'
-                      : 'text-white/80 hover:text-white'
+                      ? 'text-blue-100 border-b-2 border-blue-100 pb-1'
+                      : 'text-blue-200 hover:text-blue-100'
                   }`}
                 >
                   {item.label}
@@ -103,14 +103,14 @@ export function Header() {
           <div className="flex items-center space-x-4">
 
             <div className="flex items-center space-x-1 bg-white/20 rounded-xl p-1 border border-white/30">
-              <Globe className="w-4 h-4 text-white/80 ml-2" />
+              <Globe className="w-4 h-4 text-blue-200 ml-2" />
               <Button
                 variant={language === 'ko' ? 'default' : 'ghost'}
                 size="sm"
                 className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
                   language === 'ko' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
-                    : 'text-white/80 hover:text-white hover:bg-white/20'
+                    : 'text-blue-200 hover:text-blue-100 hover:bg-white/20'
                 }`}
                 onClick={() => setLanguage('ko')}
               >
@@ -122,7 +122,7 @@ export function Header() {
                 className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
                   language === 'en' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
-                    : 'text-white/80 hover:text-white hover:bg-white/20'
+                    : 'text-blue-200 hover:text-blue-100 hover:bg-white/20'
                 }`}
                 onClick={() => setLanguage('en')}
               >
@@ -134,7 +134,7 @@ export function Header() {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
                 <Button variant="ghost" size="icon" className="hover:bg-white/20 rounded-xl">
-                  <Menu className="h-5 w-5 text-white" />
+                  <Menu className="h-5 w-5 text-blue-100" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[320px] bg-white/95 backdrop-blur-md">
