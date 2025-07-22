@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
 import { useLanguage } from '@/components/language-provider';
 import { Award, Code, Wrench, Palette, ArrowRight, Zap, Shield, Cpu, Gauge } from 'lucide-react';
+import { WEBSITE_IMAGES } from '@/config/images';
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -100,7 +101,7 @@ export default function Home() {
             <div className="lg:ml-8 space-y-6">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  src={WEBSITE_IMAGES.hero.headquarters}
                   alt="FUJI Global Korea Office Building"
                   className="rounded-2xl shadow-2xl w-full h-auto industrial-card"
                 />
@@ -142,9 +143,9 @@ export default function Home() {
               const Icon = feature.icon;
               // Hình ảnh công nghệ thang máy cho từng feature
               const featureImages = [
-                "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Safety Systems
-                "https://images.unsplash.com/photo-1518709268805-4e9042af2ac1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Smart Technology  
-                "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"  // High Performance
+                WEBSITE_IMAGES.features.safety,       // Safety Systems
+                WEBSITE_IMAGES.features.smartTech,    // Smart Technology  
+                WEBSITE_IMAGES.features.highPerformance // High Performance
               ];
               
               return (
@@ -156,7 +157,7 @@ export default function Home() {
                       alt={feature.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       onError={(e) => {
-                        e.currentTarget.src = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400";
+                        e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -194,7 +195,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                  src={WEBSITE_IMAGES.gallery.manufacturing}
                   alt="Manufacturing Process"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -206,7 +207,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                  src={WEBSITE_IMAGES.gallery.testing}
                   alt="Quality Testing"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -218,7 +219,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                  src={WEBSITE_IMAGES.gallery.installation}
                   alt="Installation Process"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -230,7 +231,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                  src={WEBSITE_IMAGES.gallery.maintenance}
                   alt="Maintenance Service"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -261,7 +262,7 @@ export default function Home() {
             <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500">
               <div className="relative overflow-hidden h-64">
                 <img
-                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-2.jpg"
+                  src={WEBSITE_IMAGES.products.fje1}
                   alt="Smart Elevator System FJE1"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -285,7 +286,7 @@ export default function Home() {
             <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500">
               <div className="relative overflow-hidden h-64">
                 <img
-                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-1.jpg"
+                  src={WEBSITE_IMAGES.products.fje2}
                   alt="Smart Elevator System FJE2"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -309,7 +310,7 @@ export default function Home() {
             <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500">
               <div className="relative overflow-hidden h-64">
                 <img
-                  src="https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-3.jpg"
+                  src={WEBSITE_IMAGES.products.fjkSeries}
                   alt="Advanced Elevator Technology"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -397,7 +398,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img
-                src="https://fuji-global-korea.com/wp-content/uploads/2024/05/hinh-1.jpg"
+                src={WEBSITE_IMAGES.awards.achievements}
                 alt="FUJI Global Korea Awards and Achievements"
                 className="rounded-2xl shadow-2xl w-full h-auto industrial-card"
               />
