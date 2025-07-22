@@ -45,9 +45,6 @@ export function useAdmin() {
     mutationFn: async () => {
       await apiRequest('/api/admin/logout', {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${sessionId}`,
-        },
       });
     },
     onSuccess: () => {
@@ -70,7 +67,7 @@ export function useAdmin() {
   };
 
   return {
-    admin: admin?.admin as AdminUser | undefined,
+    admin: (admin as any)?.admin as AdminUser | undefined,
     isAuthenticated,
     isLoading,
     sessionId,
@@ -88,11 +85,7 @@ export function useAdminQuery(endpoint: string, enabled = true) {
     queryKey: [endpoint],
     enabled: enabled && !!sessionId,
     queryFn: async () => {
-      return apiRequest(endpoint, {
-        headers: {
-          'Authorization': `Bearer ${sessionId}`,
-        },
-      });
+      return apiRequest(endpoint);
     },
   });
 }
@@ -106,9 +99,6 @@ export function useAdminMutation(endpoint: string, method: string = 'POST') {
     mutationFn: async (data?: any) => {
       return apiRequest(endpoint, {
         method,
-        headers: {
-          'Authorization': `Bearer ${sessionId}`,
-        },
         body: data,
       });
     },
