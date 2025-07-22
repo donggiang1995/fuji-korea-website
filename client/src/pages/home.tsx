@@ -295,7 +295,7 @@ export default function Home() {
               <h3 className="text-3xl font-bold text-white mb-4">
                 {language === 'ko' ? '업계 선도 기술력' : 'Industry-Leading Technology'}
               </h3>
-              <p className="text-slate-200 leading-relaxed">
+              <p className="leading-relaxed text-[#8094ab]">
                 {language === 'ko' 
                   ? '지속적인 연구개발과 혁신을 통해 엘리베이터 업계의 기술 표준을 선도하고 있습니다. 다수의 특허와 인증을 통해 검증된 기술력으로 고객에게 최고의 가치를 제공합니다.'
                   : 'Leading the industry\'s technology standards through continuous R&D and innovation. We provide the highest value to customers with proven technology verified through numerous patents and certifications.'}
