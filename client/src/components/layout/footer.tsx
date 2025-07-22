@@ -7,21 +7,29 @@ export function Footer() {
 
   return (
     <footer className="bg-blue-600 text-white relative overflow-hidden">
-      {/* Subtle Industrial Background Patterns */}
-      <div className="absolute inset-0 tech-pattern opacity-5"></div>
+      {/* Industrial Background Patterns */}
+      <div className="absolute inset-0 tech-pattern opacity-10"></div>
       
-      {/* Circuit Board Pattern - Subtle */}
-      <div className="absolute inset-0 opacity-2">
+      {/* Geometric Industrial Patterns */}
+      <div className="absolute inset-0 opacity-5">
+        {/* Circuit Board Pattern */}
         <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="circuit" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <g fill="none" stroke="currentColor" strokeWidth="0.5">
+              <g fill="none" stroke="currentColor" strokeWidth="1">
                 <rect x="10" y="10" width="60" height="60" />
-                <circle cx="20" cy="20" r="2" fill="currentColor" />
-                <circle cx="60" cy="60" r="2" fill="currentColor" />
-                <line x1="20" y1="20" x2="60" y2="60" />
+                <circle cx="20" cy="20" r="3" fill="currentColor" />
+                <circle cx="60" cy="20" r="3" fill="currentColor" />
+                <circle cx="20" cy="60" r="3" fill="currentColor" />
+                <circle cx="60" cy="60" r="3" fill="currentColor" />
+                <line x1="20" y1="20" x2="60" y2="20" />
+                <line x1="20" y1="60" x2="60" y2="60" />
+                <line x1="20" y1="20" x2="20" y2="60" />
+                <line x1="60" y1="20" x2="60" y2="60" />
                 <line x1="40" y1="10" x2="40" y2="30" />
+                <line x1="40" y1="50" x2="40" y2="70" />
                 <line x1="10" y1="40" x2="30" y2="40" />
+                <line x1="50" y1="40" x2="70" y2="40" />
               </g>
             </pattern>
           </defs>
@@ -29,22 +37,65 @@ export function Footer() {
         </svg>
       </div>
 
-      {/* Single Gear Element - Bottom Corner */}
-      <div className="absolute bottom-0 right-0 w-32 h-32 opacity-3 transform rotate-12">
+      {/* Industrial Grid Pattern */}
+      <div className="absolute inset-0 opacity-3">
+        <svg className="absolute bottom-0 right-0 w-96 h-96" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="industrialGrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <g fill="none" stroke="currentColor" strokeWidth="0.5">
+                <rect x="0" y="0" width="20" height="20" />
+                <rect x="5" y="5" width="10" height="10" />
+                <circle cx="10" cy="10" r="2" />
+              </g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#industrialGrid)" className="text-white" />
+        </svg>
+      </div>
+
+      {/* Hexagonal Industrial Pattern */}
+      <div className="absolute top-0 right-0 w-64 h-64 opacity-8">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <defs>
+            <pattern id="hexagon" x="0" y="0" width="30" height="26" patternUnits="userSpaceOnUse">
+              <polygon points="15,2 27,9 27,22 15,29 3,22 3,9" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-300" />
+              <circle cx="15" cy="15.5" r="2" fill="currentColor" className="text-blue-400" opacity="0.3" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hexagon)" />
+        </svg>
+      </div>
+
+      {/* Gear/Mechanical Elements */}
+      <div className="absolute bottom-0 left-0 w-48 h-48 opacity-6 transform rotate-12">
         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
           <g fill="none" stroke="currentColor" strokeWidth="1" className="text-blue-300">
-            <circle cx="60" cy="60" r="25" />
-            <circle cx="60" cy="60" r="8" fill="currentColor" opacity="0.1" />
-            {/* Simplified gear teeth */}
-            {Array.from({ length: 6 }, (_, i) => {
-              const angle = (i * 60) * Math.PI / 180;
-              const x1 = 60 + Math.cos(angle) * 22;
-              const y1 = 60 + Math.sin(angle) * 22;
-              const x2 = 60 + Math.cos(angle) * 28;
-              const y2 = 60 + Math.sin(angle) * 28;
-              return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="2" />;
+            <circle cx="60" cy="60" r="30" />
+            <circle cx="60" cy="60" r="20" />
+            <circle cx="60" cy="60" r="8" fill="currentColor" opacity="0.2" />
+            {/* Gear teeth */}
+            {Array.from({ length: 8 }, (_, i) => {
+              const angle = (i * 45) * Math.PI / 180;
+              const x1 = 60 + Math.cos(angle) * 25;
+              const y1 = 60 + Math.sin(angle) * 25;
+              const x2 = 60 + Math.cos(angle) * 35;
+              const y2 = 60 + Math.sin(angle) * 35;
+              return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="3" />;
             })}
           </g>
+        </svg>
+      </div>
+
+      {/* Industrial Bolts/Rivets Pattern */}
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 opacity-4">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <defs>
+            <pattern id="rivets" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="3" fill="none" stroke="currentColor" strokeWidth="1" className="text-blue-200" />
+              <circle cx="10" cy="10" r="1.5" fill="currentColor" className="text-blue-300" opacity="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#rivets)" />
         </svg>
       </div>
 
