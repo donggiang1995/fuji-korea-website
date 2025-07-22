@@ -34,7 +34,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[hsl(var(--background))]">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden hero-bg min-h-screen flex items-center">
         <div className="absolute inset-0 tech-pattern"></div>
@@ -122,16 +122,16 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-[hsl(var(--muted))]">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge className="mb-6 bg-[hsl(var(--fuji-blue))]/10 text-[hsl(var(--fuji-blue))] border-[hsl(var(--fuji-blue))]/20 font-semibold tracking-wide">
               {language === 'ko' ? '핵심 기능' : 'Core Features'}
             </Badge>
-            <h2 className="text-[hsl(var(--foreground))] mb-6">
+            <h2 className="text-slate-800 mb-6">
               {language === 'ko' ? '혁신적인 기술로 더 안전한 미래를' : 'Safer Future with Innovative Technology'}
             </h2>
-            <p className="text-xl text-[hsl(var(--muted-foreground))] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               {language === 'ko' 
                 ? '최첨단 IoT, AI 기술과 인간 중심 설계를 결합하여 차세대 엘리베이터 경험을 제공합니다.'
                 : 'Combining cutting-edge IoT, AI technology with human-centered design to deliver next-generation elevator experiences.'}
@@ -147,8 +147,8 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-[hsl(var(--foreground))] mb-4">{feature.title}</h3>
-                    <p className="text-[hsl(var(--muted-foreground))] leading-relaxed">{feature.description}</p>
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -158,17 +158,17 @@ export default function Home() {
       </section>
 
       {/* Smart Elevator Showcase */}
-      <section className="py-24 bg-[hsl(var(--background))] relative overflow-hidden">
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 tech-pattern opacity-30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge className="mb-6 bg-[hsl(var(--fuji-orange))]/10 text-[hsl(var(--fuji-orange))] border-[hsl(var(--fuji-orange))]/20 font-semibold tracking-wide">
               {language === 'ko' ? '제품 라인업' : 'Product Lineup'}
             </Badge>
-            <h2 className="text-[hsl(var(--foreground))] mb-6">
+            <h2 className="text-slate-800 mb-6">
               {t.showcase.title}
             </h2>
-            <p className="text-xl text-[hsl(var(--muted-foreground))]">{t.showcase.subtitle}</p>
+            <p className="text-xl text-slate-600">{t.showcase.subtitle}</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -274,7 +274,7 @@ export default function Home() {
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <Card key={stat.label} className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300 bg-white/95 dark:bg-[hsl(var(--card))]">
+                <Card key={stat.label} className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300 bg-white/95">
                   <CardContent className="pt-8 pb-6">
                     <div className="relative mb-6">
                       <div className={`w-20 h-20 bg-gradient-to-br from-[hsl(var(--fuji-orange))] to-[hsl(var(--fuji-gold))] rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 transition-all duration-300`}>
@@ -284,9 +284,9 @@ export default function Home() {
                         <span className="text-white font-bold text-xs">#{index + 1}</span>
                       </div>
                     </div>
-                    <h3 className="metric-display text-4xl font-black mb-3 text-[hsl(var(--fuji-navy))] dark:text-[hsl(var(--fuji-orange))]">{stat.number}</h3>
-                    <p className="text-[hsl(var(--foreground))] font-semibold mb-2">{stat.label}</p>
-                    <p className="text-[hsl(var(--muted-foreground))] text-sm">{stat.description}</p>
+                    <h3 className="metric-display text-4xl font-black mb-3 text-[hsl(var(--fuji-navy))]">{stat.number}</h3>
+                    <p className="text-slate-800 font-semibold mb-2">{stat.label}</p>
+                    <p className="text-slate-600 text-sm">{stat.description}</p>
                   </CardContent>
                 </Card>
               );

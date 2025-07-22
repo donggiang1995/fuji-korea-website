@@ -3,15 +3,13 @@ import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Search, Globe, Zap, Moon, Sun } from 'lucide-react';
+import { Menu, Search, Globe, Zap } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
-import { useTheme } from '@/components/theme-provider';
 import { SerialSearchDialog } from '@/components/serial-search-dialog';
 import { useQuery } from '@tanstack/react-query';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -46,7 +44,7 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white/95 dark:bg-[hsl(var(--background))]/95 backdrop-blur-md border-b border-slate-200/60 dark:border-[hsl(var(--border))] sticky top-0 z-50 shadow-lg shadow-slate-900/5 dark:shadow-black/20">
+    <header className="bg-gradient-to-r from-[hsl(var(--fuji-blue))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] backdrop-blur-md border-b border-blue-300/60 sticky top-0 z-50 shadow-lg shadow-blue-900/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-5">
           {/* Logo */}
@@ -59,9 +57,9 @@ export function Header() {
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-[hsl(var(--fuji-orange))] rounded-full border-2 border-white"></div>
               </div>
               <div className="text-2xl font-black tracking-tight">
-                <span className="text-[hsl(var(--foreground))]">FUJI</span>
+                <span className="text-white">FUJI</span>
                 <span className="text-[hsl(var(--fuji-orange))] ml-1">Global</span>
-                <div className="text-xs font-semibold text-[hsl(var(--muted-foreground))] tracking-widest mono mt-0.5">
+                <div className="text-xs font-semibold text-white/80 tracking-widest mono mt-0.5">
                   KOREA
                 </div>
               </div>
@@ -77,8 +75,8 @@ export function Header() {
                   href={item.href}
                   className={`font-semibold text-sm tracking-wide transition-all duration-300 hover:scale-105 ${
                     isActive(item.href)
-                      ? 'text-[hsl(var(--fuji-blue))] border-b-2 border-[hsl(var(--fuji-blue))] pb-1'
-                      : 'text-[hsl(var(--foreground))] hover:text-[hsl(var(--fuji-blue))]'
+                      ? 'text-white border-b-2 border-white pb-1'
+                      : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -89,43 +87,30 @@ export function Header() {
             {/* Search Bar */}
             <form onSubmit={handleSearch} className="relative">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[hsl(var(--muted-foreground))] w-4 h-4" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-500 w-4 h-4" />
                 <Input
                   type="text"
                   placeholder={language === 'ko' ? '시리얼 번호 검색...' : 'Search serial number...'}
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-64 bg-[hsl(var(--background))] border-[hsl(var(--border))] rounded-xl text-sm font-medium placeholder:text-[hsl(var(--muted-foreground))] focus:ring-2 focus:ring-[hsl(var(--fuji-blue))]/20 focus:border-[hsl(var(--fuji-blue))] transition-all text-[hsl(var(--foreground))]"
+                  className="pl-10 pr-4 py-2 w-64 bg-white/90 border-white/30 rounded-xl text-sm font-medium placeholder:text-slate-500 focus:ring-2 focus:ring-white/20 focus:border-white transition-all text-slate-800"
                 />
               </div>
             </form>
           </div>
 
-          {/* Theme Toggle, Language Switcher and Mobile Menu */}
+          {/* Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="hover:bg-[hsl(var(--industrial-light))] rounded-xl"
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-[hsl(var(--fuji-gold))]" />
-              ) : (
-                <Moon className="h-5 w-5 text-[hsl(var(--fuji-navy))]" />
-              )}
-            </Button>
-            
-            <div className="flex items-center space-x-1 bg-[hsl(var(--background))] rounded-xl p-1 border border-[hsl(var(--border))]">
-              <Globe className="w-4 h-4 text-[hsl(var(--muted-foreground))] ml-2" />
+
+            <div className="flex items-center space-x-1 bg-white/20 rounded-xl p-1 border border-white/30">
+              <Globe className="w-4 h-4 text-white/80 ml-2" />
               <Button
                 variant={language === 'ko' ? 'default' : 'ghost'}
                 size="sm"
                 className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
                   language === 'ko' 
-                    ? 'industrial-button text-white' 
-                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--muted))]/50'
+                    ? 'bg-white text-[hsl(var(--fuji-blue))]' 
+                    : 'text-white/80 hover:text-white hover:bg-white/20'
                 }`}
                 onClick={() => setLanguage('ko')}
               >
@@ -136,8 +121,8 @@ export function Header() {
                 size="sm"
                 className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
                   language === 'en' 
-                    ? 'industrial-button text-white' 
-                    : 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--muted))]/50'
+                    ? 'bg-white text-[hsl(var(--fuji-blue))]' 
+                    : 'text-white/80 hover:text-white hover:bg-white/20'
                 }`}
                 onClick={() => setLanguage('en')}
               >
@@ -148,22 +133,22 @@ export function Header() {
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="icon" className="hover:bg-[hsl(var(--muted))] rounded-xl">
-                  <Menu className="h-5 w-5 text-[hsl(var(--foreground))]" />
+                <Button variant="ghost" size="icon" className="hover:bg-white/20 rounded-xl">
+                  <Menu className="h-5 w-5 text-white" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[320px] bg-[hsl(var(--background))]/95 backdrop-blur-md">
+              <SheetContent side="right" className="w-[320px] bg-white/95 backdrop-blur-md">
                 <div className="mt-8 space-y-6">
                   {/* Mobile Search */}
                   <form onSubmit={handleSearch} className="relative">
                     <div className="relative">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[hsl(var(--muted-foreground))] w-4 h-4" />
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-500 w-4 h-4" />
                       <Input
                         type="text"
                         placeholder={language === 'ko' ? '시리얼 번호 검색...' : 'Search serial number...'}
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
-                        className="pl-10 pr-4 py-3 w-full bg-[hsl(var(--background))] border-[hsl(var(--border))] rounded-xl text-[hsl(var(--foreground))]"
+                        className="pl-10 pr-4 py-3 w-full bg-slate-50 border-slate-200 rounded-xl text-slate-800"
                       />
                     </div>
                   </form>
@@ -177,7 +162,7 @@ export function Header() {
                         className={`font-semibold py-3 px-4 rounded-xl transition-all ${
                           isActive(item.href)
                             ? 'bg-[hsl(var(--fuji-blue))] text-white'
-                            : 'text-[hsl(var(--foreground))] hover:text-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--muted))]'
+                            : 'text-slate-700 hover:text-[hsl(var(--fuji-blue))] hover:bg-slate-100'
                         }`}
                         onClick={() => setIsOpen(false)}
                       >
