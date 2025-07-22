@@ -20,14 +20,12 @@ export function useAdmin() {
 
   // Update authentication state
   useEffect(() => {
-    console.log('Admin state update:', { admin: !!admin, sessionId, isLoading, isAuthenticated });
     if (admin && sessionId) {
       setIsAuthenticated(true);
     } else if (!isLoading) {
       // Only update auth state when not loading to prevent premature false state
       if (sessionId && !admin) {
         // Invalid session, clear it
-        console.log('Clearing invalid session');
         setSessionId(null);
         localStorage.removeItem('adminSession');
         setIsAuthenticated(false);
@@ -39,7 +37,6 @@ export function useAdmin() {
 
   // Login function
   const login = (newSessionId: string) => {
-    console.log('Admin login called with sessionId:', newSessionId);
     setSessionId(newSessionId);
     localStorage.setItem('adminSession', newSessionId);
     setIsAuthenticated(true);
