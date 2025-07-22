@@ -246,21 +246,99 @@ export default function About() {
           </div>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))]"></div>
-            <div className="space-y-12">
-              {t.history.events.map((event, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <Card className="industrial-card border-0 group hover:shadow-xl transition-all duration-300">
-                      <CardContent className="p-6">
-                        <div className="metric-display text-2xl font-black mb-2">{event.year}</div>
-                        <p className="text-[hsl(var(--fuji-steel))] font-medium">{event.event}</p>
-                      </CardContent>
-                    </Card>
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[hsl(var(--fuji-blue))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-orange))] rounded-full shadow-lg"></div>
+            
+            <div className="space-y-16">
+              {t.history.events.map((event, index) => {
+                // Define icons for different timeline events based on index
+                const getTimelineIcon = (idx: number) => {
+                  const icons = [
+                    { icon: 'building', bg: 'bg-green-500', shadow: 'shadow-green-500/25' },
+                    { icon: 'award', bg: 'bg-blue-500', shadow: 'shadow-blue-500/25' },
+                    { icon: 'rocket', bg: 'bg-purple-500', shadow: 'shadow-purple-500/25' },
+                    { icon: 'trophy', bg: 'bg-yellow-500', shadow: 'shadow-yellow-500/25' },
+                    { icon: 'star', bg: 'bg-red-500', shadow: 'shadow-red-500/25' },
+                  ];
+                  return icons[idx % icons.length];
+                };
+                
+                const iconData = getTimelineIcon(index);
+                
+                return (
+                  <div key={index} className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                    <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'}`}>
+                      <Card className="industrial-card border-0 group hover:shadow-xl transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                        {/* Background Pattern */}
+                        <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
+                          <div className="w-full h-full bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-orange))] transform rotate-45 translate-x-16 -translate-y-16"></div>
+                        </div>
+                        
+                        <CardContent className="p-8 relative">
+                          <div className="flex items-center gap-4 mb-4">
+                            <div className={`w-12 h-12 ${iconData.bg} rounded-xl flex items-center justify-center ${iconData.shadow} group-hover:shadow-lg transition-all duration-300`}>
+                              {iconData.icon === 'building' && (
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                              )}
+                              {iconData.icon === 'award' && (
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                </svg>
+                              )}
+                              {iconData.icon === 'rocket' && (
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                              )}
+                              {iconData.icon === 'trophy' && (
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                              )}
+                              {iconData.icon === 'star' && (
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                </svg>
+                              )}
+                            </div>
+                            <div className="metric-display text-3xl font-black bg-gradient-to-r from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-orange))] bg-clip-text text-transparent">
+                              {event.year}
+                            </div>
+                          </div>
+                          <p className="text-[hsl(var(--fuji-steel))] font-medium leading-relaxed text-base">
+                            {event.event}
+                          </p>
+                          
+                          {/* Decorative elements */}
+                          <div className="absolute bottom-4 right-4 opacity-10">
+                            <div className="w-8 h-8 border-2 border-[hsl(var(--fuji-blue))] rounded-full"></div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                    
+                    {/* Enhanced Timeline Dot */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+                      <div className="w-8 h-8 bg-white rounded-full shadow-xl border-4 border-[hsl(var(--fuji-orange))] flex items-center justify-center z-10">
+                        <div className="w-3 h-3 bg-[hsl(var(--fuji-orange))] rounded-full animate-pulse"></div>
+                      </div>
+                      {/* Glow effect */}
+                      <div className="absolute w-12 h-12 bg-[hsl(var(--fuji-orange))]/20 rounded-full animate-ping"></div>
+                    </div>
                   </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[hsl(var(--fuji-orange))] rounded-full border-4 border-white shadow-lg"></div>
-                </div>
-              ))}
+                );
+              })}
+            </div>
+            
+            {/* Timeline End Decoration */}
+            <div className="flex justify-center mt-12">
+              <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-gold))] to-[hsl(var(--fuji-orange))] rounded-full flex items-center justify-center shadow-xl">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
