@@ -220,7 +220,7 @@ export default function About() {
                 <Card key={index} className="industrial-card border-0 group hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-8">
                     <div className="flex items-start space-x-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
+                      <div className="w-16 h-16 from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25 bg-[#2a2c37]">
                         <Icon className="h-8 w-8 text-white" />
                       </div>
                       <div className="flex-1">
