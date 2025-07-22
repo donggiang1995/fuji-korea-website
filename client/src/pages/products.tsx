@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ProductCard } from '@/components/product-card';
+import { ProductDetailDialog } from '@/components/product-detail-dialog';
 import { useLanguage } from '@/components/language-provider';
 import { useQuery } from '@tanstack/react-query';
 import { Loader2, Cpu, Settings } from 'lucide-react';
@@ -9,6 +10,7 @@ import { Loader2, Cpu, Settings } from 'lucide-react';
 export default function Products() {
   const { t, language } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [isDetailDialogOpen, setIsDetailDialogOpen] = useState(false);
 
   const { data: products = [], isLoading, error } = useQuery({
     queryKey: ['/api/products'],
@@ -20,8 +22,12 @@ export default function Products() {
 
   const handleViewDetails = (product: any) => {
     setSelectedProduct(product);
-    // In a real app, this would navigate to a product detail page
-    alert(`Viewing details for ${product.name}`);
+    setIsDetailDialogOpen(true);
+  };
+
+  const handleCloseDetail = () => {
+    setIsDetailDialogOpen(false);
+    setSelectedProduct(null);
   };
 
   if (isLoading) {
@@ -132,6 +138,13 @@ export default function Products() {
           </div>
         </div>
       </div>
+
+      {/* Product Detail Dialog */}
+      <ProductDetailDialog 
+        product={selectedProduct}
+        isOpen={isDetailDialogOpen}
+        onClose={handleCloseDetail}
+      />
     </div>
   );
 }
