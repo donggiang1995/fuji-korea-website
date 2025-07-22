@@ -152,7 +152,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 text-white flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center text-[#1a66ff]">
                     {language === 'ko' ? 'FJE1 스마트 엘리베이터' : 'FJE1 Smart Elevator'}
                   </h3>
                   <p className="mb-6 flex-grow text-[#686969] text-[15px]">
@@ -183,7 +183,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 text-white flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center text-[#1a66ff]">
                     {language === 'ko' ? 'FJE2 스마트 엘리베이터' : 'FJE2 Smart Elevator'}
                   </h3>
                   <p className="mb-6 flex-grow text-[#686969] text-[15px]">
@@ -214,7 +214,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 text-white flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
+                  <h3 className="text-xl font-bold mb-3 h-14 flex items-center text-[#1a66ff]">
                     {language === 'ko' ? 'FJK 시리즈 엘리베이터' : 'FJK Series Elevator'}
                   </h3>
                   <p className="mb-6 flex-grow text-[15px] text-[#686969]">
