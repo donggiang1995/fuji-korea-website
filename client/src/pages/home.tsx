@@ -155,7 +155,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
                     {language === 'ko' ? 'FJE1 스마트 엘리베이터' : 'FJE1 Smart Elevator'}
                   </h3>
-                  <p className="text-slate-200 text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="text-sm leading-relaxed mb-6 flex-grow text-[#030303]">
                     {language === 'ko' ? 'IoT 기반 원격 제어 시스템으로 실시간 모니터링 및 제어가 가능한 차세대 엘리베이터' : 'Next-generation elevator with IoT-based remote control system for real-time monitoring and control'}
                   </p>
                   <Link href="/products" className="mt-auto">
@@ -240,7 +240,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
