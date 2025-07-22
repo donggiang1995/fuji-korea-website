@@ -44,7 +44,7 @@ export function Header() {
   };
 
   return (
-    <header className="bg-gradient-to-r from-[hsl(var(--fuji-blue))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] border-b border-blue-300/60 sticky top-0 z-50 shadow-lg shadow-blue-900/20">
+    <header className="from-[hsl(var(--fuji-blue))] via-[hsl(var(--fuji-navy))] to-[hsl(var(--fuji-steel))] border-b border-blue-300/60 sticky top-0 z-50 shadow-lg shadow-blue-900/20 bg-[#192435]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#192435]">
         <div className="flex justify-between items-center py-5">
           {/* Logo */}
