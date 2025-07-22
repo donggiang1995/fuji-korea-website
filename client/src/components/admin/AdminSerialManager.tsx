@@ -99,7 +99,7 @@ export default function AdminSerialManager() {
     setEditingSerial(serial);
     form.reset({
       serialNumber: serial.serialNumber,
-      productId: serial.productId,
+      productId: serial.productId || 0,
       installationDate: serial.installationDate || '',
       location: serial.location || '',
       status: serial.status || 'active',
@@ -140,7 +140,8 @@ export default function AdminSerialManager() {
     setShowForm(true);
   };
 
-  const getProductName = (productId: number) => {
+  const getProductName = (productId: number | null) => {
+    if (!productId) return 'No Product Assigned';
     const product = products?.find((p: Product) => p.id === productId);
     return product?.name || 'Unknown Product';
   };

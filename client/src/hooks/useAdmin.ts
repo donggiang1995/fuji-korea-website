@@ -20,7 +20,7 @@ export function useAdmin() {
 
   // Update authentication state
   useEffect(() => {
-    if (admin?.admin && sessionId) {
+    if (admin && sessionId) {
       setIsAuthenticated(true);
     } else if (!sessionId) {
       setIsAuthenticated(false);
@@ -67,7 +67,7 @@ export function useAdmin() {
   };
 
   return {
-    admin: (admin as any)?.admin as AdminUser | undefined,
+    admin: admin as AdminUser | undefined,
     isAuthenticated,
     isLoading,
     sessionId,
