@@ -107,7 +107,7 @@ export default function About() {
           <div className="grid md:grid-cols-4 gap-6 mb-16">
             <Card className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300">
               <CardContent className="pt-8 pb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300">
+                <div className="w-16 h-16 from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300 bg-[#2a2c37]">
                   <Calendar className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="metric-display text-3xl font-black mb-2">{t.foundedYear}</h3>
@@ -147,7 +147,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Company Introduction */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,7 +201,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Technology Section */}
       <section className="py-24 bg-[hsl(var(--industrial-light))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -237,7 +235,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Company History */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -268,7 +265,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       {/* Values Section */}
       <section className="py-24 bg-[hsl(var(--industrial-light))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
