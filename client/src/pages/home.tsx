@@ -34,7 +34,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[hsl(var(--background))]">
       {/* Hero Section */}
       <section className="relative overflow-hidden hero-bg min-h-screen flex items-center">
         <div className="absolute inset-0 tech-pattern"></div>
@@ -122,16 +122,16 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-[hsl(var(--industrial-light))]">
+      <section className="py-24 bg-[hsl(var(--muted))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge className="mb-6 bg-[hsl(var(--fuji-blue))]/10 text-[hsl(var(--fuji-blue))] border-[hsl(var(--fuji-blue))]/20 font-semibold tracking-wide">
               {language === 'ko' ? '핵심 기능' : 'Core Features'}
             </Badge>
-            <h2 className="text-[hsl(var(--industrial-dark))] mb-6">
+            <h2 className="text-[hsl(var(--foreground))] mb-6">
               {language === 'ko' ? '혁신적인 기술로 더 안전한 미래를' : 'Safer Future with Innovative Technology'}
             </h2>
-            <p className="text-xl text-[hsl(var(--fuji-steel))] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-[hsl(var(--muted-foreground))] max-w-3xl mx-auto leading-relaxed">
               {language === 'ko' 
                 ? '최첨단 IoT, AI 기술과 인간 중심 설계를 결합하여 차세대 엘리베이터 경험을 제공합니다.'
                 : 'Combining cutting-edge IoT, AI technology with human-centered design to deliver next-generation elevator experiences.'}
@@ -147,8 +147,8 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-[hsl(var(--industrial-dark))] mb-4">{feature.title}</h3>
-                    <p className="text-[hsl(var(--fuji-steel))] leading-relaxed">{feature.description}</p>
+                    <h3 className="text-xl font-bold text-[hsl(var(--foreground))] mb-4">{feature.title}</h3>
+                    <p className="text-[hsl(var(--muted-foreground))] leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -158,17 +158,17 @@ export default function Home() {
       </section>
 
       {/* Smart Elevator Showcase */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-[hsl(var(--background))] relative overflow-hidden">
         <div className="absolute inset-0 tech-pattern opacity-30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge className="mb-6 bg-[hsl(var(--fuji-orange))]/10 text-[hsl(var(--fuji-orange))] border-[hsl(var(--fuji-orange))]/20 font-semibold tracking-wide">
               {language === 'ko' ? '제품 라인업' : 'Product Lineup'}
             </Badge>
-            <h2 className="text-[hsl(var(--industrial-dark))] mb-6">
+            <h2 className="text-[hsl(var(--foreground))] mb-6">
               {t.showcase.title}
             </h2>
-            <p className="text-xl text-[hsl(var(--fuji-steel))]">{t.showcase.subtitle}</p>
+            <p className="text-xl text-[hsl(var(--muted-foreground))]">{t.showcase.subtitle}</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
