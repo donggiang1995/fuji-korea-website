@@ -4,7 +4,7 @@
 export const WEBSITE_IMAGES = {
   // Hero Section
   hero: {
-    headquarters: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    headquarters: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
   },
 
   // Core Features (3 hình)
