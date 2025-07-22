@@ -313,7 +313,7 @@ export default function About() {
                           
                           {/* Decorative elements */}
                           <div className="absolute bottom-4 right-4 opacity-10">
-                            <div className="w-8 h-8 border-2 border-[hsl(var(--fuji-blue))] rounded-full"></div>
+                            <div className="w-8 h-8 border-2 border-[hsl(var(--fuji-blue))] rounded-full bg-[#1a66ff]"></div>
                           </div>
                         </CardContent>
                       </Card>
