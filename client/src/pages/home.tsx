@@ -132,7 +132,7 @@ export default function Home() {
             <h2 className="text-white mb-6 text-4xl font-black">
               {t.showcase.title}
             </h2>
-            <p className="text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">{t.showcase.subtitle}</p>
+            <p className="max-w-3xl mx-auto text-[#192435] font-thin text-[36px]">{t.showcase.subtitle}</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
