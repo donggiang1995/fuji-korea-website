@@ -126,7 +126,7 @@ export default function Home() {
         <div className="absolute inset-0 tech-pattern opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <Badge className="mb-6 glass-morphism text-white/90 border-white/20 font-semibold tracking-wide">
+            <Badge className="glass-morphism text-white/90 border-white/20 font-semibold tracking-wide text-[16px] mt-[0px] mb-[0px] pt-[5px] pb-[5px]">
               {language === 'ko' ? '제품 라인업' : 'Product Lineup'}
             </Badge>
             <h2 className="text-white mb-6 text-4xl font-black">
