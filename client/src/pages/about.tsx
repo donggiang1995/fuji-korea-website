@@ -303,7 +303,7 @@ export default function About() {
                                 </svg>
                               )}
                             </div>
-                            <div className="metric-display text-3xl font-black bg-gradient-to-r from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-orange))] bg-clip-text text-transparent">
+                            <div className="metric-display text-3xl font-black from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-orange))] bg-clip-text text-[#192435] bg-[#192435]">
                               {event.year}
                             </div>
                           </div>
