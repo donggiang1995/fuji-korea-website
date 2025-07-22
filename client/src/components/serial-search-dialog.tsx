@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
@@ -102,6 +102,11 @@ export function SerialSearchDialog({
           <DialogTitle className="text-xl font-bold text-[hsl(var(--industrial-dark))]">
             {language === 'ko' ? '시리얼 번호 검색 결과' : 'Serial Number Search Result'}
           </DialogTitle>
+          <DialogDescription>
+            {language === 'ko' 
+              ? '입력하신 시리얼 번호에 대한 상세 정보를 확인하세요.' 
+              : 'View detailed information for the searched serial number.'}
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">

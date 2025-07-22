@@ -14,8 +14,9 @@ export default function Products() {
     queryKey: ['/api/products'],
   });
 
-  const controlProducts = products.filter((p: any) => p.category === 'control');
-  const tractionProducts = products.filter((p: any) => p.category === 'traction');
+  const productList = products as any[];
+  const controlProducts = productList.filter((p) => p.category === 'control');
+  const tractionProducts = productList.filter((p) => p.category === 'traction');
 
   const handleViewDetails = (product: any) => {
     setSelectedProduct(product);
@@ -79,7 +80,7 @@ export default function Products() {
           {/* Control Systems */}
           <TabsContent value="control">
             <div className="grid lg:grid-cols-2 gap-8">
-              {controlProducts.map((product) => (
+              {controlProducts.map((product: any) => (
                 <ProductCard
                   key={product.id}
                   product={product}
@@ -92,7 +93,7 @@ export default function Products() {
           {/* Traction Machines */}
           <TabsContent value="traction">
             <div className="grid lg:grid-cols-3 gap-8 mb-8">
-              {tractionProducts.slice(0, 3).map((product) => (
+              {tractionProducts.slice(0, 3).map((product: any) => (
                 <ProductCard
                   key={product.id}
                   product={product}
@@ -101,9 +102,9 @@ export default function Products() {
               ))}
             </div>
             
-            {/* Additional FJK2 Models */}
+            {/* Additional Models */}
             <div className="grid lg:grid-cols-2 gap-8">
-              {tractionProducts.slice(3).map((product) => (
+              {tractionProducts.slice(3).map((product: any) => (
                 <ProductCard
                   key={product.id}
                   product={product}
