@@ -318,14 +318,13 @@ export default function About() {
                         </CardContent>
                       </Card>
                     </div>
-                    
                     {/* Enhanced Timeline Dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
                       <div className="w-8 h-8 bg-white rounded-full shadow-xl border-4 border-[hsl(var(--fuji-orange))] flex items-center justify-center z-10">
                         <div className="w-3 h-3 bg-[hsl(var(--fuji-orange))] rounded-full animate-pulse"></div>
                       </div>
                       {/* Glow effect */}
-                      <div className="absolute w-12 h-12 bg-[hsl(var(--fuji-orange))]/20 rounded-full animate-ping"></div>
+                      <div className="absolute w-12 h-12 rounded-full animate-ping bg-[#0a9bff]"></div>
                     </div>
                   </div>
                 );
