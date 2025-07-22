@@ -274,19 +274,19 @@ export default function Home() {
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <Card key={stat.label} className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300">
+                <Card key={stat.label} className="industrial-card border-0 text-center group hover:scale-105 transition-all duration-300 bg-white/95 dark:bg-[hsl(var(--card))]">
                   <CardContent className="pt-8 pb-6">
                     <div className="relative mb-6">
-                      <div className={`w-20 h-20 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300`}>
+                      <div className={`w-20 h-20 bg-gradient-to-br from-[hsl(var(--fuji-orange))] to-[hsl(var(--fuji-gold))] rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 transition-all duration-300`}>
                         <Icon className="h-10 w-10 text-white" />
                       </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-[hsl(var(--fuji-orange))] rounded-full flex items-center justify-center">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-[hsl(var(--fuji-blue))] rounded-full flex items-center justify-center">
                         <span className="text-white font-bold text-xs">#{index + 1}</span>
                       </div>
                     </div>
-                    <h3 className="metric-display text-4xl font-black mb-3">{stat.number}</h3>
-                    <p className="text-[hsl(var(--industrial-dark))] font-semibold mb-2">{stat.label}</p>
-                    <p className="text-[hsl(var(--fuji-steel))] text-sm">{stat.description}</p>
+                    <h3 className="metric-display text-4xl font-black mb-3 text-[hsl(var(--fuji-navy))] dark:text-[hsl(var(--fuji-orange))]">{stat.number}</h3>
+                    <p className="text-[hsl(var(--foreground))] font-semibold mb-2">{stat.label}</p>
+                    <p className="text-[hsl(var(--muted-foreground))] text-sm">{stat.description}</p>
                   </CardContent>
                 </Card>
               );

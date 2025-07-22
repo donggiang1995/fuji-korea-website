@@ -40,25 +40,31 @@
 }
 
 .dark {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 33%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --popover: hsl(222, 84%, 5%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 5%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 33%, 17%);
-  --input: hsl(217, 33%, 17%);
-  --primary: hsl(217, 91%, 60%);
-  --primary-foreground: hsl(222, 47%, 11%);
-  --secondary: hsl(217, 33%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(217, 33%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
+  --background: hsl(220, 25%, 8%);
+  --foreground: hsl(210, 20%, 88%);
+  --muted: hsl(217, 20%, 15%);
+  --muted-foreground: hsl(215, 15%, 65%);
+  --popover: hsl(220, 20%, 12%);
+  --popover-foreground: hsl(210, 20%, 88%);
+  --card: hsl(220, 20%, 12%);
+  --card-foreground: hsl(210, 20%, 88%);
+  --border: hsl(217, 15%, 25%);
+  --input: hsl(217, 15%, 25%);
+  --primary: hsl(220, 100%, 60%);
+  --primary-foreground: hsl(220, 25%, 8%);
+  --secondary: hsl(217, 15%, 20%);
+  --secondary-foreground: hsl(210, 20%, 88%);
+  --accent: hsl(217, 15%, 20%);
+  --accent-foreground: hsl(210, 20%, 88%);
   --destructive: hsl(0, 63%, 31%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(217, 91%, 60%);
+  --ring: hsl(220, 100%, 60%);
+  
+  /* Dark mode industrial colors */
+  --fuji-steel: hsl(215, 15%, 70%);
+  --fuji-silver: hsl(210, 10%, 25%);
+  --industrial-dark: hsl(210, 20%, 88%);
+  --industrial-light: hsl(220, 20%, 12%);
 }
 
 @layer base {

@@ -34,17 +34,17 @@ export function Footer() {
               </p>
 
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-slate-300">
-                  <MapPin className="w-4 h-4 text-[hsl(var(--fuji-blue))]" />
-                  <span className="text-sm">{t.contact.addressText}</span>
+                <div className="flex items-center space-x-3">
+                  <MapPin className="w-4 h-4 text-[hsl(var(--fuji-orange))]" />
+                  <span className="text-sm text-slate-200">{t.contact.addressText}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-slate-300">
-                  <Phone className="w-4 h-4 text-[hsl(var(--fuji-blue))]" />
-                  <span className="text-sm">+82-2-xxxx-xxxx</span>
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-4 h-4 text-[hsl(var(--fuji-orange))]" />
+                  <span className="text-sm text-slate-200">+82-2-xxxx-xxxx</span>
                 </div>
-                <div className="flex items-center space-x-3 text-slate-300">
-                  <Mail className="w-4 h-4 text-[hsl(var(--fuji-blue))]" />
-                  <span className="text-sm">info@fuji-global-korea.com</span>
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-4 h-4 text-[hsl(var(--fuji-orange))]" />
+                  <span className="text-sm text-slate-200">info@fuji-global-korea.com</span>
                 </div>
               </div>
 
@@ -65,16 +65,16 @@ export function Footer() {
             <div className="space-y-4">
               <h4 className="text-lg font-bold text-white mb-6">{t.footer.quickLinks}</h4>
               <div className="space-y-3">
-                <Link href="/" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <Link href="/" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {t.nav.home}
                 </Link>
-                <Link href="/about" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <Link href="/about" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {t.nav.about}
                 </Link>
-                <Link href="/products" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <Link href="/products" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {t.nav.products}
                 </Link>
-                <Link href="/contact" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <Link href="/contact" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {t.nav.contact}
                 </Link>
               </div>
@@ -86,16 +86,16 @@ export function Footer() {
                 {language === 'ko' ? '서비스' : 'Services'}
               </h4>
               <div className="space-y-3">
-                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <a href="#" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {language === 'ko' ? '제어 시스템' : 'Control Systems'}
                 </a>
-                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <a href="#" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {language === 'ko' ? '견인 기계' : 'Traction Machines'}
                 </a>
-                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <a href="#" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {language === 'ko' ? '유지보수' : 'Maintenance'}
                 </a>
-                <a href="#" className="block text-slate-300 hover:text-[hsl(var(--fuji-blue))] transition-colors font-medium">
+                <a href="#" className="block text-slate-200 hover:text-[hsl(var(--fuji-orange))] transition-colors font-medium">
                   {language === 'ko' ? '기술 지원' : 'Technical Support'}
                 </a>
               </div>

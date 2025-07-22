@@ -3,13 +3,15 @@ import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Search, Globe, Zap } from 'lucide-react';
+import { Menu, Search, Globe, Zap, Moon, Sun } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
+import { useTheme } from '@/components/theme-provider';
 import { SerialSearchDialog } from '@/components/serial-search-dialog';
 import { useQuery } from '@tanstack/react-query';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -44,7 +46,7 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50 shadow-lg shadow-slate-900/5">
+    <header className="bg-white/95 dark:bg-[hsl(var(--background))]/95 backdrop-blur-md border-b border-slate-200/60 dark:border-[hsl(var(--border))] sticky top-0 z-50 shadow-lg shadow-slate-900/5 dark:shadow-black/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-5">
           {/* Logo */}
@@ -99,8 +101,22 @@ export function Header() {
             </form>
           </div>
 
-          {/* Language Switcher and Mobile Menu */}
+          {/* Theme Toggle, Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
+            {/* Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="hover:bg-[hsl(var(--industrial-light))] rounded-xl"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5 text-[hsl(var(--fuji-gold))]" />
+              ) : (
+                <Moon className="h-5 w-5 text-[hsl(var(--fuji-navy))]" />
+              )}
+            </Button>
+            
             <div className="flex items-center space-x-1 bg-[hsl(var(--industrial-light))] rounded-xl p-1 border border-[hsl(var(--fuji-silver))]">
               <Globe className="w-4 h-4 text-[hsl(var(--fuji-steel))] ml-2" />
               <Button
