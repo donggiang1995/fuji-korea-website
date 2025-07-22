@@ -226,7 +226,7 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/products">
-              <Button size="lg" className="bg-white text-[hsl(var(--fuji-blue))] hover:bg-slate-100 font-bold px-8 py-4 text-lg group">
+              <Button size="lg" className="text-white hover:bg-blue-600 font-bold px-8 py-4 text-lg group bg-[#1a64f8]">
                 {language === 'ko' ? '모든 제품 보기' : 'View All Products'}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
