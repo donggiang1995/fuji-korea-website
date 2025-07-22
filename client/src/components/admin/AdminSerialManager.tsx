@@ -296,7 +296,7 @@ export default function AdminSerialManager() {
             <CardContent>
               <Hash className="w-12 h-12 text-slate-300 mx-auto mb-4" />
               <p className="text-slate-500 text-lg mb-4">No serial numbers found</p>
-              <Button onClick={startNewSerial} className="bg-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--fuji-navy))]">
+              <Button onClick={startNewSerial} className="bg-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--fuji-navy))] text-[#23252f]">
                 <Plus className="w-4 h-4 mr-2" />
                 Add Your First Serial Number
               </Button>

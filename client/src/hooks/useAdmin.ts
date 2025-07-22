@@ -23,13 +23,16 @@ export function useAdmin() {
     console.log('Admin state update:', { admin: !!admin, sessionId, isLoading, isAuthenticated });
     if (admin && sessionId) {
       setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
-      if (sessionId && !admin && !isLoading) {
+    } else if (!isLoading) {
+      // Only update auth state when not loading to prevent premature false state
+      if (sessionId && !admin) {
         // Invalid session, clear it
         console.log('Clearing invalid session');
         setSessionId(null);
         localStorage.removeItem('adminSession');
+        setIsAuthenticated(false);
+      } else if (!sessionId) {
+        setIsAuthenticated(false);
       }
     }
   }, [admin, sessionId, isLoading]);
