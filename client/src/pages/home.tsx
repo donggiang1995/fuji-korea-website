@@ -67,7 +67,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link href="/about">
-                  <Button variant="outline" size="lg" className="glass-morphism border-white/30 text-white hover:bg-[#ffffff12] font-semibold px-8 py-4 text-lg backdrop-blur-sm">
+                  <Button variant="outline" size="lg" className="glass-morphism border-white/30 hover:bg-[#ffffff12] font-semibold px-8 py-4 text-lg backdrop-blur-sm bg-[#03287312] text-[#0082ff]">
                     {t.hero.readMore}
                   </Button>
                 </Link>
