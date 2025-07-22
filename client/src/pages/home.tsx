@@ -217,7 +217,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-3 h-14 flex items-center">
                     {language === 'ko' ? 'FJK 시리즈 엘리베이터' : 'FJK Series Elevator'}
                   </h3>
-                  <p className="text-slate-200 text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="mb-6 flex-grow text-[15px] text-[#686969]">
                     {language === 'ko' ? '고효율 견인 기계와 첨단 제어 알고리즘을 적용한 차세대 엘리베이터 기술의 집약체' : 'Culmination of next-generation elevator technology with high-efficiency traction machines and advanced control algorithms'}
                   </p>
                   <Link href="/products" className="mt-auto">
