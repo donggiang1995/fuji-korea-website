@@ -58,7 +58,7 @@ export function Header() {
               </div>
               <div className="text-2xl font-black tracking-tight">
                 <span className="text-blue-100">FUJI</span>
-                <span className="text-[hsl(var(--fuji-orange))] ml-1">Global</span>
+                <span className="ml-1 bg-[#b7b7b700] text-[#1a66ff]">Global</span>
                 <div className="text-xs font-semibold text-blue-200 tracking-widest mono mt-0.5">
                   KOREA
                 </div>
