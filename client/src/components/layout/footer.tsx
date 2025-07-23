@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { Facebook, Linkedin, Youtube, Mail, Phone, MapPin, Zap } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
+import fujiLogo from '@assets/LOGO FUJI KOREA trang_1753265215012.png';
 
 export function Footer() {
   const { t, language } = useLanguage();
@@ -106,8 +107,12 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                  <Zap className="w-7 h-7 text-white" />
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 p-1">
+                  <img 
+                    src={fujiLogo} 
+                    alt="FUJI Global Korea Logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div>
                   <div className="text-2xl font-black tracking-tight">
