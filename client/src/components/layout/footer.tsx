@@ -107,11 +107,11 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 p-1">
+                <div className="w-12 h-12 flex items-center justify-center">
                   <img 
                     src={fujiLogo} 
                     alt="FUJI Global Korea Logo"
-                    className="w-full h-full object-contain"
+                    className="h-full w-auto object-contain"
                   />
                 </div>
                 <div>
