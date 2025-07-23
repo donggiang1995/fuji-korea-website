@@ -51,10 +51,54 @@ export function Header() {
           <Link href="/" className="flex items-center group">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-[hsl(var(--fuji-blue))] to-[hsl(var(--fuji-navy))] rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300">
-                  <Zap className="w-6 h-6 text-white" />
+                {/* FUJI Global Korea Logo */}
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300 p-1">
+                  <svg viewBox="0 0 120 40" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    {/* FUJI Text */}
+                    <g fill="#1a66ff">
+                      {/* F */}
+                      <rect x="2" y="8" width="3" height="24" />
+                      <rect x="2" y="8" width="12" height="3" />
+                      <rect x="2" y="18" width="10" height="3" />
+                      
+                      {/* U */}
+                      <rect x="18" y="8" width="3" height="18" />
+                      <rect x="28" y="8" width="3" height="18" />
+                      <rect x="18" y="26" width="13" height="3" />
+                      <rect x="18" y="23" width="3" height="3" />
+                      <rect x="28" y="23" width="3" height="3" />
+                      
+                      {/* J */}
+                      <rect x="35" y="8" width="10" height="3" />
+                      <rect x="42" y="8" width="3" height="15" />
+                      <rect x="35" y="23" width="7" height="3" />
+                      <rect x="35" y="26" width="3" height="3" />
+                      
+                      {/* I */}
+                      <rect x="50" y="8" width="8" height="3" />
+                      <rect x="53" y="11" width="3" height="15" />
+                      <rect x="50" y="26" width="8" height="3" />
+                    </g>
+                    
+                    {/* Global Text - smaller and orange */}
+                    <g fill="#ff6b35" fontSize="6" fontFamily="Arial, sans-serif" fontWeight="bold">
+                      <text x="65" y="20">Global</text>
+                    </g>
+                    
+                    {/* Korea Text - even smaller and blue */}
+                    <g fill="#1a66ff" fontSize="4" fontFamily="Arial, sans-serif" fontWeight="normal">
+                      <text x="90" y="28">KOREA</text>
+                    </g>
+                    
+                    {/* Industrial accent elements */}
+                    <circle cx="110" cy="12" r="2" fill="#ff6b35" opacity="0.8" />
+                    <rect x="105" y="25" width="6" height="1" fill="#1a66ff" opacity="0.6" />
+                    <rect x="107" y="27" width="2" height="1" fill="#ff6b35" opacity="0.8" />
+                  </svg>
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-[hsl(var(--fuji-orange))] rounded-full border-2 border-white"></div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-[hsl(var(--fuji-orange))] rounded-full border-2 border-white flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
               </div>
               <div className="text-2xl font-black tracking-tight">
                 <span className="text-blue-100">FUJI</span>
