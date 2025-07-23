@@ -53,11 +53,31 @@ export function Header() {
               <div className="relative">
                 {/* FUJI Global Korea Logo */}
                 <div className="h-12 flex items-center justify-center group-hover:scale-105 transition-all duration-300">
-                  <img 
-                    src="/attached_assets/LOGO FUJI KOREA trang_1753265215012.png" 
-                    alt="FUJI Global Korea Logo"
-                    className="h-full w-auto object-contain"
-                  />
+                  <svg viewBox="0 0 400 100" className="h-full w-auto" xmlns="http://www.w3.org/2000/svg">
+                    {/* FUJI text in white */}
+                    <g fill="white" fontSize="48" fontFamily="Arial, sans-serif" fontWeight="bold">
+                      <text x="10" y="70">FUJI</text>
+                    </g>
+                    
+                    {/* Circular logo symbol */}
+                    <g transform="translate(220, 20)">
+                      {/* Outer red circle */}
+                      <circle cx="30" cy="30" r="28" fill="#E53E3E" stroke="white" strokeWidth="2"/>
+                      {/* Inner blue swirl */}
+                      <path d="M 15 20 Q 30 10 45 20 Q 30 30 15 40 Q 30 50 45 40 Q 30 30 15 20 Z" fill="#3182CE"/>
+                      <path d="M 20 25 Q 30 20 40 25 Q 30 35 20 35 Q 30 30 20 25 Z" fill="white" opacity="0.3"/>
+                    </g>
+                    
+                    {/* Global text */}
+                    <g fill="white" fontSize="24" fontFamily="Arial, sans-serif" fontWeight="bold">
+                      <text x="280" y="45">Global</text>
+                    </g>
+                    
+                    {/* Korea text */}
+                    <g fill="white" fontSize="20" fontFamily="Arial, sans-serif" fontWeight="normal">
+                      <text x="280" y="70">Korea</text>
+                    </g>
+                  </svg>
                 </div>
               </div>
               <div className="text-2xl font-black tracking-tight">
