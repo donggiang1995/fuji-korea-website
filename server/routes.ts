@@ -1,8 +1,17 @@
-import type { Express } from "express";
+import type { Express, Request } from "express";
 import { createServer, type Server } from "http";
 import cookieParser from "cookie-parser";
+
+// Extend Request type to include admin property
+declare global {
+  namespace Express {
+    interface Request {
+      admin?: { id: number; username: string; email: string; role: string };
+    }
+  }
+}
 import { storage } from "./storage";
-import { adminLoginSchema, insertProductSchema, insertSerialNumberSchema } from "@shared/schema";
+import { adminLoginSchema, insertProductSchema, insertSerialNumberSchema, changePasswordSchema } from "@shared/schema";
 import { AdminAuthService, requireAdminAuth } from "./adminAuth";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -49,6 +58,49 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // ===== ADMIN AUTHENTICATION ROUTES =====
+  
+  // Change admin password
+  app.post("/api/admin/change-password", requireAdminAuth, async (req, res) => {
+    try {
+      // Validate request body
+      const { currentPassword, newPassword } = changePasswordSchema.parse(req.body);
+      const adminId = req.admin?.id;
+      
+      if (!adminId) {
+        return res.status(401).json({ error: "Admin not found" });
+      }
+
+      // Get current admin user
+      const admin = await storage.getAdminUser(adminId);
+      if (!admin) {
+        return res.status(404).json({ error: "Admin user not found" });
+      }
+
+      // Verify current password
+      const isValidPassword = await AdminAuthService.verifyPassword(currentPassword, admin.password);
+      if (!isValidPassword) {
+        return res.status(400).json({ error: "Current password is incorrect" });
+      }
+
+      // Hash new password
+      const hashedNewPassword = await AdminAuthService.hashPassword(newPassword);
+      
+      // Update password in database
+      const success = await storage.updateAdminPassword(adminId, hashedNewPassword);
+      if (!success) {
+        return res.status(500).json({ error: "Failed to update password" });
+      }
+
+      // Invalidate all sessions for this admin
+      await AdminAuthService.invalidateAllSessions(adminId);
+
+      res.json({ message: "Password changed successfully" });
+
+    } catch (error) {
+      console.error('Change password error:', error);
+      res.status(500).json({ error: "Failed to change password" });
+    }
+  });
   
   // Admin login
   app.post("/api/admin/login", async (req, res) => {

@@ -1,13 +1,16 @@
 import { 
   products, 
   inquiries, 
-  serialNumbers, 
+  serialNumbers,
+  adminUsers,
   type Product, 
   type Inquiry, 
   type InsertProduct, 
   type InsertInquiry, 
   type SerialNumber,
-  type InsertSerialNumber
+  type InsertSerialNumber,
+  type AdminUser,
+  type InsertAdminUser
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, ilike, desc } from "drizzle-orm";
@@ -28,6 +31,8 @@ export interface IStorage {
   createSerialNumber(data: InsertSerialNumber): Promise<SerialNumber>;
   updateSerialNumber(id: number, data: InsertSerialNumber): Promise<SerialNumber | null>;
   deleteSerialNumber(id: number): Promise<boolean>;
+  getAdminUser(id: number): Promise<AdminUser | undefined>;
+  updateAdminPassword(id: number, hashedPassword: string): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -116,6 +121,19 @@ export class DatabaseStorage implements IStorage {
 
   async deleteSerialNumber(id: number): Promise<boolean> {
     const result = await db.delete(serialNumbers).where(eq(serialNumbers.id, id));
+    return result.rowCount ? result.rowCount > 0 : false;
+  }
+
+  async getAdminUser(id: number): Promise<AdminUser | undefined> {
+    const [admin] = await db.select().from(adminUsers).where(eq(adminUsers.id, id));
+    return admin || undefined;
+  }
+
+  async updateAdminPassword(id: number, hashedPassword: string): Promise<boolean> {
+    const result = await db
+      .update(adminUsers)
+      .set({ password: hashedPassword })
+      .where(eq(adminUsers.id, id));
     return result.rowCount ? result.rowCount > 0 : false;
   }
 }

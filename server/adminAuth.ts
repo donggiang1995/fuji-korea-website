@@ -105,6 +105,15 @@ export class AdminAuthService {
       .delete(adminSessions)
       .where(eq(adminSessions.expiresAt, now));
   }
+
+  // Invalidate all sessions for a user (used when changing password)
+  static async invalidateAllSessions(userId: number): Promise<boolean> {
+    const result = await db
+      .delete(adminSessions)
+      .where(eq(adminSessions.userId, userId));
+
+    return result.rowCount ? result.rowCount > 0 : false;
+  }
 }
 
 // Middleware to check admin authentication

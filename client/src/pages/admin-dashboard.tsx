@@ -13,13 +13,15 @@ import {
   Edit,
   Trash2,
   Shield,
-  BarChart3
+  BarChart3,
+  Lock
 } from 'lucide-react';
 import { useAdmin, useAdminQuery } from '@/hooks/useAdmin';
 import { useToast } from '@/hooks/use-toast';
 import AdminProductManager from '@/components/admin/AdminProductManager';
 import AdminSerialManager from '@/components/admin/AdminSerialManager';
 import AdminInquiries from '@/components/admin/AdminInquiries';
+import ChangePasswordDialog from '@/components/admin/ChangePasswordDialog';
 
 interface AdminDashboardProps {
   onLogout: () => void;
@@ -28,6 +30,7 @@ interface AdminDashboardProps {
 export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
   const { admin, logout, isLoggingOut } = useAdmin();
   const { toast } = useToast();
+  const [showChangePassword, setShowChangePassword] = useState(false);
   
   // Fetch admin data
   const { data: products } = useAdminQuery('/api/admin/products');
@@ -66,6 +69,15 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                   {admin?.role}
                 </Badge>
               </div>
+              
+              <Button
+                onClick={() => setShowChangePassword(true)}
+                variant="outline"
+                className="flex items-center gap-2"
+              >
+                <Lock className="w-4 h-4" />
+                Change Password
+              </Button>
               
               <Button
                 onClick={handleLogout}
@@ -173,6 +185,12 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Change Password Dialog */}
+      <ChangePasswordDialog 
+        open={showChangePassword}
+        onOpenChange={setShowChangePassword}
+      />
     </div>
   );
 }
