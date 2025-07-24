@@ -193,9 +193,13 @@ export default function About() {
             
             <div className="relative">
               <img
-                src="https://fuji-global-korea.com/wp-content/uploads/2024/05/hinh-1.jpg"
+                src={WEBSITE_IMAGES.awards.achievements}
                 alt="FUJI Global Korea"
                 className="rounded-2xl shadow-2xl w-full h-auto industrial-card"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = WEBSITE_IMAGES.fallback.industrial;
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/20 to-transparent rounded-2xl"></div>
             </div>
@@ -230,6 +234,10 @@ export default function About() {
                   src={WEBSITE_IMAGES.facilities.factory}
                   alt="FUJI Global Korea Factory"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = WEBSITE_IMAGES.fallback.industrial;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 text-white">
@@ -253,6 +261,10 @@ export default function About() {
                   src={WEBSITE_IMAGES.facilities.quality}
                   alt="Quality Control"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = WEBSITE_IMAGES.fallback.default;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 text-white">
@@ -278,6 +290,10 @@ export default function About() {
                     src={WEBSITE_IMAGES.facilities.machinery}
                     alt="Advanced Machinery"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = WEBSITE_IMAGES.fallback.industrial;
+                    }}
                   />
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-[hsl(var(--fuji-blue))] rounded-lg flex items-center justify-center">
@@ -303,6 +319,10 @@ export default function About() {
                     src={WEBSITE_IMAGES.facilities.production}
                     alt="Production Line"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = WEBSITE_IMAGES.fallback.industrial;
+                    }}
                   />
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-[hsl(var(--fuji-orange))] rounded-lg flex items-center justify-center">
@@ -328,6 +348,10 @@ export default function About() {
                     src={WEBSITE_IMAGES.facilities.research}
                     alt="Research Lab"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = WEBSITE_IMAGES.fallback.default;
+                    }}
                   />
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-[hsl(var(--fuji-gold))] rounded-lg flex items-center justify-center">
@@ -353,6 +377,10 @@ export default function About() {
                     src={WEBSITE_IMAGES.facilities.team}
                     alt="Expert Team"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = WEBSITE_IMAGES.fallback.default;
+                    }}
                   />
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-[hsl(var(--fuji-navy))] rounded-lg flex items-center justify-center">
