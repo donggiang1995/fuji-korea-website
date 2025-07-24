@@ -108,6 +108,15 @@ export const WEBSITE_IMAGES = {
   }
 };
 
+// 🇰🇷🇺🇸 CỜ QUỐC GIA CHO LANGUAGE SWITCHER
+export const FLAGS = {
+  // Cờ Hàn Quốc - SVG đơn giản
+  korea: "🇰🇷",
+  
+  // Cờ Mỹ cho English
+  usa: "🇺🇸"
+};
+
 // 📋 TEMPLATE URL CHO CÁC NGUỒN HÌNH ẢNH PHỔ BIẾN:
 // 
 // 🔸 UNSPLASH (miễn phí, chất lượng cao):

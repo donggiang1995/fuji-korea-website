@@ -7,6 +7,7 @@ import { Menu, Search, Globe, Zap } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
 import { SerialSearchDialog } from '@/components/serial-search-dialog';
 import { useQuery } from '@tanstack/react-query';
+import { FLAGS } from '@/config/images';
 import fujiLogo from '@assets/LOGO FUJI KOREA trang_1753265215012.png';
 
 export function Header() {
@@ -111,26 +112,28 @@ export function Header() {
               <Button
                 variant={language === 'ko' ? 'default' : 'ghost'}
                 size="sm"
-                className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+                className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all flex flex-col items-center space-y-1 ${
                   language === 'ko' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
                     : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
                 }`}
                 onClick={() => setLanguage('ko')}
               >
-                한국어
+                <span className="text-lg leading-none">{FLAGS.korea}</span>
+                <span className="text-xs">한국어</span>
               </Button>
               <Button
                 variant={language === 'en' ? 'default' : 'ghost'}
                 size="sm"
-                className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+                className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all flex flex-col items-center space-y-1 ${
                   language === 'en' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
                     : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
                 }`}
                 onClick={() => setLanguage('en')}
               >
-                English
+                <span className="text-lg leading-none">{FLAGS.usa}</span>
+                <span className="text-xs">English</span>
               </Button>
             </div>
 
