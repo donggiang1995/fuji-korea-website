@@ -8,95 +8,88 @@ export function Footer() {
 
   return (
     <footer className="bg-blue-600 text-white relative overflow-hidden">
-      {/* Industrial Background Patterns */}
-      <div className="absolute inset-0 tech-pattern opacity-10"></div>
-      
-      {/* Geometric Industrial Patterns */}
-      <div className="absolute inset-0 opacity-5">
-        {/* Circuit Board Pattern */}
-        <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="circuit" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <g fill="none" stroke="currentColor" strokeWidth="1">
-                <rect x="10" y="10" width="60" height="60" />
-                <circle cx="20" cy="20" r="3" fill="currentColor" />
-                <circle cx="60" cy="20" r="3" fill="currentColor" />
-                <circle cx="20" cy="60" r="3" fill="currentColor" />
-                <circle cx="60" cy="60" r="3" fill="currentColor" />
-                <line x1="20" y1="20" x2="60" y2="20" />
-                <line x1="20" y1="60" x2="60" y2="60" />
-                <line x1="20" y1="20" x2="20" y2="60" />
-                <line x1="60" y1="20" x2="60" y2="60" />
-                <line x1="40" y1="10" x2="40" y2="30" />
-                <line x1="40" y1="50" x2="40" y2="70" />
-                <line x1="10" y1="40" x2="30" y2="40" />
-                <line x1="50" y1="40" x2="70" y2="40" />
-              </g>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#circuit)" className="text-white" />
-        </svg>
-      </div>
-
-      {/* Industrial Grid Pattern */}
-      <div className="absolute inset-0 opacity-3">
-        <svg className="absolute bottom-0 right-0 w-96 h-96" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="industrialGrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <g fill="none" stroke="currentColor" strokeWidth="0.5">
-                <rect x="0" y="0" width="20" height="20" />
-                <rect x="5" y="5" width="10" height="10" />
-                <circle cx="10" cy="10" r="2" />
-              </g>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#industrialGrid)" className="text-white" />
-        </svg>
-      </div>
-
-      {/* Hexagonal Industrial Pattern */}
-      <div className="absolute top-0 right-0 w-64 h-64 opacity-8">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <defs>
-            <pattern id="hexagon" x="0" y="0" width="30" height="26" patternUnits="userSpaceOnUse">
-              <polygon points="15,2 27,9 27,22 15,29 3,22 3,9" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-300" />
-              <circle cx="15" cy="15.5" r="2" fill="currentColor" className="text-blue-400" opacity="0.3" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#hexagon)" />
-        </svg>
-      </div>
-
-      {/* Gear/Mechanical Elements */}
-      <div className="absolute bottom-0 left-0 w-48 h-48 opacity-6 transform rotate-12">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <g fill="none" stroke="currentColor" strokeWidth="1" className="text-blue-300">
-            <circle cx="60" cy="60" r="30" />
-            <circle cx="60" cy="60" r="20" />
-            <circle cx="60" cy="60" r="8" fill="currentColor" opacity="0.2" />
-            {/* Gear teeth */}
-            {Array.from({ length: 8 }, (_, i) => {
-              const angle = (i * 45) * Math.PI / 180;
-              const x1 = 60 + Math.cos(angle) * 25;
-              const y1 = 60 + Math.sin(angle) * 25;
-              const x2 = 60 + Math.cos(angle) * 35;
-              const y2 = 60 + Math.sin(angle) * 35;
-              return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="3" />;
-            })}
+      {/* World Map Background Pattern */}
+      <div className="absolute inset-0 opacity-8">
+        {/* Global Grid Lines - Latitude */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-200">
+            {/* Horizontal latitude lines */}
+            <line x1="0" y1="75" x2="400" y2="75" opacity="0.3" />
+            <line x1="0" y1="150" x2="400" y2="150" opacity="0.5" />
+            <line x1="0" y1="225" x2="400" y2="225" opacity="0.3" />
+            {/* Vertical longitude lines */}
+            <line x1="100" y1="0" x2="100" y2="300" opacity="0.3" />
+            <line x1="200" y1="0" x2="200" y2="300" opacity="0.5" />
+            <line x1="300" y1="0" x2="300" y2="300" opacity="0.3" />
           </g>
         </svg>
       </div>
 
-      {/* Industrial Bolts/Rivets Pattern */}
-      <div className="absolute top-1/4 left-1/4 w-32 h-32 opacity-4">
-        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <defs>
-            <pattern id="rivets" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="3" fill="none" stroke="currentColor" strokeWidth="1" className="text-blue-200" />
-              <circle cx="10" cy="10" r="1.5" fill="currentColor" className="text-blue-300" opacity="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#rivets)" />
+      {/* Continental Outline Patterns */}
+      <div className="absolute top-0 right-0 w-96 h-96 opacity-6">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <g fill="none" stroke="currentColor" strokeWidth="1" className="text-blue-300">
+            {/* Simplified Asia outline */}
+            <path d="M40,60 Q60,50 80,55 Q100,65 120,70 Q140,80 160,85 Q150,100 130,110 Q110,120 90,115 Q70,110 50,105 Q35,95 30,80 Q35,70 40,60Z" opacity="0.4" />
+            {/* Simplified Europe outline */}
+            <path d="M20,50 Q35,45 45,50 Q55,55 50,65 Q45,75 35,80 Q25,75 20,65 Q15,55 20,50Z" opacity="0.3" />
+            {/* Connection lines representing trade routes */}
+            <line x1="45" y1="65" x2="80" y2="70" strokeDasharray="2,2" opacity="0.2" />
+            <line x1="90" y1="90" x2="130" y2="85" strokeDasharray="2,2" opacity="0.2" />
+          </g>
+        </svg>
+      </div>
+
+      {/* Global Connection Network */}
+      <div className="absolute bottom-0 left-0 w-80 h-80 opacity-5">
+        <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <g fill="none" stroke="currentColor" className="text-blue-200">
+            {/* Network nodes representing global cities */}
+            <circle cx="30" cy="40" r="2" fill="currentColor" opacity="0.6" />
+            <circle cx="70" cy="30" r="2" fill="currentColor" opacity="0.6" />
+            <circle cx="110" cy="50" r="2" fill="currentColor" opacity="0.6" />
+            <circle cx="50" cy="80" r="2" fill="currentColor" opacity="0.6" />
+            <circle cx="90" cy="90" r="2" fill="currentColor" opacity="0.6" />
+            <circle cx="120" cy="110" r="2" fill="currentColor" opacity="0.6" />
+            {/* Connection lines */}
+            <line x1="30" y1="40" x2="70" y2="30" strokeWidth="0.5" opacity="0.3" />
+            <line x1="70" y1="30" x2="110" y2="50" strokeWidth="0.5" opacity="0.3" />
+            <line x1="50" y1="80" x2="90" y2="90" strokeWidth="0.5" opacity="0.3" />
+            <line x1="90" y1="90" x2="120" y2="110" strokeWidth="0.5" opacity="0.3" />
+            <line x1="30" y1="40" x2="50" y2="80" strokeWidth="0.5" opacity="0.3" />
+          </g>
+        </svg>
+      </div>
+
+      {/* Compass Rose Pattern */}
+      <div className="absolute top-1/3 right-1/4 w-24 h-24 opacity-4">
+        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <g fill="none" stroke="currentColor" strokeWidth="0.8" className="text-blue-300">
+            <circle cx="30" cy="30" r="25" />
+            <circle cx="30" cy="30" r="15" opacity="0.5" />
+            {/* Compass directions */}
+            <line x1="30" y1="5" x2="30" y2="15" strokeWidth="1.5" />
+            <line x1="55" y1="30" x2="45" y2="30" strokeWidth="1" />
+            <line x1="30" y1="55" x2="30" y2="45" strokeWidth="1" />
+            <line x1="5" y1="30" x2="15" y2="30" strokeWidth="1" />
+            {/* Decorative star points */}
+            <polygon points="30,8 32,15 30,12 28,15" fill="currentColor" opacity="0.3" />
+          </g>
+        </svg>
+      </div>
+
+      {/* International Time Zones */}
+      <div className="absolute bottom-1/4 right-1/3 w-32 h-20 opacity-3">
+        <svg viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <g fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-200">
+            {/* Vertical timezone lines */}
+            <line x1="20" y1="0" x2="20" y2="40" opacity="0.4" />
+            <line x1="40" y1="0" x2="40" y2="40" opacity="0.6" />
+            <line x1="60" y1="0" x2="60" y2="40" opacity="0.4" />
+            {/* Small time indicators */}
+            <text x="20" y="35" fontSize="4" fill="currentColor" opacity="0.3" textAnchor="middle">GMT</text>
+            <text x="40" y="35" fontSize="4" fill="currentColor" opacity="0.3" textAnchor="middle">UTC+9</text>
+          </g>
         </svg>
       </div>
 
