@@ -8,7 +8,7 @@ import { useLanguage } from '@/components/language-provider';
 import { SerialSearchDialog } from '@/components/serial-search-dialog';
 import { useQuery } from '@tanstack/react-query';
 import { KoreaFlag } from '@/components/flags/korea-flag';
-import { USAFlag } from '@/components/flags/usa-flag';
+import { UKFlag } from '@/components/flags/uk-flag';
 import fujiLogo from '@assets/LOGO FUJI KOREA trang_1753265215012.png';
 
 export function Header() {
@@ -121,7 +121,7 @@ export function Header() {
                 className="p-3 hover:opacity-80 transition-opacity"
                 onClick={() => setLanguage('en')}
               >
-                <USAFlag className="w-48 h-36" />
+                <UKFlag className="w-48 h-36" />
               </Button>
             </div>
 
