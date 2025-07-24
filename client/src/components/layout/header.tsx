@@ -108,22 +108,22 @@ export function Header() {
           {/* Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
 
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-4">
               <Button
                 variant="ghost"
-                size="sm"
-                className="p-0 hover:opacity-80 transition-opacity"
+                size="lg"
+                className="p-2 hover:opacity-80 transition-opacity"
                 onClick={() => setLanguage('ko')}
               >
-                <KoreaFlag className="w-16 h-12" />
+                <KoreaFlag className="w-32 h-24" />
               </Button>
               <Button
                 variant="ghost"
-                size="sm"
-                className="p-0 hover:opacity-80 transition-opacity"
+                size="lg"
+                className="p-2 hover:opacity-80 transition-opacity"
                 onClick={() => setLanguage('en')}
               >
-                <USAFlag className="w-16 h-12" />
+                <USAFlag className="w-32 h-24" />
               </Button>
             </div>
 
