@@ -35,6 +35,16 @@ export const WEBSITE_IMAGES = {
     achievements: "https://fuji-global-korea.com/wp-content/uploads/2024/05/hinh-1.jpg"
   },
 
+  // Manufacturing & Facilities (cho trang About)
+  facilities: {
+    factory: "https://images.unsplash.com/photo-1565088063775-376d37ac2d7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    machinery: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    production: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    quality: "https://images.unsplash.com/photo-1494412519520-f21682fa2bb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    research: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    team: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+  },
+
   // Fallback images (dự phòng khi hình chính không tải được)
   fallback: {
     default: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",

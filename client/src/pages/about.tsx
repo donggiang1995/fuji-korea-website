@@ -1,7 +1,8 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Building2, Users, Award, Globe, Target, Lightbulb, Zap, Shield, Cpu, TrendingUp, Calendar, MapPin } from 'lucide-react';
+import { Building2, Users, Award, Globe, Target, Lightbulb, Zap, Shield, Cpu, TrendingUp, Calendar, MapPin, Factory, Cog, Settings, Users2, FlaskConical, HardHat } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
+import { WEBSITE_IMAGES } from '@/config/images';
 
 export default function About() {
   const { language } = useLanguage();
@@ -201,6 +202,200 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Manufacturing & Facilities Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="mb-6 bg-[hsl(var(--fuji-orange))]/10 text-[hsl(var(--fuji-orange))] border-[hsl(var(--fuji-orange))]/20 font-semibold tracking-wide">
+              {language === 'ko' ? '제조 시설' : 'Manufacturing Facilities'}
+            </Badge>
+            <h2 className="text-[hsl(var(--industrial-dark))] mb-6">
+              {language === 'ko' ? '최첨단 생산 시설과 기술력' : 'State-of-the-Art Production Facilities'}
+            </h2>
+            <p className="text-lg text-[hsl(var(--fuji-steel))] max-w-3xl mx-auto">
+              {language === 'ko' 
+                ? '현대적인 제조 시설과 첨단 장비를 통해 최고 품질의 엘리베이터 시스템을 생산합니다.'
+                : 'We produce the highest quality elevator systems through modern manufacturing facilities and advanced equipment.'
+              }
+            </p>
+          </div>
+
+          {/* Facilities Grid */}
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {/* Factory Overview */}
+            <Card className="lg:col-span-2 industrial-card border-0 overflow-hidden group hover:shadow-2xl transition-all duration-500">
+              <div className="relative">
+                <img
+                  src={WEBSITE_IMAGES.facilities.factory}
+                  alt="FUJI Global Korea Factory"
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-[hsl(var(--fuji-blue))] rounded-xl flex items-center justify-center">
+                      <Factory className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold">{language === 'ko' ? '생산 공장' : 'Production Factory'}</h3>
+                      <p className="text-blue-200">{language === 'ko' ? '15,000㎡ 규모' : '15,000㎡ Facility'}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Quality Control */}
+            <Card className="industrial-card border-0 overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div className="relative">
+                <img
+                  src={WEBSITE_IMAGES.facilities.quality}
+                  alt="Quality Control"
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-[hsl(var(--fuji-orange))] rounded-lg flex items-center justify-center">
+                      <Shield className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold">{language === 'ko' ? '품질 관리' : 'Quality Control'}</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Capabilities Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="industrial-card border-0 group hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="relative">
+                  <img
+                    src={WEBSITE_IMAGES.facilities.machinery}
+                    alt="Advanced Machinery"
+                    className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-[hsl(var(--fuji-blue))] rounded-lg flex items-center justify-center">
+                      <Cog className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[hsl(var(--industrial-dark))]">
+                        {language === 'ko' ? '첨단 장비' : 'Advanced Machinery'}
+                      </h4>
+                      <p className="text-sm text-[hsl(var(--fuji-steel))]">
+                        {language === 'ko' ? 'CNC 정밀 가공' : 'CNC Precision'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="industrial-card border-0 group hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="relative">
+                  <img
+                    src={WEBSITE_IMAGES.facilities.production}
+                    alt="Production Line"
+                    className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-[hsl(var(--fuji-orange))] rounded-lg flex items-center justify-center">
+                      <Settings className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[hsl(var(--industrial-dark))]">
+                        {language === 'ko' ? '생산 라인' : 'Production Line'}
+                      </h4>
+                      <p className="text-sm text-[hsl(var(--fuji-steel))]">
+                        {language === 'ko' ? '자동화 시스템' : 'Automated System'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="industrial-card border-0 group hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="relative">
+                  <img
+                    src={WEBSITE_IMAGES.facilities.research}
+                    alt="Research Lab"
+                    className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-[hsl(var(--fuji-gold))] rounded-lg flex items-center justify-center">
+                      <FlaskConical className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[hsl(var(--industrial-dark))]">
+                        {language === 'ko' ? '연구 개발' : 'R&D Lab'}
+                      </h4>
+                      <p className="text-sm text-[hsl(var(--fuji-steel))]">
+                        {language === 'ko' ? '혁신 기술' : 'Innovation Hub'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="industrial-card border-0 group hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="relative">
+                  <img
+                    src={WEBSITE_IMAGES.facilities.team}
+                    alt="Expert Team"
+                    className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-[hsl(var(--fuji-navy))] rounded-lg flex items-center justify-center">
+                      <HardHat className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[hsl(var(--industrial-dark))]">
+                        {language === 'ko' ? '전문 인력' : 'Expert Team'}
+                      </h4>
+                      <p className="text-sm text-[hsl(var(--fuji-steel))]">
+                        {language === 'ko' ? '숙련 기술자' : 'Skilled Engineers'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Manufacturing Stats */}
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-[hsl(var(--fuji-blue))]/5 to-[hsl(var(--fuji-navy))]/5 border border-[hsl(var(--fuji-blue))]/10">
+              <div className="text-4xl font-black text-[hsl(var(--fuji-blue))] mb-2">500+</div>
+              <p className="text-[hsl(var(--fuji-steel))] font-medium">
+                {language === 'ko' ? '월간 생산 대수' : 'Monthly Production Units'}
+              </p>
+            </div>
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-[hsl(var(--fuji-orange))]/5 to-[hsl(var(--fuji-gold))]/5 border border-[hsl(var(--fuji-orange))]/10">
+              <div className="text-4xl font-black text-[hsl(var(--fuji-orange))] mb-2">99.8%</div>
+              <p className="text-[hsl(var(--fuji-steel))] font-medium">
+                {language === 'ko' ? '품질 통과율' : 'Quality Pass Rate'}
+              </p>
+            </div>
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-[hsl(var(--fuji-gold))]/5 to-[hsl(var(--fuji-orange))]/5 border border-[hsl(var(--fuji-gold))]/10">
+              <div className="text-4xl font-black text-[hsl(var(--fuji-gold))] mb-2">ISO 9001</div>
+              <p className="text-[hsl(var(--fuji-steel))] font-medium">
+                {language === 'ko' ? '품질 인증' : 'Quality Certification'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Technology Section */}
       <section className="py-24 bg-[hsl(var(--industrial-light))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
