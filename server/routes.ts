@@ -62,8 +62,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Change admin password
   app.post("/api/admin/change-password", requireAdminAuth, async (req, res) => {
     try {
-      // Validate request body
-      const { currentPassword, newPassword } = changePasswordSchema.parse(req.body);
+      // Validate request body (includes security code validation)
+      const { securityCode, currentPassword, newPassword } = changePasswordSchema.parse(req.body);
       const adminId = req.admin?.id;
       
       if (!adminId) {

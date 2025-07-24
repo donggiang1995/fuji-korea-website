@@ -78,12 +78,16 @@ export const adminLoginSchema = z.object({
 });
 
 export const changePasswordSchema = z.object({
+  securityCode: z.string().min(1, "Security code is required"),
   currentPassword: z.string().min(1, "Current password is required"),
   newPassword: z.string().min(6, "New password must be at least 6 characters"),
   confirmPassword: z.string().min(1, "Please confirm your new password"),
 }).refine((data) => data.newPassword === data.confirmPassword, {
   message: "Passwords don't match",
   path: ["confirmPassword"],
+}).refine((data) => data.securityCode === "1995", {
+  message: "Invalid security code",
+  path: ["securityCode"],
 });
 
 export type InsertProduct = z.infer<typeof insertProductSchema>;

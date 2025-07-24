@@ -8,7 +8,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { changePasswordSchema, type ChangePassword } from '@shared/schema';
-import { Lock, Eye, EyeOff, Shield } from 'lucide-react';
+import { Lock, Eye, EyeOff, Shield, Key } from 'lucide-react';
 
 interface ChangePasswordDialogProps {
   open: boolean;
@@ -27,6 +27,7 @@ export default function ChangePasswordDialog({ open, onOpenChange }: ChangePassw
   const form = useForm<ChangePassword>({
     resolver: zodResolver(changePasswordSchema),
     defaultValues: {
+      securityCode: '',
       currentPassword: '',
       newPassword: '',
       confirmPassword: ''
@@ -98,6 +99,29 @@ export default function ChangePasswordDialog({ open, onOpenChange }: ChangePassw
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            {/* Security Code */}
+            <FormField
+              control={form.control}
+              name="securityCode"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex items-center gap-2">
+                    <Key className="w-4 h-4" />
+                    Security Code
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      type="password"
+                      placeholder="Enter security code to proceed"
+                      {...field}
+                      className="text-center tracking-widest"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             {/* Current Password */}
             <FormField
               control={form.control}
@@ -200,8 +224,13 @@ export default function ChangePasswordDialog({ open, onOpenChange }: ChangePassw
             <Alert>
               <Lock className="h-4 w-4" />
               <AlertDescription>
-                For security, you will be automatically logged out after changing your password.
-                Please login again with your new credentials.
+                <strong>Security Requirements:</strong>
+                <br />
+                • Security code is required to authorize password changes
+                <br />
+                • You will be automatically logged out after changing your password
+                <br />
+                • Please login again with your new credentials
               </AlertDescription>
             </Alert>
 
