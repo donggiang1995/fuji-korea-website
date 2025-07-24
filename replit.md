@@ -71,6 +71,7 @@ Preferred communication style: Simple, everyday language.
   - Current password verification before allowing changes
   - Automatic session invalidation and logout after password change
   - Enhanced security validation with custom security code requirement
+  - Removed default credentials display from admin login page for enhanced security
 
 ## System Architecture
 

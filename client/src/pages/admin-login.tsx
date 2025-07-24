@@ -148,17 +148,6 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
               </Button>
             </form>
           </Form>
-
-          <div className="pt-4 border-t border-slate-200">
-            <div className="text-center text-xs text-slate-500">
-              <p className="mb-2">Default credentials for testing:</p>
-              <div className="bg-slate-50 p-3 rounded-lg text-left">
-                <p><strong>Username:</strong> admin</p>
-                <p><strong>Password:</strong> admin123</p>
-              </div>
-              <p className="mt-2 text-red-500">⚠️ Change password after first login</p>
-            </div>
-          </div>
         </CardContent>
       </Card>
     </div>
