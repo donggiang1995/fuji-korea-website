@@ -7,11 +7,12 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { Badge } from '@/components/ui/badge';
-import { Plus, Edit, Trash2, Hash, MapPin, Calendar, Activity } from 'lucide-react';
+import { Plus, Edit, Trash2, Hash, MapPin, Calendar, Activity, FileSpreadsheet } from 'lucide-react';
 import { useAdminQuery, useAdminMutation } from '@/hooks/useAdmin';
 import { useToast } from '@/hooks/use-toast';
 import { insertSerialNumberSchema, type SerialNumber, type Product } from '@shared/schema';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import ExcelIntegration from './ExcelIntegration';
 
 type SerialForm = {
   serialNumber: string;
@@ -46,6 +47,7 @@ export default function AdminSerialManager() {
   const { toast } = useToast();
   const [editingSerial, setEditingSerial] = useState<SerialNumber | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [showExcelIntegration, setShowExcelIntegration] = useState(false);
 
   const { data: serialNumbers, isLoading } = useAdminQuery('/api/admin/serial-numbers');
   const { data: products } = useAdminQuery('/api/admin/products');
@@ -146,6 +148,38 @@ export default function AdminSerialManager() {
     return product?.name || 'Unknown Product';
   };
 
+  // Handle Excel data import
+  const handleExcelImport = async (excelData: any[]) => {
+    try {
+      // Batch create serial numbers from Excel data
+      for (const row of excelData) {
+        const serialData = {
+          serialNumber: row.serialNumber,
+          productId: row.productId,
+          location: row.location,
+          status: row.status,
+          installationDate: row.installationDate || null
+        };
+        
+        await createMutation.mutateAsync(serialData);
+      }
+      
+      toast({
+        title: "Excel import completed",
+        description: `Successfully imported ${excelData.length} serial numbers from Excel.`,
+      });
+      
+      // Refresh data
+      window.location.reload();
+    } catch (error) {
+      toast({
+        title: "Import failed",
+        description: "Some records failed to import. Please check the data format.",
+        variant: "destructive",
+      });
+    }
+  };
+
   if (isLoading) {
     return <div className="text-center py-8">Loading serial numbers...</div>;
   }
@@ -157,11 +191,29 @@ export default function AdminSerialManager() {
           <h2 className="text-2xl font-bold text-slate-900">Serial Number Management</h2>
           <p className="text-slate-500">Manage elevator serial numbers and tracking</p>
         </div>
-        <Button onClick={startNewSerial} className="bg-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--fuji-navy))]">
-          <Plus className="w-4 h-4 mr-2" />
-          Add Serial Number
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            variant="outline"
+            onClick={() => setShowExcelIntegration(!showExcelIntegration)}
+            className="border-[hsl(var(--fuji-blue))] text-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--fuji-blue))]/10"
+          >
+            <FileSpreadsheet className="w-4 h-4 mr-2" />
+            Excel Integration
+          </Button>
+          <Button onClick={startNewSerial} className="bg-[hsl(var(--fuji-blue))] hover:bg-[hsl(var(--fuji-navy))]">
+            <Plus className="w-4 h-4 mr-2" />
+            Add Serial Number
+          </Button>
+        </div>
       </div>
+
+      {/* Excel Integration Panel */}
+      {showExcelIntegration && (
+        <ExcelIntegration 
+          onDataImported={handleExcelImport}
+          currentData={serialNumbers || []}
+        />
+      )}
 
       {/* Serial Form Dialog */}
       <Dialog open={showForm} onOpenChange={setShowForm}>
