@@ -249,7 +249,7 @@ export function SerialSearchDialog({
 
                 {/* Product Image - Small corner image */}
                 <div className="absolute bottom-4 right-4">
-                  <div className="w-20 h-20 rounded-lg overflow-hidden border-2 border-white shadow-lg">
+                  <div className="w-40 h-40 rounded-lg overflow-hidden border-2 border-white shadow-lg">
                     <img 
                       src={result.product.image} 
                       alt={result.product.name}
