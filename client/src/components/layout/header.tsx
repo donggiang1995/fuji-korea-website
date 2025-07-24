@@ -108,33 +108,30 @@ export function Header() {
           {/* Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
 
-            <div className="flex items-center space-x-1 rounded-xl p-1 border border-blue-700 bg-[#1e40af00]">
-              <Globe className="w-4 h-4 text-blue-200 ml-2" />
+            <div className="flex items-center space-x-2 rounded-xl p-2 border border-blue-700/30 bg-white/10 backdrop-blur-sm">
               <Button
-                variant={language === 'ko' ? 'default' : 'ghost'}
+                variant="ghost"
                 size="sm"
-                className={`px-4 py-3 text-sm font-semibold rounded-lg transition-all flex flex-col items-center justify-center space-y-2 ${
+                className={`p-2 rounded-lg transition-all border-2 ${
                   language === 'ko' 
-                    ? 'bg-white text-[hsl(var(--fuji-blue))]' 
-                    : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
+                    ? 'border-white bg-white/20 shadow-lg' 
+                    : 'border-transparent hover:border-white/30 hover:bg-white/10'
                 }`}
                 onClick={() => setLanguage('ko')}
               >
-                <KoreaFlag className="w-8 h-6 rounded-sm border border-gray-200 shadow-sm" />
-                <span className="text-xs">한국어</span>
+                <KoreaFlag className="w-8 h-6 rounded border border-gray-300 shadow-sm" />
               </Button>
               <Button
-                variant={language === 'en' ? 'default' : 'ghost'}
+                variant="ghost"
                 size="sm"
-                className={`px-4 py-3 text-sm font-semibold rounded-lg transition-all flex flex-col items-center justify-center space-y-2 ${
+                className={`p-2 rounded-lg transition-all border-2 ${
                   language === 'en' 
-                    ? 'bg-white text-[hsl(var(--fuji-blue))]' 
-                    : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
+                    ? 'border-white bg-white/20 shadow-lg' 
+                    : 'border-transparent hover:border-white/30 hover:bg-white/10'
                 }`}
                 onClick={() => setLanguage('en')}
               >
-                <USAFlag className="w-8 h-6 rounded-sm border border-gray-200 shadow-sm" />
-                <span className="text-xs">English</span>
+                <USAFlag className="w-8 h-6 rounded border border-gray-300 shadow-sm" />
               </Button>
             </div>
 
