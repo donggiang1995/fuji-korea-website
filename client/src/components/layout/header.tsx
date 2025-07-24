@@ -113,27 +113,27 @@ export function Header() {
               <Button
                 variant={language === 'ko' ? 'default' : 'ghost'}
                 size="sm"
-                className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all flex flex-col items-center space-y-1 ${
+                className={`px-4 py-3 text-sm font-semibold rounded-lg transition-all flex flex-col items-center justify-center space-y-2 ${
                   language === 'ko' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
                     : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
                 }`}
                 onClick={() => setLanguage('ko')}
               >
-                <KoreaFlag className="w-6 h-4 rounded-sm border border-gray-200 shadow-sm" />
+                <KoreaFlag className="w-8 h-6 rounded-sm border border-gray-200 shadow-sm" />
                 <span className="text-xs">한국어</span>
               </Button>
               <Button
                 variant={language === 'en' ? 'default' : 'ghost'}
                 size="sm"
-                className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all flex flex-col items-center space-y-1 ${
+                className={`px-4 py-3 text-sm font-semibold rounded-lg transition-all flex flex-col items-center justify-center space-y-2 ${
                   language === 'en' 
                     ? 'bg-white text-[hsl(var(--fuji-blue))]' 
                     : 'text-blue-200 hover:text-blue-100 hover:bg-blue-700'
                 }`}
                 onClick={() => setLanguage('en')}
               >
-                <USAFlag className="w-6 h-4 rounded-sm border border-gray-200 shadow-sm" />
+                <USAFlag className="w-8 h-6 rounded-sm border border-gray-200 shadow-sm" />
                 <span className="text-xs">English</span>
               </Button>
             </div>
