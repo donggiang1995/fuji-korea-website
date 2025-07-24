@@ -7,7 +7,8 @@ import { Menu, Search, Globe, Zap } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
 import { SerialSearchDialog } from '@/components/serial-search-dialog';
 import { useQuery } from '@tanstack/react-query';
-import { FLAGS } from '@/config/images';
+import { KoreaFlag } from '@/components/flags/korea-flag';
+import { USAFlag } from '@/components/flags/usa-flag';
 import fujiLogo from '@assets/LOGO FUJI KOREA trang_1753265215012.png';
 
 export function Header() {
@@ -119,9 +120,7 @@ export function Header() {
                 }`}
                 onClick={() => setLanguage('ko')}
               >
-                <div className="w-4 h-3 bg-gradient-to-r from-red-500 to-blue-500 rounded-sm border border-gray-300 flex items-center justify-center">
-                  <span className="text-xs font-bold text-white">KR</span>
-                </div>
+                <KoreaFlag className="w-6 h-4 rounded-sm border border-gray-200 shadow-sm" />
                 <span className="text-xs">한국어</span>
               </Button>
               <Button
@@ -134,9 +133,7 @@ export function Header() {
                 }`}
                 onClick={() => setLanguage('en')}
               >
-                <div className="w-4 h-3 bg-gradient-to-r from-red-500 via-white to-blue-600 rounded-sm border border-gray-300 flex items-center justify-center">
-                  <span className="text-xs font-bold text-blue-600">US</span>
-                </div>
+                <USAFlag className="w-6 h-4 rounded-sm border border-gray-200 shadow-sm" />
                 <span className="text-xs">English</span>
               </Button>
             </div>
