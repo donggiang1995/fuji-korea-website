@@ -119,7 +119,9 @@ export function Header() {
                 }`}
                 onClick={() => setLanguage('ko')}
               >
-                <span className="text-lg leading-none">{FLAGS.korea}</span>
+                <div className="w-4 h-3 bg-gradient-to-r from-red-500 to-blue-500 rounded-sm border border-gray-300 flex items-center justify-center">
+                  <span className="text-xs font-bold text-white">KR</span>
+                </div>
                 <span className="text-xs">한국어</span>
               </Button>
               <Button
@@ -132,7 +134,9 @@ export function Header() {
                 }`}
                 onClick={() => setLanguage('en')}
               >
-                <span className="text-lg leading-none">{FLAGS.usa}</span>
+                <div className="w-4 h-3 bg-gradient-to-r from-red-500 via-white to-blue-600 rounded-sm border border-gray-300 flex items-center justify-center">
+                  <span className="text-xs font-bold text-blue-600">US</span>
+                </div>
                 <span className="text-xs">English</span>
               </Button>
             </div>
