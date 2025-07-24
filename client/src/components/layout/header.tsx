@@ -108,30 +108,22 @@ export function Header() {
           {/* Language Switcher and Mobile Menu */}
           <div className="flex items-center space-x-4">
 
-            <div className="flex items-center space-x-2 rounded-xl p-2 border border-blue-700/30 bg-white/10 backdrop-blur-sm">
+            <div className="flex items-center space-x-3">
               <Button
                 variant="ghost"
                 size="sm"
-                className={`p-2 rounded-lg transition-all border-2 ${
-                  language === 'ko' 
-                    ? 'border-white bg-white/20 shadow-lg' 
-                    : 'border-transparent hover:border-white/30 hover:bg-white/10'
-                }`}
+                className="p-0 hover:opacity-80 transition-opacity"
                 onClick={() => setLanguage('ko')}
               >
-                <KoreaFlag className="w-8 h-6 rounded border border-gray-300 shadow-sm" />
+                <KoreaFlag className="w-16 h-12" />
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
-                className={`p-2 rounded-lg transition-all border-2 ${
-                  language === 'en' 
-                    ? 'border-white bg-white/20 shadow-lg' 
-                    : 'border-transparent hover:border-white/30 hover:bg-white/10'
-                }`}
+                className="p-0 hover:opacity-80 transition-opacity"
                 onClick={() => setLanguage('en')}
               >
-                <USAFlag className="w-8 h-6 rounded border border-gray-300 shadow-sm" />
+                <USAFlag className="w-16 h-12" />
               </Button>
             </div>
 
