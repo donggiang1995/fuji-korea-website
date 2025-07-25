@@ -345,7 +345,7 @@ export default function About() {
               <CardContent className="p-6">
                 <div className="relative">
                   <img
-                    src={WEBSITE_IMAGES.facilities.research}
+                    src="https://plus.unsplash.com/premium_photo-1740363268539-cd9093c3b5d1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Research Lab"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
