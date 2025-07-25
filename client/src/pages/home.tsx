@@ -337,7 +337,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src={WEBSITE_IMAGES.gallery.testing}
+                  src="https://plus.unsplash.com/premium_photo-1661490182399-62c7de4a07b7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Quality Testing"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
