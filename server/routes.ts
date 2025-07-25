@@ -293,32 +293,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
         try {
           console.log('Processing row:', row);
           
-          // Validate each row
-          const serialData = insertSerialNumberSchema.parse({
-            serialNumber: row.serialNumber,
+          // Prepare and validate each row
+          const serialData = {
+            serialNumber: String(row.serialNumber || '').trim(),
             productId: parseInt(row.productId) || 1,
-            location: row.location || '',
-            status: row.status || 'active',
-            installationDate: row.installationDate ? String(row.installationDate) : null
-          });
+            location: String(row.location || '').trim(),
+            status: String(row.status || 'active').trim(),
+            installationDate: row.installationDate ? String(row.installationDate).trim() : null
+          };
           
-          console.log('Validated serialData:', serialData);
+          // Validate with schema
+          const validatedData = insertSerialNumberSchema.parse(serialData);
+          
+          console.log('Validated data:', validatedData);
 
           // Check if serial number already exists
           const existing = await storage.getSerialNumbers();
-          const duplicate = existing.find(s => s.serialNumber === serialData.serialNumber);
+          const duplicate = existing.find(s => s.serialNumber === validatedData.serialNumber);
           
           if (duplicate) {
             errors.push({
               row: i + 1,
-              serialNumber: serialData.serialNumber,
+              serialNumber: validatedData.serialNumber,
               error: "Serial number already exists"
             });
             continue;
           }
 
           // Create serial number
-          const created = await storage.createSerialNumber(serialData);
+          const created = await storage.createSerialNumber(validatedData);
           results.push(created);
           
         } catch (error) {
