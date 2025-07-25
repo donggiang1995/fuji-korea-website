@@ -177,7 +177,7 @@ export function SerialSearchDialog({
                       <Calendar className="w-4 h-4" />
                       <span>
                         {language === 'ko' ? '설치일: ' : 'Installation Date: '}
-                        {new Date(result.serialNumber.installationDate).toLocaleDateString(language === 'ko' ? 'ko-KR' : 'en-US')}
+                        {result.serialNumber.installationDate}
                       </span>
                     </div>
                   )}
