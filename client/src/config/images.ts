@@ -24,7 +24,7 @@ export const WEBSITE_IMAGES = {
   // 3 hình ảnh showcase các tính năng chính
   features: {
     safety:
-      "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      "https://plus.unsplash.com/premium_photo-1663099311380-e3e0a548edaf?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     // Chủ đề: An toàn, bảo mật thang máy
 
     smartTech:
