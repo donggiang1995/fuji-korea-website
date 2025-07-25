@@ -23,6 +23,102 @@ import AdminSerialManager from '@/components/admin/AdminSerialManager';
 import AdminInquiries from '@/components/admin/AdminInquiries';
 import ChangePasswordDialog from '@/components/admin/ChangePasswordDialog';
 
+// Product List Manager Component
+function ProductListManager() {
+  const { data: products, isLoading } = useAdminQuery('/api/admin/products');
+  const { data: serialNumbers } = useAdminQuery('/api/admin/serial-numbers');
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[hsl(var(--fuji-blue))] mx-auto"></div>
+          <p className="mt-2 text-slate-600">Loading products...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Group serial numbers by product ID
+  const serialsByProduct = serialNumbers?.reduce((acc: Record<number, any[]>, serial: any) => {
+    if (serial.productId) {
+      if (!acc[serial.productId]) acc[serial.productId] = [];
+      acc[serial.productId].push(serial);
+    }
+    return acc;
+  }, {}) || {};
+
+  return (
+    <Card className="industrial-card">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Settings className="w-5 h-5" />
+          Product ID & Name Management
+        </CardTitle>
+        <p className="text-slate-600">Danh sách tất cả sản phẩm với ID và tên tương ứng</p>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          {products?.map((product: any) => (
+            <div 
+              key={product.id} 
+              className="border border-slate-200 rounded-lg p-4 hover:bg-slate-50 transition-colors"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <Badge className="bg-[hsl(var(--fuji-blue))]/10 text-[hsl(var(--fuji-blue))] border-0 text-lg px-3 py-1">
+                    ID: {product.id}
+                  </Badge>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900">{product.name}</h3>
+                    <p className="text-sm text-slate-600">{product.model} - {product.category}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm text-slate-500">Serial Numbers:</p>
+                  <Badge variant="outline" className="text-sm">
+                    {serialsByProduct[product.id]?.length || 0} items
+                  </Badge>
+                </div>
+              </div>
+              
+              {/* Show associated serial numbers */}
+              {serialsByProduct[product.id] && serialsByProduct[product.id].length > 0 && (
+                <div className="mt-3 pt-3 border-t border-slate-100">
+                  <p className="text-sm font-medium text-slate-700 mb-2">Associated Serial Numbers:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {serialsByProduct[product.id].slice(0, 5).map((serial: any) => (
+                      <Badge 
+                        key={serial.id} 
+                        variant="secondary" 
+                        className="text-xs"
+                      >
+                        {serial.serialNumber}
+                      </Badge>
+                    ))}
+                    {serialsByProduct[product.id].length > 5 && (
+                      <Badge variant="secondary" className="text-xs">
+                        +{serialsByProduct[product.id].length - 5} more
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+          
+          {!products || products.length === 0 && (
+            <div className="text-center py-8 text-slate-500">
+              <Package className="w-12 h-12 mx-auto mb-3 opacity-50" />
+              <p>No products found</p>
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 interface AdminDashboardProps {
   onLogout: () => void;
 }
@@ -144,7 +240,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 <div>
                   <p className="text-sm font-medium text-slate-600">Active Systems</p>
                   <p className="text-3xl font-bold text-slate-900">
-                    {serialNumbers?.filter(s => s.status === 'active')?.length || 0}
+                    {serialNumbers?.filter((s: any) => s.status === 'active')?.length || 0}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
@@ -157,10 +253,14 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
         {/* Management Tabs */}
         <Tabs defaultValue="products" className="space-y-6">
-          <TabsList className="grid w-full max-w-md grid-cols-3">
+          <TabsList className="grid w-full max-w-2xl grid-cols-4">
             <TabsTrigger value="products" className="flex items-center gap-2">
               <Package className="w-4 h-4" />
               Products
+            </TabsTrigger>
+            <TabsTrigger value="product-list" className="flex items-center gap-2">
+              <Settings className="w-4 h-4" />
+              Product List
             </TabsTrigger>
             <TabsTrigger value="serials" className="flex items-center gap-2">
               <Hash className="w-4 h-4" />
@@ -174,6 +274,10 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
           <TabsContent value="products">
             <AdminProductManager />
+          </TabsContent>
+
+          <TabsContent value="product-list">
+            <ProductListManager />
           </TabsContent>
 
           <TabsContent value="serials">
