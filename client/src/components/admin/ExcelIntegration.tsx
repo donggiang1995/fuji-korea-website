@@ -49,8 +49,8 @@ export default function ExcelIntegration({ onDataImported, currentData }: ExcelI
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('adminSession')}`,
         },
+        credentials: 'include', // Include cookies for authentication
         body: JSON.stringify({ data: excelData })
       });
 

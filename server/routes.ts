@@ -291,14 +291,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       for (let i = 0; i < data.length; i++) {
         const row = data[i];
         try {
+          console.log('Processing row:', row);
+          
           // Validate each row
           const serialData = insertSerialNumberSchema.parse({
             serialNumber: row.serialNumber,
-            productId: row.productId || 1,
+            productId: parseInt(row.productId) || 1,
             location: row.location || '',
             status: row.status || 'active',
             installationDate: row.installationDate || null
           });
+          
+          console.log('Validated serialData:', serialData);
 
           // Check if serial number already exists
           const existing = await storage.getSerialNumbers();
@@ -318,9 +322,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           results.push(created);
           
         } catch (error) {
+          console.error('Error processing row:', error);
           errors.push({
             row: i + 1,
-            serialNumber: row.serialNumber,
+            serialNumber: row.serialNumber || 'unknown',
             error: error instanceof Error ? error.message : "Invalid data format"
           });
         }

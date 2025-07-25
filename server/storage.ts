@@ -46,17 +46,29 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
+    // Ensure features is a proper array
+    const productData = {
+      ...insertProduct,
+      features: Array.isArray(insertProduct.features) ? insertProduct.features : []
+    };
+    
     const [product] = await db
       .insert(products)
-      .values(insertProduct)
+      .values(productData)
       .returning();
     return product;
   }
 
   async updateProduct(id: number, data: InsertProduct): Promise<Product | null> {
+    // Ensure features is a proper array
+    const productData = {
+      ...data,
+      features: Array.isArray(data.features) ? data.features : []
+    };
+    
     const [product] = await db
       .update(products)
-      .set(data)
+      .set(productData)
       .where(eq(products.id, id))
       .returning();
     return product || null;
