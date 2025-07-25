@@ -361,7 +361,7 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src={WEBSITE_IMAGES.gallery.maintenance}
+                  src="https://images.unsplash.com/photo-1566096650255-98ba2641071e?q=80&w=726&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Maintenance Service"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
