@@ -274,8 +274,8 @@ export default function Home() {
               // Hình ảnh công nghệ thang máy cho từng feature
               const featureImages = [
                 "https://plus.unsplash.com/premium_photo-1663099311380-e3e0a548edaf?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",       // Safety Systems - ĐÃ THAY ĐỔI
-                "https://plus.unsplash.com/premium_photo-1661277672864-6a57b90858d0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",    // Smart Technology - ĐÃ THAY ĐỔI
-                WEBSITE_IMAGES.features.highPerformance // High Performance
+                WEBSITE_IMAGES.features.smartTech,    // Smart Technology - GIỮ NGUYÊN
+                "https://plus.unsplash.com/premium_photo-1661277672864-6a57b90858d0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"     // High Performance - ĐÃ THAY ĐỔI
               ];
               
               return (
