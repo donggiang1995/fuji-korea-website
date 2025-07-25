@@ -41,7 +41,7 @@ export const WEBSITE_IMAGES = {
   // 4 hình ảnh minh họa quy trình sản xuất
   gallery: {
     manufacturing:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      "https://plus.unsplash.com/premium_photo-1663099311380-e3e0a548edaf?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     // Chủ đề: Quy trình sản xuất, nhà máy
 
     testing:
