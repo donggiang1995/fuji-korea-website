@@ -77,7 +77,7 @@ export default function Products() {
               <Cpu className="w-4 h-4" />
               {t.products.control}
             </TabsTrigger>
-            <TabsTrigger value="traction" className="flex items-center gap-2">
+            <TabsTrigger value="traction" className="flex items-center gap-2 bg-[#1787ff]">
               <Settings className="w-4 h-4" />
               {t.products.traction}
             </TabsTrigger>
