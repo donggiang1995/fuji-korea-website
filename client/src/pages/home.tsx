@@ -213,7 +213,7 @@ export default function Home() {
               <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
                 <div className="relative overflow-hidden h-72 flex-shrink-0">
                   <img
-                    src={WEBSITE_IMAGES.products.fjkSeries}
+                    src="https://images.unsplash.com/photo-1532707898156-d21be2c005c1?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Advanced Elevator Technology"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
