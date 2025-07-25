@@ -78,7 +78,7 @@ export default function Contact() {
                   <Phone className="text-[hsl(var(--fuji-blue))] mt-1 mr-4 h-5 w-5 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-slate-900">{t.contact.phone}</h3>
-                    <p className="text-slate-600">+82-2-xxxx-xxxx</p>
+                    <p className="text-slate-600">+82 10 6488 6706</p>
                   </div>
                 </div>
                 
