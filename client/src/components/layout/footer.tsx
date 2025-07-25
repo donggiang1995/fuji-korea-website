@@ -24,7 +24,6 @@ export function Footer() {
           </g>
         </svg>
       </div>
-
       {/* Continental Outline Patterns */}
       <div className="absolute top-0 right-0 w-96 h-96 opacity-6">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -39,7 +38,6 @@ export function Footer() {
           </g>
         </svg>
       </div>
-
       {/* Global Connection Network */}
       <div className="absolute bottom-0 left-0 w-80 h-80 opacity-5">
         <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -60,7 +58,6 @@ export function Footer() {
           </g>
         </svg>
       </div>
-
       {/* Compass Rose Pattern */}
       <div className="absolute top-1/3 right-1/4 w-24 h-24 opacity-4">
         <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -77,7 +74,6 @@ export function Footer() {
           </g>
         </svg>
       </div>
-
       {/* International Time Zones */}
       <div className="absolute bottom-1/4 right-1/3 w-32 h-20 opacity-3">
         <svg viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -92,7 +88,6 @@ export function Footer() {
           </g>
         </svg>
       </div>
-
       <div className="relative">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -120,7 +115,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-[hsl(var(--fuji-orange))]" />
-                  <span className="text-sm text-blue-200">+82-2-xxxx-xxxx</span>
+                  <span className="text-sm text-blue-200">+82 10 6488 6706</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4 text-[hsl(var(--fuji-orange))]" />
