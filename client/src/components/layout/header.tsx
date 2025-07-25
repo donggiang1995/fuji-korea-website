@@ -66,7 +66,7 @@ export function Header() {
               <div className="text-2xl font-black tracking-tight">
                 <span className="text-blue-100 text-[20px]">Elevator</span>
                 <span className="ml-1 bg-[#b7b7b700] text-[#1a66ff] text-[14px]">Techonology</span>
-                <div className="text-xs font-semibold text-blue-200 tracking-widest mono mt-0.5">CHANGE FOR BETTER</div>
+                <div className="text-xs font-semibold text-blue-200 tracking-widest mono mt-0.5">LIFT THE FUTURE</div>
               </div>
             </div>
           </Link>
