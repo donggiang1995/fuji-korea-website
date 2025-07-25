@@ -48,7 +48,7 @@ export const translations = {
       message: '메시지',
       send: '메시지 보내기',
       required: '필수',
-      addressText: '서울특별시 광진구 광나루로'
+      addressText: '서울특별시 광진구 광나루로 361, 파라곤 102동 1901호'
     },
     footer: {
       description: '일본의 선진 기술과 우수한 장비를 기반으로 최고 품질의 엘리베이터 시스템을 제공하는 전문 기업입니다.',
@@ -106,7 +106,7 @@ export const translations = {
       message: 'Message',
       send: 'Send Message',
       required: 'Required',
-      addressText: 'Gwangnauru-ro, Gwangjin-gu, Seoul'
+      addressText: '1901, 102-dong, Paragon, 361 Gwangnaru-ro, Gwangjin-gu, Seoul'
     },
     footer: {
       description: 'A professional company providing the highest quality elevator systems based on Japan\'s advanced technology and excellent equipment.',
