@@ -151,7 +151,7 @@ export default function Home() {
               <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
                 <div className="relative overflow-hidden h-72 flex-shrink-0">
                   <img
-                    src={WEBSITE_IMAGES.products.fje1}
+                    src="https://plus.unsplash.com/premium_photo-1688678097510-38711f21668b?q=80&w=897&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Smart Elevator System FJE1"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
