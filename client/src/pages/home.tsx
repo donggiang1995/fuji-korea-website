@@ -243,7 +243,16 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/products">
-              <Button size="lg" className="text-white hover:bg-blue-600 font-bold px-8 py-4 text-lg group bg-[#1a64f8]">
+              <Button 
+                size="lg" 
+                className="text-white hover:bg-blue-600 font-bold px-8 py-4 text-lg group bg-[#1a64f8]"
+                onClick={() => {
+                  // Scroll to top when navigating to products page
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
                 {language === 'ko' ? '모든 제품 보기' : 'View All Products'}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
