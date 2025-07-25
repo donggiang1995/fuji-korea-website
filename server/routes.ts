@@ -299,7 +299,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             productId: parseInt(row.productId) || 1,
             location: row.location || '',
             status: row.status || 'active',
-            installationDate: row.installationDate || null
+            installationDate: row.installationDate ? String(row.installationDate) : null
           });
           
           console.log('Validated serialData:', serialData);

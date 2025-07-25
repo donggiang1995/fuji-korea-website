@@ -120,12 +120,29 @@ export default function ExcelIntegration({ onDataImported, currentData }: ExcelI
 
     setSyncStatus('syncing');
     try {
-      // Thử download file từ URL
-      const response = await fetch(excelUrl);
-      if (!response.ok) throw new Error('Failed to fetch Excel file');
+      let data: ArrayBuffer;
+      
+      // Nếu URL là Google Sheets, convert sang export format
+      let processedUrl = excelUrl;
+      if (excelUrl.includes('docs.google.com/spreadsheets')) {
+        processedUrl = excelUrl.replace('/edit#gid=', '/export?format=xlsx&gid=').replace('/edit', '/export?format=xlsx');
+      }
+      
+      // Thử download file từ URL với CORS handling
+      const response = await fetch(processedUrl, {
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, */*'
+        }
+      });
+      
+      if (!response.ok) {
+        // Nếu CORS bị block, suggest alternative
+        throw new Error(`CORS blocked or file inaccessible. Try: 1) Make file public 2) Use direct download link 3) Upload file instead`);
+      }
       
       const blob = await response.blob();
-      const data = await blob.arrayBuffer();
+      data = await blob.arrayBuffer();
       
       // Parse Excel data
       const workbook = XLSX.read(data);
@@ -146,7 +163,7 @@ export default function ExcelIntegration({ onDataImported, currentData }: ExcelI
       setSyncStatus('error');
       toast({
         title: "Sync failed",
-        description: "Unable to sync with Excel file. Please check the URL and permissions.",
+        description: error instanceof Error ? error.message : "Unable to sync with Excel file. Please ensure the URL is publicly accessible and supports CORS.",
         variant: "destructive",
       });
     }
@@ -157,9 +174,7 @@ export default function ExcelIntegration({ onDataImported, currentData }: ExcelI
     try {
       // Fetch export data from API
       const response = await fetch('/api/admin/excel/export-serials', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminSession')}`,
-        },
+        credentials: 'include',
       });
 
       if (!response.ok) throw new Error('Export failed');

@@ -46,10 +46,11 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
-    // Ensure features is a proper array
+    // Ensure features is a proper array and convert specifications to proper format
     const productData = {
       ...insertProduct,
-      features: Array.isArray(insertProduct.features) ? insertProduct.features : []
+      features: Array.isArray(insertProduct.features) ? insertProduct.features : [],
+      specifications: typeof insertProduct.specifications === 'object' ? insertProduct.specifications : {}
     };
     
     const [product] = await db
@@ -60,10 +61,11 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateProduct(id: number, data: InsertProduct): Promise<Product | null> {
-    // Ensure features is a proper array
+    // Ensure features is a proper array and convert specifications to proper format
     const productData = {
       ...data,
-      features: Array.isArray(data.features) ? data.features : []
+      features: Array.isArray(data.features) ? data.features : [],
+      specifications: typeof data.specifications === 'object' ? data.specifications : {}
     };
     
     const [product] = await db
