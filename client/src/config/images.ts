@@ -64,8 +64,8 @@ export const WEBSITE_IMAGES = {
     fje1: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
     // Sản phẩm FJE1 Control Cabinet - ĐÃ SỬA URL CHO ĐÚNG
 
-    fje2: "https://images.unsplash.com/photo-1555861496-0666c8981751?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    // Sản phẩm FJE2 Advanced System - ĐÃ CẬP NHẬT URL MỚI
+    fje2: "https://images.unsplash.com/photo-1645500863298-859a4df01554?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    // Sản phẩm FJE2 Advanced System - ĐÃ CẬP NHẬT HÌNH MỚI THEO YÊU CẦU
 
     fjkSeries:
       "https://fuji-global-korea.com/wp-content/uploads/2024/05/lift-3.jpg",
