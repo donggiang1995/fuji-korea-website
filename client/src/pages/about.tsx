@@ -231,7 +231,7 @@ export default function About() {
             <Card className="lg:col-span-2 industrial-card border-0 overflow-hidden group hover:shadow-2xl transition-all duration-500">
               <div className="relative">
                 <img
-                  src={WEBSITE_IMAGES.facilities.factory}
+                  src="https://images.unsplash.com/photo-1565891741441-64926e441838?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="FUJI Global Korea Factory"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
