@@ -325,7 +325,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src={WEBSITE_IMAGES.gallery.manufacturing}
+                  src="https://plus.unsplash.com/premium_photo-1661933050836-3f9e3d7eda61?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Manufacturing Process"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
