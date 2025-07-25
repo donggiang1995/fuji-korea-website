@@ -316,7 +316,7 @@ export default function About() {
               <CardContent className="p-6">
                 <div className="relative">
                   <img
-                    src={WEBSITE_IMAGES.facilities.production}
+                    src="https://images.unsplash.com/photo-1675602488453-c3897a475af5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Production Line"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
