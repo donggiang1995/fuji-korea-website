@@ -164,7 +164,7 @@ export default function Home() {
                 </div>
                 <div className="p-6 text-white flex flex-col flex-grow">
                   <h3 className="text-xl font-bold mb-3 h-14 flex items-center text-[#1a66ff]">
-                    {language === 'ko' ? 'FJE1 스마트 엘리베이터' : 'FJE1 Smart Elevator'}
+                    {language === 'ko' ? 'IoT 원격 제어' : 'IoT Remote Control'}
                   </h3>
                   <p className="mb-6 flex-grow text-[#686969] text-[15px]">
                     {language === 'ko' ? 'IoT 기반 원격 제어 시스템으로 실시간 모니터링 및 제어가 가능한 차세대 엘리베이터' : 'Next-generation elevator with IoT-based remote control system for real-time monitoring and control'}
@@ -195,7 +195,7 @@ export default function Home() {
                 </div>
                 <div className="p-6 text-white flex flex-col flex-grow">
                   <h3 className="text-xl font-bold mb-3 h-14 flex items-center text-[#1a66ff]">
-                    {language === 'ko' ? 'FJE2 스마트 엘리베이터' : 'FJE2 Smart Elevator'}
+                    {language === 'ko' ? '프리미엄 그룹 제어' : 'Premium Group Control'}
                   </h3>
                   <p className="mb-6 flex-grow text-[#686969] text-[15px]">
                     {language === 'ko' ? '고급 그룹 제어 시스템으로 최적화된 운행 효율성과 승객 편의성을 제공하는 프리미엄 솔루션' : 'Premium solution providing optimized operation efficiency and passenger convenience with advanced group control system'}
@@ -226,7 +226,7 @@ export default function Home() {
                 </div>
                 <div className="p-6 text-white flex flex-col flex-grow">
                   <h3 className="text-xl font-bold mb-3 h-14 flex items-center text-[#1a66ff]">
-                    {language === 'ko' ? 'FJK 시리즈 엘리베이터' : 'FJK Series Elevator'}
+                    {language === 'ko' ? '첨단 견인 기술' : 'Advanced Traction Tech'}
                   </h3>
                   <p className="mb-6 flex-grow text-[15px] text-[#686969]">
                     {language === 'ko' ? '고효율 견인 기계와 첨단 제어 알고리즘을 적용한 차세대 엘리베이터 기술의 집약체' : 'Culmination of next-generation elevator technology with high-efficiency traction machines and advanced control algorithms'}
