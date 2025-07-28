@@ -1,8 +1,8 @@
 // FUJI Global Korea - Database Export Script
 // Export PostgreSQL data để migrate sang MySQL trên Spaceship
 
-const { db } = require('./server/db');
-const fs = require('fs');
+import { db } from './server/db.js';
+import fs from 'fs';
 
 async function exportDatabase() {
   try {
@@ -105,6 +105,6 @@ function mysql_escape(str) {
 }
 
 // Run export
-exportDatabase();
+exportDatabase().catch(console.error);
 
-module.exports = { exportDatabase };
+export { exportDatabase };
