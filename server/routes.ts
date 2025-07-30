@@ -10,7 +10,7 @@ declare global {
     }
   }
 }
-import { storage } from "./storage";
+import { storage } from "./storage-mysql";
 import { adminLoginSchema, insertProductSchema, insertSerialNumberSchema, changePasswordSchema } from "@shared/schema";
 import { AdminAuthService, requireAdminAuth } from "./adminAuth";
 

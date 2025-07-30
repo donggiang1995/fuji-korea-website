@@ -14,11 +14,9 @@ type SerialNumber = typeof serialNumbers.$inferSelect;
 type InsertSerialNumber = typeof serialNumbers.$inferInsert;
 type AdminUser = typeof adminUsers.$inferSelect;
 type InsertAdminUser = typeof adminUsers.$inferInsert;
+
 import { db } from "./db";
 import { eq, ilike, desc } from "drizzle-orm";
-
-// modify the interface with any CRUD methods
-// you might need
 
 export interface IStorage {
   getProducts(): Promise<Product[]>;
@@ -48,39 +46,32 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
-    // Ensure features is a proper array and convert specifications to proper format
     const productData = {
       ...insertProduct,
       features: Array.isArray(insertProduct.features) ? insertProduct.features : [],
       specifications: typeof insertProduct.specifications === 'object' ? insertProduct.specifications : {}
     };
     
-    const [product] = await db
-      .insert(products)
-      .values(productData)
-      .returning();
+    const result = await db.insert(products).values(productData);
+    const [product] = await db.select().from(products).where(eq(products.id, result.insertId));
     return product;
   }
 
   async updateProduct(id: number, data: InsertProduct): Promise<Product | null> {
-    // Ensure features is a proper array and convert specifications to proper format
     const productData = {
       ...data,
       features: Array.isArray(data.features) ? data.features : [],
       specifications: typeof data.specifications === 'object' ? data.specifications : {}
     };
     
-    const [product] = await db
-      .update(products)
-      .set(productData)
-      .where(eq(products.id, id))
-      .returning();
+    await db.update(products).set(productData).where(eq(products.id, id));
+    const [product] = await db.select().from(products).where(eq(products.id, id));
     return product || null;
   }
 
   async deleteProduct(id: number): Promise<boolean> {
     const result = await db.delete(products).where(eq(products.id, id));
-    return result.rowCount ? result.rowCount > 0 : false;
+    return result.affectedRows > 0;
   }
 
   async getInquiries(): Promise<Inquiry[]> {
@@ -88,70 +79,68 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createInquiry(insertInquiry: InsertInquiry): Promise<Inquiry> {
-    const [inquiry] = await db
-      .insert(inquiries)
-      .values({
-        ...insertInquiry,
-        createdAt: new Date().toISOString()
-      })
-      .returning();
+    const inquiryData = {
+      ...insertInquiry,
+      createdAt: new Date()
+    };
+    
+    const result = await db.insert(inquiries).values(inquiryData);
+    const [inquiry] = await db.select().from(inquiries).where(eq(inquiries.id, result.insertId));
     return inquiry;
   }
 
   async searchSerialNumber(serialNumber: string): Promise<{ serialNumber: SerialNumber; product: Product } | undefined> {
-    const result = await db
-      .select({
-        serialNumber: serialNumbers,
-        product: products
-      })
+    const results = await db
+      .select()
       .from(serialNumbers)
       .innerJoin(products, eq(serialNumbers.productId, products.id))
-      .where(ilike(serialNumbers.serialNumber, `%${serialNumber}%`))
-      .limit(1);
-    
-    return result[0] || undefined;
+      .where(eq(serialNumbers.serialNumber, serialNumber));
+
+    if (results.length > 0) {
+      return {
+        serialNumber: results[0].serial_numbers,
+        product: results[0].products
+      };
+    }
+    return undefined;
   }
 
-  // Serial number management
   async getSerialNumbers(): Promise<SerialNumber[]> {
-    return db.select().from(serialNumbers).orderBy(desc(serialNumbers.createdAt));
+    return await db.select().from(serialNumbers).orderBy(desc(serialNumbers.createdAt));
   }
 
   async createSerialNumber(data: InsertSerialNumber): Promise<SerialNumber> {
     const serialData = {
       ...data,
-      createdAt: new Date().toISOString()
+      createdAt: new Date()
     };
-    const [serialNumber] = await db.insert(serialNumbers).values(serialData).returning();
-    return serialNumber;
+    
+    const result = await db.insert(serialNumbers).values(serialData);
+    const [serial] = await db.select().from(serialNumbers).where(eq(serialNumbers.id, result.insertId));
+    return serial;
   }
 
   async updateSerialNumber(id: number, data: InsertSerialNumber): Promise<SerialNumber | null> {
-    const [serialNumber] = await db
-      .update(serialNumbers)
-      .set(data)
-      .where(eq(serialNumbers.id, id))
-      .returning();
-    return serialNumber || null;
+    await db.update(serialNumbers).set(data).where(eq(serialNumbers.id, id));
+    const [serial] = await db.select().from(serialNumbers).where(eq(serialNumbers.id, id));
+    return serial || null;
   }
 
   async deleteSerialNumber(id: number): Promise<boolean> {
     const result = await db.delete(serialNumbers).where(eq(serialNumbers.id, id));
-    return result.rowCount ? result.rowCount > 0 : false;
+    return result.affectedRows > 0;
   }
 
   async getAdminUser(id: number): Promise<AdminUser | undefined> {
-    const [admin] = await db.select().from(adminUsers).where(eq(adminUsers.id, id));
-    return admin || undefined;
+    const [user] = await db.select().from(adminUsers).where(eq(adminUsers.id, id));
+    return user || undefined;
   }
 
   async updateAdminPassword(id: number, hashedPassword: string): Promise<boolean> {
-    const result = await db
-      .update(adminUsers)
-      .set({ password: hashedPassword })
-      .where(eq(adminUsers.id, id));
-    return result.rowCount ? result.rowCount > 0 : false;
+    const result = await db.update(adminUsers).set({ password: hashedPassword }).where(eq(adminUsers.id, id));
+    return result.affectedRows > 0;
   }
 }
 
+// Export storage instance
 export const storage = new DatabaseStorage();
