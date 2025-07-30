@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUJI Global Korea - Elevator Technology</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; padding: 1rem 0; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; transition: opacity 0.3s; }
+        nav a:hover { opacity: 0.8; }
+        .hero { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 4rem 0; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: #1e3a8a; }
+        .hero p { font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto; }
+        .products { padding: 4rem 0; }
+        .products h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #1e3a8a; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .product-card { background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card h3 { color: #1e3a8a; margin-bottom: 1rem; }
+        .product-card p { color: #64748b; margin-bottom: 1rem; }
+        .features { list-style: none; }
+        .features li { padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0; }
+        .contact { background: #1e3a8a; color: white; padding: 4rem 0; text-align: center; }
+        .contact h2 { margin-bottom: 2rem; }
+        .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .contact-item h3 { margin-bottom: 1rem; }
+        footer { background: #0f172a; color: white; padding: 2rem 0; text-align: center; }
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 1rem; }
+            nav ul { justify-content: center; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">FUJI GLOBAL KOREA</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Elevator Technology Excellence</h1>
+            <p>Leading provider of advanced elevator control systems and traction machines. Delivering safety, efficiency, and innovation for modern buildings.</p>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>FCA-9000 Series Control Panel</h3>
+                    <p>Advanced elevator control panel system ensuring safe and efficient operation.</p>
+                    <ul class="features">
+                        <li>220V / 50Hz Operation</li>
+                        <li>1000kg Capacity</li>
+                        <li>Advanced Control System</li>
+                        <li>Energy Efficient</li>
+                        <li>Safety Certified</li>
+                    </ul>
+                </div>
+                
+                <div class="product-card">
+                    <h3>TM-800S Traction Machine</h3>
+                    <p>High-efficiency traction machine providing quiet and stable elevator operation.</p>
+                    <ul class="features">
+                        <li>7.5kW Power</li>
+                        <li>1.75m/s Speed</li>
+                        <li>800kg Load Capacity</li>
+                        <li>High Efficiency</li>
+                        <li>Low Noise Operation</li>
+                        <li>Compact Design</li>
+                    </ul>
+                </div>
+                
+                <div class="product-card">
+                    <h3>SCP-2024 Smart Control Panel</h3>
+                    <p>Smart control panel with IoT connectivity and remote monitoring capabilities.</p>
+                    <ul class="features">
+                        <li>7-inch LCD Display</li>
+                        <li>IoT Ready Connectivity</li>
+                        <li>Up to 32 Floors</li>
+                        <li>Smart Monitoring</li>
+                        <li>Remote Diagnostics</li>
+                        <li>Energy Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Get in touch for elevator solutions and technical support</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Head Office</h3>
+                    <p>Seoul, South Korea<br>
+                    Business Registration: 123-45-67890</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Technical Support</h3>
+                    <p>24/7 Support Available<br>
+                    Maintenance & Installation</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                    Saturday: 9:00 AM - 1:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FUJI Global Korea. All rights reserved. | Elevator Technology Excellence</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Test API endpoints
+        async function testAPI() {
+            try {
+                const response = await fetch('/api/health.php');
+                const data = await response.json();
+                console.log('API Health:', data);
+            } catch (error) {
+                console.log('API not available, using static content');
+            }
+        }
+        
+        testAPI();
+    </script>
+</body>
+</html>
