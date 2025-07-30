@@ -1,25 +1,35 @@
-# UPDATE CONFIG CHO DATABASE MỚI
+# FIX PORT CONFIGURATION
 
-## DATABASE INFO MỚI:
-- Database: `wodpqkkqov_fuji_korea_db`
-- Username: `wodpqkkqov_fuji_admin`
+## VẤN ĐỀ: App chạy port 5000, không phải 3000
 
-## ENVIRONMENT VARIABLE MỚI:
+## FIX:
+
+### CÁCH 1: UPDATE HTML REDIRECT
+**File Manager** → **public_html** → **index.html**:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FUJI Global Korea</title>
+    <meta http-equiv="refresh" content="0; url=http://localhost:5000">
+    <script>window.location.href = "http://localhost:5000";</script>
+</head>
+<body>
+    <h1>Loading FUJI Global Korea...</h1>
+    <p>If not redirected, <a href="http://localhost:5000">click here</a></p>
+</body>
+</html>
 ```
-DATABASE_URL=mysql://wodpqkkqov_fuji_admin:YOUR_PASSWORD@localhost:3306/wodpqkkqov_fuji_korea_db
-```
 
-## CÁCH UPDATE:
+### CÁCH 2: FIX NODE.JS APP PORT
+**Node.js Apps** → **Environment Variables**:
+- **PORT**: `5000` (thay vì 3000)
+- **HOST**: `0.0.0.0`
+- **Restart** app
 
-### 1. NODE.JS APP
-cPanel → Node.js Apps → Your App → Environment Variables:
-- Update `DATABASE_URL` với thông tin mới
+### CÁCH 3: SPACESHIP INTERNAL URL
+Thử URL:
+- `http://server37.shared.spaceship.host:5000`
+- Hoặc internal Spaceship URL
 
-### 2. IMPORT DATABASE
-- phpMyAdmin → Select `wodpqkkqov_fuji_korea_db`
-- Import `mysql-import-data.sql`
-- Should work now với database name đúng
-
-### 3. TEST CONNECTION
-- Website sẽ connect được database
-- Serial search sẽ work với data đã import
+**Update HTML redirect với port 5000 sẽ work ngay!**

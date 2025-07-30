@@ -1,40 +1,31 @@
-# FIX DATABASE - BƯỚC 3 ĐÚNG
+# FIX NODE.JS APP CONFIGURATION
 
-## LỖI: Access denied to database 'fuji_korea_db'
-## NGUYÊN NHÂN: Chưa tạo database đúng cách
+## VẤN ĐỀ: localhost:3000 không accessible từ ngoài
 
-## CÁCH SỬA:
+## SOLUTION 1: UPDATE NODE.JS APP CONFIG
+1. **Node.js Apps** → Click vào app
+2. **Environment Variables** → Add/Update:
+   - **HOST**: `0.0.0.0` (bind to all interfaces)
+   - **PORT**: `3000`
+3. **Restart** app
 
-### 1. TẠO DATABASE TRONG cPANEL
-1. cPanel → **MySQL Databases**
-2. **Create New Database**
-3. Tên database: `fuji_korea_db`
-4. **Create Database**
-5. Database thật sẽ có tên: `cpses_wo6a6h1r37_fuji_korea_db`
-
-### 2. TẠO USER CHO DATABASE  
-1. **MySQL Users** → **Add New User**
-2. Username: `fuji_admin`
-3. Password: tạo password mạnh (lưu lại)
-4. **Create User**
-5. Username thật sẽ có tên: `cpses_wo6a6h1r37_fuji_admin`
-
-### 3. ASSIGN USER TO DATABASE
-1. **Add User To Database**
-2. User: `cpses_wo6a6h1r37_fuji_admin`
-3. Database: `cpses_wo6a6h1r37_fuji_korea_db`
-4. **ALL PRIVILEGES** → **Make Changes**
-
-### 4. IMPORT DATABASE
-1. **phpMyAdmin**
-2. **Select database**: `cpses_wo6a6h1r37_fuji_korea_db`
-3. **Import** → chọn file `mysql-import-data.sql`
-4. **Go**
-
-### 5. UPDATE ENVIRONMENT VARIABLE
-Node.js Apps → Environment Variables → Update:
-```
-DATABASE_URL=mysql://cpses_wo6a6h1r37_fuji_admin:YOUR_PASSWORD@localhost:3306/cpses_wo6a6h1r37_fuji_korea_db
+## SOLUTION 2: CHECK APP STARTUP FILE
+App startup file phải bind đúng:
+```javascript
+app.listen(3000, '0.0.0.0', () => {
+  console.log('Server running on 0.0.0.0:3000');
+});
 ```
 
-Thay YOUR_PASSWORD bằng password user vừa tạo.
+## SOLUTION 3: CHANGE APPLICATION URL
+**Node.js Apps** → **Application URL**:
+- Thay từ `fujiglobal.kr/` thành `fujiglobal.kr`
+- **Save** và **Restart**
+
+## SOLUTION 4: DIRECT ACCESS VIA SPACESHIP
+Thử access trực tiếp:
+- `http://server37.shared.spaceship.host:3000`
+- Hoặc IP + port từ Spaceship
+
+## TEST:
+Sau khi fix, HTML redirect sẽ work với URL đúng.
