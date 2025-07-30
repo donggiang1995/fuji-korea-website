@@ -31,12 +31,14 @@ jobs:
           server: ${{ secrets.SPACESHIP_HOST }}
           username: ${{ secrets.SPACESHIP_USERNAME }}
           password: ${{ secrets.SPACESHIP_PASSWORD }}
-          protocol: ftp
+          protocol: ftps
           port: 21
-          timeout: 600000
+          security: loose
+          timeout: 300000
+          retry: 3
           log-level: verbose
-          local-dir: ./
-          server-dir: /public_html/
+          local-dir: ./dist/
+          server-dir: /
           exclude: |
             .git*
             .github*
