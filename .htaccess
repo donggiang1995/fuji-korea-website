@@ -1,0 +1,15 @@
+DirectoryIndex fujiglobal.php index.php index.html
+RewriteEngine On
+RewriteBase /
+
+# Force no caching for PHP files
+<FilesMatch "\.(php)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>
+
+# Redirect everything to fujiglobal.php if other files don't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ fujiglobal.php [L,QSA]
