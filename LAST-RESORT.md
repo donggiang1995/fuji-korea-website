@@ -1,43 +1,77 @@
-# LAST RESORT - EMERGENCY WEBSITE DEPLOYMENT
+# 🚨 LAST RESORT - WEBSITE DEPLOYMENT GUIDE
 
-## VẤN ĐỀ:
-Auto-deployment không work, manual upload có vấn đề
+## CURRENT STATUS: 
+- Files created but returning 404 (not uploaded to correct location)
+- Directory listing still showing instead of website
+- All file paths return "404 Not Found"
 
-## GIẢI PHÁP CUỐI CÙNG:
+## ROOT CAUSE CONFIRMED:
+**Files not uploaded to public_html directory or wrong permissions**
 
-### FILE SẴN SÀNG:
-`emergency-website.html` - Complete Korean business website
+## STEP-BY-STEP SOLUTION:
 
-### MANUAL UPLOAD VIA CPANEL:
-1. **Spaceship cPanel** → **File Manager**
-2. **Navigate** to `public_html/` 
-3. **Delete** existing files (if any)
-4. **Upload** `emergency-website.html`
-5. **Rename** to `index.html`
+### 1. LOGIN TO SPACESHIP CPANEL
+- Go to: https://spaceship.host
+- Login with your account credentials
+- Find "File Manager" icon
 
-### NẾU VẪN KHÔNG WORK:
+### 2. NAVIGATE TO CORRECT DIRECTORY
+- Click "File Manager" 
+- **IMPORTANT:** Navigate to `/public_html/` folder
+- **NOT** the root directory `/`
+- **NOT** `/home/username/`
+- Must be: `/public_html/`
 
-#### A. DNS ISSUE:
-- Domain `fujiglobal.kr` chưa point đúng server
-- Contact GoDaddy support để check DNS settings
-- Nameservers có thể chưa propagate
+### 3. CLEAN DIRECTORY
+- Select ALL files in public_html (if any)
+- Click "Delete" 
+- Confirm deletion
+- Directory should be empty
 
-#### B. SUBDOMAIN TEST:
-- Thử `www.fujiglobal.kr` 
-- Hoặc test direct server IP
+### 4. UPLOAD FILES (ONE AT A TIME)
+Upload these files in order:
 
-#### C. HOSTING ISSUE:
-- Contact Spaceship support
-- Có thể PHP/HTML serving bị disable
-- Check hosting account status
+**File 1: fuji-test-simple.html**
+- Click "Upload" 
+- Select `fuji-test-simple.html`
+- Wait for upload complete
+- Verify file appears in public_html list
 
-### FILE CONTENT:
-- ✅ Full Korean business website
-- ✅ Professional design với gradients
-- ✅ Product showcase (FCA-9000, TM-800S, SCP-2024)
-- ✅ Complete specifications
-- ✅ Contact information
-- ✅ Responsive mobile design
-- ✅ Ready for business use
+**File 2: .htaccess**
+- Upload `htaccess-force-index` 
+- Rename to `.htaccess` (with dot)
+- Set permissions: 644
 
-**Upload emergency-website.html as index.html - đây là final solution!**
+**File 3: index.html**
+- Upload `fuji-test-simple.html` again
+- Rename to `index.html`
+- Set permissions: 644
+
+### 5. VERIFY UPLOAD
+- Check file list in public_html
+- Should see: `.htaccess`, `index.html`, `fuji-test-simple.html`
+- File sizes should be > 0 bytes
+
+### 6. TEST WEBSITE
+Wait 2-3 minutes, then test:
+- http://fujiglobal.kr
+- Should show: "✅ FUJI Global Korea Website Successfully Deployed!"
+
+## BACKUP METHOD - IF CPANEL UPLOAD FAILS:
+
+### FTP UPLOAD:
+- Host: server37.shared.spaceship.host
+- Username: [your spaceship username]
+- Password: [your spaceship password]
+- Directory: /public_html/
+
+### ALTERNATIVE - CONTACT SPACESHIP SUPPORT:
+Email: support@spaceship.host
+Request: "Please help upload website files to public_html directory"
+
+## FILES TO UPLOAD (ALREADY CREATED):
+- ✅ fuji-test-simple.html (2KB simple test)
+- ✅ htaccess-force-index (server config)
+- ✅ fujiglobal-final.html (full website backup)
+
+**The issue is NOT the files - they are perfect. Issue is upload location or process.**
