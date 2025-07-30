@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUJI Global Korea - 엘리베이터 전문업체</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Malgun Gothic', sans-serif; 
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 900px;
+            padding: 50px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .success { 
+            background: #27ae60; 
+            padding: 20px; 
+            border-radius: 15px; 
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .tagline { font-size: 1.4rem; opacity: 0.9; margin-bottom: 40px; }
+        .info {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .info h3 { color: #f39c12; margin-bottom: 15px; }
+        .contact { 
+            background: rgba(52, 152, 219, 0.2); 
+            border: 2px solid rgba(52, 152, 219, 0.5);
+        }
+        .footer {
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 30px 20px; }
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success">
+            🚀 FUJI Global Korea Website Successfully Deployed!
+        </div>
+        
+        <h1>FUJI Global Korea</h1>
+        <p class="tagline">엘리베이터 기술의 글로벌 리더</p>
+        
+        <div class="info">
+            <h3>🏢 회사 소개</h3>
+            <p>FUJI Global Korea는 엘리베이터 기술 분야의 선도 기업으로, 혁신적인 제어 시스템과 견인 기계를 개발 및 제조하는 글로벌 기업입니다.</p>
+        </div>
+        
+        <div class="info">
+            <h3>⚙️ 주요 제품 라인업</h3>
+            <p><strong>FCA-9000 시리즈:</strong> 차세대 엘리베이터 제어 시스템<br>
+            <strong>TM-800S 견인기:</strong> 고효율 무기어 견인 기계<br>
+            <strong>SCP-2024 제어패널:</strong> 스마트 통합 제어 시스템</p>
+        </div>
+        
+        <div class="info">
+            <h3>🌟 기술 혁신</h3>
+            <p>IoT 기반 스마트 엘리베이터 시스템, 에너지 효율 극대화 기술, 
+            안전성 강화 시스템으로 업계를 선도하고 있습니다.</p>
+        </div>
+        
+        <div class="info contact">
+            <h3>📞 연락처 정보</h3>
+            <p><strong>본사:</strong> 서울특별시 강남구<br>
+            <strong>전화:</strong> 02-XXXX-XXXX<br>
+            <strong>이메일:</strong> info@fujiglobal.kr<br>
+            <strong>웹사이트:</strong> fujiglobal.kr</p>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 FUJI Global Korea. All Rights Reserved.</p>
+            <p>Website deployed successfully at 2025. 7. 30. 오후 10:19:42</p>
+        </div>
+    </div>
+    
+    <script>
+        console.log('🚀 FUJI Global Korea website loaded successfully!');
+        console.log('Deployment timestamp:', new Date().toISOString());
+        
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const infoDivs = document.querySelectorAll('.info');
+            infoDivs.forEach((div, index) => {
+                div.style.animationDelay = (index * 0.2) + 's';
+                div.style.animation = 'slideInUp 0.6s ease-out forwards';
+            });
+        });
+        
+        // CSS animation for slide in effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
