@@ -1,28 +1,50 @@
-<?php
-// PHP redirect to ensure index works
-?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>FUJI Global Korea - 엘리베이터 기술</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUJI Global Korea - 엘리베이터 기술 전문업체</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
-        .container { max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 15px; }
-        h1 { color: #fff; text-align: center; font-size: 2.5rem; margin-bottom: 20px; }
-        .status { background: #27ae60; padding: 15px; border-radius: 10px; text-align: center; margin-bottom: 30px; }
-        .info { background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin: 20px 0; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(45deg, #3498db, #2980b9); 
+            color: white; 
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 50px auto; 
+            background: rgba(255,255,255,0.1); 
+            padding: 40px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px);
+        }
+        .success { 
+            background: #27ae60; 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-bottom: 30px; 
+            font-size: 1.2rem; 
+            font-weight: bold;
+        }
+        h1 { font-size: 3rem; margin-bottom: 20px; }
+        .info { 
+            background: rgba(255,255,255,0.2); 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin: 20px 0; 
+            text-align: left;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="status">
-            ✅ Website Successfully Deployed - <?php echo date('Y-m-d H:i:s'); ?>
-        </div>
-        
+        <div class="success">✅ FUJI Global Korea Website Successfully Deployed!</div>
         <h1>FUJI Global Korea</h1>
-        <p style="text-align: center; font-size: 1.2rem;">엘리베이터 기술의 선두주자</p>
+        <p style="font-size: 1.3rem; margin-bottom: 30px;">엘리베이터 기술의 선두주자</p>
         
         <div class="info">
             <h3>🏢 회사 소개</h3>
@@ -43,9 +65,15 @@
             <strong>이메일:</strong> info@fujiglobal.kr</p>
         </div>
         
-        <div style="text-align: center; margin-top: 30px; opacity: 0.8;">
+        <div style="margin-top: 30px; opacity: 0.8;">
             <p>&copy; 2025 FUJI Global Korea. All Rights Reserved.</p>
+            <p>Website Status: Live and Working | 7/30/2025, 10:07:20 PM</p>
         </div>
     </div>
+    
+    <script>
+        console.log('FUJI Global Korea website loaded successfully!');
+        console.log('Deployment time:', new Date().toISOString());
+    </script>
 </body>
 </html>
