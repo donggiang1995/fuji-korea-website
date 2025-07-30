@@ -1,66 +1,27 @@
-# 🌐 DNS PROPAGATION - GIẢI THÍCH VÀ GIẢI PHÁP
+# BƯỚC 2: UPDATE APPLICATION STARTUP FILE
 
-## 🎯 TẠI SAO 404 ERROR?
+## VỊ TRÍ: SPACESHIP CPANEL
 
-### DNS Propagation Process:
-- **Bạn vừa add DNS** → Domain chưa point đến server
-- **Thời gian**: 2-72 giờ để hoàn toàn
-- **Kết quả**: Website chưa accessible via domain
+### CÁCH TRUY CẬP:
+1. **Login** Spaceship cPanel
+2. **Software** section → **Node.js Apps**
+3. **Click vào app** `fujiglobal.kr/` trong danh sách
 
-### Tình trạng hiện tại:
-- ✅ Domain đã mua (GoDaddy)
-- ✅ DNS records đã add
-- ⏳ **DNS đang propagate** (chưa xong)
-- ❌ Domain chưa point đến Spaceship server
+### TRONG APP SETTINGS:
+1. **Application Startup File** field
+2. **Hiện tại**: `server/index.js`
+3. **Đổi thành**: `dist/index.js`
+4. **Save** changes
+5. **Restart** app
 
-## 🚀 GIẢI PHÁP TẠM THỜI
+### TẠI SAO CẦN ĐỔI:
+- Deploy đã build code vào `dist/index.js`
+- App đang chạy `server/index.js` (development version)
+- Cần chạy `dist/index.js` (production version)
 
-### 1. Dùng Spaceship Temporary URL
-```
-http://your-username.spaceship.host
-```
-**Tìm temporary URL:**
-- Spaceship cPanel → **Subdomains** 
-- Hoặc tìm "Preview URL" / "Temporary URL"
+### SAU KHI ĐỔI:
+- App sẽ restart
+- Status: Running
+- Ready for domain setup
 
-### 2. Test DNS Propagation
-**Online tools:**
-- https://dnschecker.org
-- Nhập domain → check A record
-- Xem có point đến Spaceship IP chưa
-
-### 3. Tiếp tục Deploy với Temporary URL
-- Upload database scripts qua temporary URL
-- Setup database hoàn chỉnh  
-- Test website functionality
-- Domain sẽ work sau khi DNS propagate
-
-## 📋 TIẾP TUC DEPLOY
-
-### Bước hiện tại: Database Setup
-**Sử dụng temporary URL:**
-1. `http://username.spaceship.host/simple-database-setup.php`
-2. Hoặc làm manual theo `manual-database-guide.php`
-3. Complete database setup
-4. Continue với Node.js configuration
-
-### DNS sẽ work trong 24-48h:
-- Domain tự động point đến website
-- Không cần làm gì thêm
-- Website sẽ accessible via domain
-
-## ⏰ TIMELINE
-
-**Hiện tại (0-2h):** DNS đang propagate → 404 error
-**2-24h:** Một số ISP có thể access được
-**24-72h:** DNS propagate hoàn toàn → domain works
-
-## 🎯 ACTION PLAN
-
-1. **Ngay bây giờ:** Tìm Spaceship temporary URL
-2. **Setup database** qua temporary URL  
-3. **Complete deployment** 
-4. **Wait for DNS** propagate
-5. **Domain tự động work** sau 24-48h
-
-**Normal process - không có gì sai! Chúng ta tiếp tục với temporary URL.**
+**Tìm field "Application Startup File" trong Node.js Apps settings!**
