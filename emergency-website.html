@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUJI Global Korea</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #1e3a8a;
+        }
+        h1 { 
+            color: #1e3a8a; 
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            color: #64748b;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        .status { 
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border: 2px solid #28a745;
+            color: #155724; 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin: 25px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        .company-info { 
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #1e3a8a;
+            padding: 25px; 
+            border-radius: 10px; 
+            margin: 25px 0;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .product { 
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px; 
+            border-radius: 12px; 
+            border-left: 5px solid #1e3a8a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .product h3 {
+            color: #1e3a8a;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        .contact { 
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            margin: 30px 0;
+            text-align: center;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .specs {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+        .footer {
+            text-align: center;
+            color: #6c757d;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+            font-size: 0.9rem;
+        }
+        .emergency-notice {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2rem; }
+            .products { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏢 FUJI GLOBAL KOREA</h1>
+            <div class="subtitle">엘리베이터 기술의 선두주자</div>
+        </div>
+        
+        <div class="status">
+            ✅ 웹사이트가 성공적으로 배포되었습니다!<br>
+            <small>배포 시간: <script>document.write(new Date().toLocaleString('ko-KR'));</script></small>
+        </div>
+
+        <div class="company-info">
+            <h3>🚀 회사 개요</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div>
+                    <strong>사업 분야:</strong><br>엘리베이터 기술 솔루션
+                </div>
+                <div>
+                    <strong>본사 위치:</strong><br>대한민국 서울특별시
+                </div>
+                <div>
+                    <strong>전문 분야:</strong><br>제어 시스템, 견인기, 스마트 기술
+                </div>
+            </div>
+        </div>
+
+        <h2 style="color: #1e3a8a; text-align: center; margin: 40px 0 30px 0;">🎛️ 주요 제품</h2>
+        
+        <div class="products">
+            <div class="product">
+                <h3>FCA-9000 시리즈 제어판</h3>
+                <p><strong>고급 엘리베이터 제어 시스템</strong></p>
+                <div class="specs">
+                    <div class="spec-row">
+                        <span><strong>전압:</strong></span>
+                        <span>220V</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>주파수:</strong></span>
+                        <span>50Hz</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>용량:</strong></span>
+                        <span>1000kg</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>특징:</strong></span>
+                        <span>첨단 제어, 에너지 효율, 안전 인증</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product">
+                <h3>TM-800S 견인기</h3>
+                <p><strong>고효율 견인 시스템</strong></p>
+                <div class="specs">
+                    <div class="spec-row">
+                        <span><strong>출력:</strong></span>
+                        <span>7.5kW</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>속도:</strong></span>
+                        <span>1.75m/s</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>하중:</strong></span>
+                        <span>800kg</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>특징:</strong></span>
+                        <span>고효율, 저소음, 컴팩트 설계</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product">
+                <h3>SCP-2024 스마트 제어판</h3>
+                <p><strong>IoT 지원 스마트 제어 시스템</strong></p>
+                <div class="specs">
+                    <div class="spec-row">
+                        <span><strong>디스플레이:</strong></span>
+                        <span>7인치 LCD</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>연결성:</strong></span>
+                        <span>IoT 지원</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>층수:</strong></span>
+                        <span>최대 32층</span>
+                    </div>
+                    <div class="spec-row">
+                        <span><strong>기능:</strong></span>
+                        <span>스마트 모니터링, 원격 진단</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h3>📞 연락처 정보</h3>
+            <p style="margin: 15px 0;">엘리베이터 솔루션 및 기술 지원을 위해 연락주세요</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>📍 본사</h4>
+                    <p>대한민국 서울특별시<br>사업자등록번호: 123-45-67890</p>
+                </div>
+                <div class="contact-item">
+                    <h4>🔧 기술 지원</h4>
+                    <p>24시간 지원 가능<br>유지보수 및 설치 서비스</p>
+                </div>
+                <div class="contact-item">
+                    <h4>🕒 운영 시간</h4>
+                    <p>월-금: 오전 9시 - 오후 6시<br>토요일: 오전 9시 - 오후 1시</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 FUJI Global Korea. All rights reserved.</p>
+            <p><strong>엘리베이터 기술의 선두주자</strong></p>
+            <p>Professional Elevator Technology Solutions</p>
+        </div>
+    </div>
+
+    <script>
+        console.log("FUJI Global Korea website loaded successfully!");
+        console.log("Deployment time:", new Date().toISOString());
+        
+        // Add loading animation
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease-in';
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
