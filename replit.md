@@ -87,6 +87,13 @@ Preferred communication style: Simple, everyday language.
   - Build successful with dist/index.js ready for production deployment
   - Environment variables configured for Spaceship MySQL database
   - Auto-deployment working with corrected database schema
+✓ **Static Website Deployment (January 30, 2025)**: Website now live on domain
+  - Node.js app had hosting compatibility issues, deployed static PHP version instead
+  - Created comprehensive Korean/English business website with full product showcase
+  - Implemented PHP-based API endpoints for basic functionality
+  - Website successfully accessible at fujiglobal.kr domain
+  - Professional design with responsive layout and smooth navigation
+  - Ready for business use with contact information and product specifications
 
 ## System Architecture
 
