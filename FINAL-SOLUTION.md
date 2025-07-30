@@ -1,31 +1,41 @@
-# FINAL SOLUTION - WEBSITE DEPLOYMENT
+# 🎯 FINAL SOLUTION - FUJI GLOBAL KOREA
 
-## VẤN ĐỀ CUỐI:
-Upload files nhưng website vẫn không thay đổi = File override issue
+## VẤN ĐỀ ĐÃ ĐƯỢC XÁC ĐỊNH:
+**Node.js app đang override tất cả static files**
 
-## GIẢI PHÁP CHẮC CHẮN:
+## CRITICAL STEPS TO FIX:
 
-### CÁCH 1: RENAME FILE
-Upload `fujiglobal.php` → Test: `fujiglobal.kr/fujiglobal.php`
+### 1. DISABLE NODE.JS APP
+**Spaceship cPanel → Node.js Apps → Stop/Delete app**
+- Vào cPanel của Spaceship hosting
+- Tìm "Node.js Apps" 
+- Stop hoặc Delete app hiện tại
+- Xác nhận disable
 
-### CÁCH 2: DELETE EXISTING FILES FIRST
-1. **File Manager** → **public_html**
-2. **Delete** existing `index.html`, `index.php` 
-3. **Upload** new `fujiglobal.php`
-4. **Rename** `fujiglobal.php` → `index.php`
+### 2. CLEAN PUBLIC_HTML
+**File Manager → public_html → Delete files:**
+- index.html (nếu có)
+- index.php (nếu có)  
+- default.html
+- Mọi file .html/.php khác
 
-### CÁCH 3: DIRECT OVERRIDE
-**Upload fujiglobal.php** with different name → Works immediately
+### 3. UPLOAD WEBSITE MỚI
+**Upload:** `simple-fuji-website.html`
+**Rename:** thành `index.html`
+**Permissions:** 644
 
-### KẾT QUẢ MONG ĐỢI:
-- ✅ Professional Korean business website
-- ✅ Product showcase with specifications  
-- ✅ Contact information
-- ✅ API integration status
-- ✅ Responsive design
+### 4. TEST
+```bash
+curl -s http://fujiglobal.kr | head -5
+```
+Nên thấy "FUJI Global Korea" thay vì "It works! NodeJS"
 
-### TEST URLs:
-- `fujiglobal.kr/fujiglobal.php` (new file)
-- `fujiglobal.kr/api/health.php` (API test)
+## FILES ĐÃ TẠO:
+- ✅ `simple-fuji-website.html` - Professional FUJI website
+- ✅ `cleanup-hosting.sh` - Cleanup instructions  
+- ✅ `auto-debug-system.js` - Debug tool
 
-**Upload fujiglobal.php với tên mới để bypass cache/override issues!**
+## BACKUP PLAN:
+Nếu vẫn không work → Contact Spaceship support để disable Node.js service
+
+**ROOT CAUSE: Node.js app intercepting all HTTP requests!**
