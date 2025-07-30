@@ -1,46 +1,38 @@
-# 🚀 PHƯƠNG PHÁP ĐỠN GIẢN NHẤT
+# DEPLOY SIMPLE - BỎ QUA FTP
 
-## 🎯 CHỈ CẦN 2 BƯỚC (5 phút)
+## FTP BỊ TIMEOUT → DÙNG CÁCH KHÁC
 
-Tôi đã tạo script mới siêu đơn giản - không cần setup phức tạp!
+### CÁCH 1: MANUAL UPLOAD
+1. **Build project** trong Replit:
+   ```bash
+   npm run build
+   ```
+2. **Download** dist folder
+3. **Upload** qua cPanel File Manager
+4. **Start** Node.js app
 
-### **BƯỚC 1: Upload Script Mới**
-- Download `simple-database-setup.php`
-- Upload lên `public_html/` (giống bước trước)
+### CÁCH 2: GIT PULL TRỰC TIẾP
+Trên Spaceship server (nếu có SSH):
+```bash
+cd /path/to/app
+git pull origin main
+npm install
+npm run build
+```
 
-### **BƯỚC 2: Chạy Script**
-- Browser: `http://your-domain.com/simple-database-setup.php`
-- Script sẽ hướng dẫn từng bước:
+### CÁCH 3: FIX FTP SETTINGS
+Update workflow với FTP passive mode:
+```yaml
+- name: Deploy to Spaceship via FTP
+  uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+  with:
+    server: ${{ secrets.SPACESHIP_HOST }}
+    username: ${{ secrets.SPACESHIP_USERNAME }}
+    password: ${{ secrets.SPACESHIP_PASSWORD }}
+    protocol: ftp
+    port: 21
+    timeout: 600000
+    log-level: verbose
+```
 
-#### 2.1 Nhập cPanel Username
-- Tìm username trong cPanel (góc trên phải)
-- Nhập vào form
-
-#### 2.2 Script Sẽ Gợi Ý
-- Database name: `fuji_korea_db`
-- Username: `fuji_admin`  
-- Password gợi ý: `FujiKorea2025!`
-
-#### 2.3 Tạo Database
-- Mở tab mới → MySQL Database Wizard
-- Làm theo gợi ý của script
-- Quay lại điền password
-
-#### 2.4 Tự Động Setup
-- Script tự động tạo tables + data
-- Hiển thị DATABASE_URL
-- Done!
-
-### **🔥 ƯU ĐIỂM:**
-- Không cần hiểu phức tạp
-- Script hướng dẫn từng bước
-- Tự động generate DATABASE_URL
-- Chỉ cần copy/paste
-
-### **📋 KẾT QUẢ:**
-- Database hoàn chỉnh với sample data
-- DATABASE_URL để dùng cho Node.js
-- Admin login: admin/admin123
-- Test serial: 123456, FJK125001
-
-**Script này dễ hơn nhiều! Bạn muốn thử không?**
+**Thử manual upload trước để test website work!**
