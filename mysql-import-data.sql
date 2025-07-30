@@ -1,7 +1,7 @@
 -- FUJI Global Korea - MySQL Import Data
 -- Generated: 2025-01-26T06:55:00.000Z
 
-USE fuji_korea_db;
+-- Database sẽ được select trong phpMyAdmin, không cần USE statement
 
 -- Insert Products
 INSERT INTO products (name, category, model, image, specifications, features, description_ko, description_en) VALUES

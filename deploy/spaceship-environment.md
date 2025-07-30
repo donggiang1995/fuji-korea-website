@@ -11,7 +11,7 @@
 ### 2. Environment Variables
 Add in Node.js Apps → Environment Variables:
 ```
-DATABASE_URL=mysql://username_fuji_admin:password@localhost:3306/username_fuji_korea_db
+DATABASE_URL=mysql://wodpqkkqov_fuji_admin:password@localhost:3306/wodpqkkqov_fuji_korea_db
 NODE_ENV=production
 PORT=3000
 ```
