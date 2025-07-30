@@ -1,49 +1,33 @@
-# 🚀 DEPLOY NGAY - 4 BƯỚC
+# DEPLOY WEBSITE - BƯỚC CUỐI
 
-## BƯỚC 1: TẠO GITHUB REPO (2 phút)
-1. github.com → New repository
-2. Tên: `fuji-korea-website`
-3. Public
-4. Create repository
+## ĐÃ SETUP XONG:
+✅ Database (wodpqkkqov_fuji_korea_db)  
+✅ Node.js App  
+✅ FTP Account  
+✅ GitHub Secrets  
+✅ GitHub Actions Workflow  
 
-## BƯỚC 2: UPLOAD PROJECT (5 phút)
-1. Download project này từ Replit (File → Download ZIP)
-2. GitHub repo → Upload files → kéo thả tất cả files
-3. Commit message: "Initial commit"
-4. Commit changes
+## BƯỚC CUỐI - DEPLOY:
 
-## BƯỚC 3: SPACESHIP SETUP (10 phút)
-### Database:
-1. cPanel → phpMyAdmin
-2. Import file: `mysql-import-data.sql`
+### CÁCH 1: MANUAL TRIGGER
+1. Vào **GitHub repo** của bạn
+2. **Actions** tab
+3. **Deploy to Spaceship Hosting** workflow
+4. **Run workflow** button
+5. Click **Run workflow**
 
-### Node.js App:
-1. cPanel → Node.js Apps → Create
-2. Application Root: `/public_html`
-3. Startup File: `server/index.js`
-4. Environment Variables:
-   - `DATABASE_URL=mysql://your_user:your_pass@localhost:3306/your_db`
-   - `NODE_ENV=production`
-   - `PORT=3000`
+### CÁCH 2: PUSH CODE  
+1. Make any small change trong repo này
+2. Git push → Auto trigger deployment
 
-### FTP:
-1. cPanel → FTP Accounts → Create
-2. Username: `github_deploy`
-3. Password: tạo password mạnh
-4. Directory: `/public_html/`
+## SAU KHI DEPLOY:
+1. **GitHub Actions** sẽ chạy (build + upload files)
+2. **Spaceship cPanel** → **Node.js Apps** → Start app
+3. Website live tại domain của bạn
 
-## BƯỚC 4: GITHUB SECRETS (1 phút)
-GitHub repo → Settings → Secrets → Actions → Add:
-- `SPACESHIP_HOST`: domain của bạn
-- `SPACESHIP_USERNAME`: github_deploy
-- `SPACESHIP_PASSWORD`: FTP password vừa tạo
+## KIỂM TRA:
+- **GitHub Actions** → Xem build log
+- **cPanel Node.js Apps** → App status
+- **Website** → Test functionality
 
-## AUTO-DEPLOY
-Push bất kỳ thay đổi nào → website tự động update trong 5 phút
-
-## EDIT TỪ REPLIT KHÁC
-1. Replit mới → Import from GitHub
-2. Repository: https://github.com/username/fuji-korea-website
-3. Edit code → git push → auto deploy
-
-XONG.
+**Deploy ngay để test workflow!**
