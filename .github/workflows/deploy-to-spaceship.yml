@@ -37,7 +37,7 @@ jobs:
           timeout: 300000
           retry: 3
           log-level: verbose
-          local-dir: ./dist/
+          local-dir: ./public_html/
           server-dir: /
           exclude: |
             .git*
