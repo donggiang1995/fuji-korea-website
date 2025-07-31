@@ -1,14 +1,15 @@
 [build]
-  publish = "dist"
-  command = "echo 'Static site ready'"
+  publish = "netlify-deploy"
+  command = "echo 'React app ready'"
 
 [build.environment]
   NODE_VERSION = "18"
 
 [[redirects]]
-  from = "/public_html/*"
-  to = "/"
-  status = 301
+  from = "/api/*"
+  to = "https://fuji-global-korea-bacuahhi.replit.app/api/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"
@@ -16,8 +17,9 @@
   status = 200
 
 [dev]
-  command = "echo 'Development server'"
+  command = "npm run dev"
   port = 3000
+  publish = "dist/public"
 
 [[headers]]
   for = "/*"
@@ -26,3 +28,8 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
