@@ -1,6 +1,6 @@
-import { drizzle } from 'drizzle-orm/mysql2';
-import mysql from 'mysql2/promise';
-import * as schema from "@shared/schema-mysql";
+import { drizzle } from "drizzle-orm/neon-serverless";
+import { neon } from "@neondatabase/serverless";
+import * as schema from "@shared/schema";
 
 if (!process.env.DATABASE_URL) {
   throw new Error(
@@ -8,6 +8,5 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-// Parse MySQL connection string: mysql://user:pass@host:port/database
-const connection = mysql.createPool(process.env.DATABASE_URL);
-export const db = drizzle(connection, { schema, mode: 'default' });
+const sql = neon(process.env.DATABASE_URL!);
+export const db = drizzle(sql, { schema });

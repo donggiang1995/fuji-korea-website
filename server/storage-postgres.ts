@@ -5,7 +5,7 @@ import {
   adminUsers
 } from "@shared/schema";
 
-// Import types from MySQL schema
+// Import types from PostgreSQL schema
 type Product = typeof products.$inferSelect;
 type InsertProduct = typeof products.$inferInsert;
 type Inquiry = typeof inquiries.$inferSelect;
@@ -17,9 +17,7 @@ type InsertAdminUser = typeof adminUsers.$inferInsert;
 import { db } from "./db";
 import { eq, ilike, desc } from "drizzle-orm";
 
-// modify the interface with any CRUD methods
-// you might need
-
+// Storage interface for PostgreSQL
 export interface IStorage {
   getProducts(): Promise<Product[]>;
   getProduct(id: number): Promise<Product | undefined>;
@@ -48,31 +46,17 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
-    // Ensure features is a proper array and convert specifications to proper format
-    const productData = {
-      ...insertProduct,
-      features: Array.isArray(insertProduct.features) ? insertProduct.features : [],
-      specifications: typeof insertProduct.specifications === 'object' ? insertProduct.specifications : {}
-    };
-    
     const [product] = await db
       .insert(products)
-      .values(productData)
+      .values(insertProduct)
       .returning();
     return product;
   }
 
   async updateProduct(id: number, data: InsertProduct): Promise<Product | null> {
-    // Ensure features is a proper array and convert specifications to proper format
-    const productData = {
-      ...data,
-      features: Array.isArray(data.features) ? data.features : [],
-      specifications: typeof data.specifications === 'object' ? data.specifications : {}
-    };
-    
     const [product] = await db
       .update(products)
-      .set(productData)
+      .set(data)
       .where(eq(products.id, id))
       .returning();
     return product || null;
@@ -80,7 +64,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteProduct(id: number): Promise<boolean> {
     const result = await db.delete(products).where(eq(products.id, id));
-    return result.rowCount ? result.rowCount > 0 : false;
+    return (result as any).rowsAffected > 0;
   }
 
   async getInquiries(): Promise<Inquiry[]> {
@@ -90,10 +74,7 @@ export class DatabaseStorage implements IStorage {
   async createInquiry(insertInquiry: InsertInquiry): Promise<Inquiry> {
     const [inquiry] = await db
       .insert(inquiries)
-      .values({
-        ...insertInquiry,
-        createdAt: new Date().toISOString()
-      })
+      .values(insertInquiry)
       .returning();
     return inquiry;
   }
@@ -102,27 +83,30 @@ export class DatabaseStorage implements IStorage {
     const result = await db
       .select({
         serialNumber: serialNumbers,
-        product: products
+        product: products,
       })
       .from(serialNumbers)
-      .innerJoin(products, eq(serialNumbers.productId, products.id))
-      .where(ilike(serialNumbers.serialNumber, `%${serialNumber}%`))
-      .limit(1);
-    
-    return result[0] || undefined;
+      .leftJoin(products, eq(serialNumbers.productId, products.id))
+      .where(eq(serialNumbers.serialNumber, serialNumber));
+
+    if (result.length > 0 && result[0].product) {
+      return {
+        serialNumber: result[0].serialNumber,
+        product: result[0].product,
+      };
+    }
+    return undefined;
   }
 
-  // Serial number management
   async getSerialNumbers(): Promise<SerialNumber[]> {
-    return db.select().from(serialNumbers).orderBy(desc(serialNumbers.createdAt));
+    return await db.select().from(serialNumbers).orderBy(desc(serialNumbers.createdAt));
   }
 
   async createSerialNumber(data: InsertSerialNumber): Promise<SerialNumber> {
-    const serialData = {
-      ...data,
-      createdAt: new Date().toISOString()
-    };
-    const [serialNumber] = await db.insert(serialNumbers).values(serialData).returning();
+    const [serialNumber] = await db
+      .insert(serialNumbers)
+      .values(data)
+      .returning();
     return serialNumber;
   }
 
@@ -137,12 +121,12 @@ export class DatabaseStorage implements IStorage {
 
   async deleteSerialNumber(id: number): Promise<boolean> {
     const result = await db.delete(serialNumbers).where(eq(serialNumbers.id, id));
-    return result.rowCount ? result.rowCount > 0 : false;
+    return (result as any).rowsAffected > 0;
   }
 
   async getAdminUser(id: number): Promise<AdminUser | undefined> {
-    const [admin] = await db.select().from(adminUsers).where(eq(adminUsers.id, id));
-    return admin || undefined;
+    const [user] = await db.select().from(adminUsers).where(eq(adminUsers.id, id));
+    return user || undefined;
   }
 
   async updateAdminPassword(id: number, hashedPassword: string): Promise<boolean> {
@@ -150,7 +134,7 @@ export class DatabaseStorage implements IStorage {
       .update(adminUsers)
       .set({ password: hashedPassword })
       .where(eq(adminUsers.id, id));
-    return result.rowCount ? result.rowCount > 0 : false;
+    return (result as any).rowsAffected > 0;
   }
 }
 
