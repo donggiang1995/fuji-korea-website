@@ -37,7 +37,15 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getProducts(): Promise<Product[]> {
-    return await db.select().from(products);
+    try {
+      console.log('Fetching products from database...');
+      const result = await db.select().from(products);
+      console.log('Products fetched:', result.length);
+      return result;
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      throw error;
+    }
   }
 
   async getProduct(id: number): Promise<Product | undefined> {
