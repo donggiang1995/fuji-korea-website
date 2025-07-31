@@ -1,189 +1,131 @@
-# FUJI Global Korea - Corporate Website
+# FUJI Global Korea Website
 
 ## Overview
 
-This is a bilingual (Korean/English) corporate website for FUJI Global Korea, an elevator technology company. The application is built as a modern full-stack web application using React for the frontend and Express.js for the backend, with a clean separation between client and server code.
+This is a corporate website for FUJI Global Korea, an elevator technology company. The application is built as a full-stack web application with React frontend and Express backend, featuring a corporate website with product catalog, serial number lookup, contact forms, and admin management system.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
 
-## Recent Changes (January 2025)
-
-✓ Complete website redesign with modern industrial aesthetic
-✓ Enhanced typography with stronger, more powerful fonts (Inter font family)
-✓ Added search functionality for elevator serial numbers in header
-✓ Modernized header with glass morphism effects and improved navigation
-✓ Redesigned hero section with gradient backgrounds and tech patterns
-✓ Enhanced footer with comprehensive company information and contact details
-✓ About page completely restructured with detailed company information, technology showcase, and timeline
-✓ Industrial design language with custom CSS components (glass-morphism, industrial-card, metric-display)
-✓ Improved color scheme with professional blue, navy, orange, and steel gray palette
-✓ Added comprehensive company metrics and achievement displays
-✓ Enhanced responsive design for all device sizes
-✓ **Database Integration (January 22, 2025)**: Implemented PostgreSQL database with Drizzle ORM
-  - Created database schema for products, inquiries, and serial numbers tables
-  - Migrated from memory storage to database storage layer
-  - Added sample elevator product data (FCA-9000 Series, TM-800S Traction Machine, SCP-2024 Control Panel)
-  - Implemented proper database relations between products and serial numbers
-  - Database connection configured with Neon serverless PostgreSQL
-✓ **Serial Number Search Feature (January 22, 2025)**: Fully functional search system
-  - Real-time serial number lookup with PostgreSQL database integration
-  - Detailed search result dialog with product information, specifications, and status
-  - Search accessible from header on all pages with proper error handling
-  - Sample serial numbers: FCA-9000-2024-001, TM-800-2024-001, SCP-2024-001
-✓ **Enhanced UI with Complete Icons (January 22, 2025)**: Improved visual design
-  - Added proper icons for all product categories (Cpu, Settings, Zap, Check icons)
-  - Enhanced product cards with industrial design language
-  - Fixed all LSP errors and accessibility warnings for production deployment
-  - Improved loading states and error handling throughout the application
-✓ **Production Deployment Ready (January 22, 2025)**: Resolved all deployment issues
-  - Fixed environment variable configuration for production mode
-  - Resolved database connection issues with WebSocket dependencies
-  - Enhanced build process with proper static file serving
-  - Tested production API endpoints successfully
-  - Added proper dialog accessibility (DialogDescription) for screen readers
-✓ **Image Management System (January 22, 2025)**: Centralized image configuration
-  - Created `/client/src/config/images.ts` for easy image management
-  - All website images now managed from single configuration file
-  - Includes fallback system for failed image loads
-  - Organized by sections: hero, features, gallery, products, awards
-  - Easy to update images without searching through code files
-✓ **Comprehensive Admin Panel System (January 22, 2025)**: Complete content management system
-  - Full authentication system with bcrypt password hashing and secure sessions
-  - Database schema with admin_users, admin_sessions tables for user management
-  - Complete CRUD operations for products and serial numbers management
-  - Admin dashboard with statistics overview and tabbed management interface
-  - Product management: create, edit, delete with multilingual descriptions and specifications
-  - Serial number tracking: status management, installation dates, location tracking
-  - Customer inquiries viewing system with email integration
-  - Secure cookie-based authentication with automatic session validation
-  - Admin panel accessible at `/admin` with default credentials: admin/admin123
-✓ **Excel Integration System (January 24, 2025)**: Advanced data management for serial numbers
-  - Upload Excel files (.xlsx, .xls, .csv) for batch import of serial numbers
-  - Online Excel sync capability with Google Sheets and OneDrive URLs
-  - Export current data to Excel format with comprehensive formatting
-  - Data validation and error reporting for import operations
-  - Duplicate detection and conflict resolution during imports
-✓ **Enhanced Security Features (January 24, 2025)**: Multi-layer security system
-  - Change password functionality with security code protection (code: "1995")
-  - Eye toggle for password visibility in change password dialog
-  - Current password verification before allowing changes
-  - Automatic session invalidation and logout after password change
-  - Enhanced security validation with custom security code requirement
-  - Removed default credentials display from admin login page for enhanced security
-✓ **Complete GitHub Workflow Integration (January 30, 2025)**: Full CI/CD pipeline setup
-  - GitHub Actions workflow for auto-deployment to Spaceship hosting
-  - FTP-based deployment system with build optimization
-  - Replit integration allowing editing from any account via GitHub import
-  - Production package configuration optimized for Spaceship hosting
-  - Database migration scripts and environment configuration ready
-  - Complete workflow: Replit → GitHub → Auto-deploy → Spaceship → GoDaddy domain
-  - Professional development workflow enabling team collaboration and version control
-✓ **MySQL Database Integration (January 30, 2025)**: Production-ready database setup
-  - Fixed PostgreSQL to MySQL conversion for Spaceship hosting compatibility
-  - Created MySQL-compatible storage layer with proper syntax (storage-mysql.ts)
-  - Updated database connection from Neon serverless to mysql2 driver
-  - Build successful with dist/index.js ready for production deployment
-  - Environment variables configured for Spaceship MySQL database
-  - Auto-deployment working with corrected database schema
-✓ **Static Website Deployment (January 30, 2025)**: Website deployment in progress
-  - Node.js app successfully disabled to allow static file serving
-  - Multiple backup files created for guaranteed deployment success
-  - Created production-ready HTML website with professional FUJI Global Korea branding
-  - Files uploaded to public_html directory with proper permissions (644)
-  - Domain fujiglobal.kr configured and DNS pointing correctly (66.29.148.111)
-  - Website features: responsive design, Korean content, company information, product showcase
-  - Production-ready file: fujiglobal-final.html (15KB comprehensive business website)
-
 ## System Architecture
 
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
-- **Routing**: Wouter (lightweight React router)
 - **Styling**: Tailwind CSS with shadcn/ui component library
-- **State Management**: React Query (TanStack Query) for server state
-- **Build Tool**: Vite for fast development and optimized production builds
-- **UI Components**: Radix UI primitives with custom styling
+- **Routing**: Wouter for client-side routing
+- **State Management**: TanStack Query (React Query) for server state
+- **Build Tool**: Vite for development and production builds
+- **Language Support**: Multi-language support (Korean/English) with React Context
 
 ### Backend Architecture
-- **Runtime**: Node.js with Express.js
-- **Language**: TypeScript with ESM modules
-- **Database ORM**: Drizzle ORM with PostgreSQL dialect
-- **Database Provider**: Neon Database (@neondatabase/serverless)
-- **Development**: tsx for TypeScript execution
-- **Production Build**: esbuild for server bundling
+- **Framework**: Express.js with TypeScript
+- **Database**: Dual database support - PostgreSQL (default) and MySQL (for Spaceship hosting)
+- **ORM**: Drizzle ORM with schema-first approach
+- **Authentication**: Session-based admin authentication with bcrypt password hashing
+- **API**: RESTful API endpoints with proper error handling
 
-### Project Structure
-```
-/
-├── client/          # Frontend React application
-├── server/          # Backend Express API
-├── shared/          # Shared types and schemas
-├── attached_assets/ # Static content files
-└── migrations/      # Database migration files
-```
+### Key Components
 
-## Key Components
+#### Database Design
+- **Products**: Elevator control systems and traction machines with specifications, features, and multilingual descriptions
+- **Serial Numbers**: Product serial number tracking with installation details and status
+- **Inquiries**: Customer contact form submissions
+- **Admin Users**: Administrative user management with role-based access
+- **Admin Sessions**: Session management for admin authentication
 
-### Database Schema (shared/schema.ts)
-- **Products Table**: Stores elevator product information with multilingual descriptions
-  - Fields: id, name, category (control/traction), model, image, specifications (JSON), features (JSON array), descriptionKo, descriptionEn
-  - Supports both Korean and English descriptions with rich specification and feature data
-- **Inquiries Table**: Customer contact form submissions
-  - Fields: id, name, email, company, message, createdAt
-- **Serial Numbers Table**: Tracks elevator serial numbers and their associated products
-  - Fields: id, serialNumber, productId (foreign key), installationDate, location, status, createdAt
-  - Enables serial number lookup functionality with product relationships
+#### Authentication System
+- Session-based authentication for admin panel
+- Password hashing with bcrypt (12 rounds)
+- Session timeout and cleanup
+- Role-based access control
 
-### Frontend Features
-- **Internationalization**: Built-in Korean/English language switching
-- **Product Catalog**: Tabbed interface showing control systems and traction machines
-- **Contact Forms**: Customer inquiry submission with validation
-- **Responsive Design**: Mobile-first approach with adaptive layouts
-- **Component Library**: Comprehensive UI components from shadcn/ui
+#### Multi-language Support
+- Korean and English language support
+- Translation management through React Context
+- Language-specific content for products and descriptions
 
-### Backend Services
-- **Storage Interface**: Abstracted storage layer with memory and database implementations
-- **API Routes**: RESTful endpoints (to be implemented in /api namespace)
-- **Development Middleware**: Hot reload and error handling for development
+#### File Upload & Management
+- Support for product images and attachments
+- Excel file integration for bulk serial number imports
+- Asset management through Vite's asset pipeline
 
 ## Data Flow
 
-1. **Client Requests**: React components use React Query to fetch data
-2. **API Layer**: Express.js routes handle HTTP requests under /api prefix
-3. **Storage Layer**: Abstracted storage interface supports both memory and database backends
-4. **Database**: PostgreSQL via Drizzle ORM with Neon serverless connection
+1. **Client Request**: React app makes requests through TanStack Query
+2. **API Layer**: Express routes handle authentication and business logic
+3. **Database Layer**: Drizzle ORM manages database operations
+4. **Response**: JSON data returned to client with proper error handling
+
+### Admin Dashboard Flow
+1. Admin login with username/password
+2. Session creation and storage
+3. Protected routes verify session validity
+4. CRUD operations on products, serial numbers, and inquiries
+5. Excel import/export functionality
+
+### Public Website Flow
+1. Product catalog display with category filtering
+2. Serial number search functionality
+3. Contact form submission
+4. Multi-language content switching
 
 ## External Dependencies
 
-### Core Technologies
-- **React Ecosystem**: React, React Query, React Hook Form
-- **UI Framework**: Radix UI primitives, Tailwind CSS
-- **Database**: Neon PostgreSQL, Drizzle ORM
-- **Development**: Vite, TypeScript, ESBuild
+### Core Dependencies
+- **@neondatabase/serverless**: PostgreSQL database connection (Neon DB)
+- **mysql2**: MySQL database connection (Spaceship hosting)
+- **@radix-ui/**: UI component primitives for shadcn/ui
+- **@tanstack/react-query**: Server state management
+- **drizzle-orm**: Type-safe ORM
+- **wouter**: Lightweight React router
+- **bcryptjs**: Password hashing
+- **framer-motion**: Animation library
+- **lucide-react**: Icon library
 
-### Notable Integrations
-- **Form Handling**: React Hook Form with Zod validation
-- **Date Handling**: date-fns library
-- **Icons**: Lucide React icons
-- **Carousel**: Embla Carousel for image galleries
+### Development Dependencies
+- **tsx**: TypeScript execution for development
+- **esbuild**: Fast JavaScript bundler for server builds
+- **tailwindcss**: Utility-first CSS framework
+- **@types/***: TypeScript type definitions
+
+### Optional Integrations
+- **papaparse**: CSV parsing for Excel imports
+- **xlsx**: Excel file processing
+- **cookie-parser**: HTTP cookie parsing
 
 ## Deployment Strategy
 
-### Development
-- **Frontend**: Vite dev server with HMR
-- **Backend**: tsx with nodemon-like restart capability
-- **Database**: Drizzle push for schema synchronization
+### Development Environment
+- **Development Server**: Vite dev server with HMR
+- **Database**: PostgreSQL via Neon (free tier)
+- **Build Command**: `npm run dev`
 
-### Production Build
-- **Frontend**: Vite build to dist/public
-- **Backend**: esbuild bundle to dist/index.js
-- **Database**: Drizzle migrations in ./migrations directory
+### Production Environments
 
-### Environment Configuration
-- **DATABASE_URL**: PostgreSQL connection string (required)
-- **NODE_ENV**: Environment flag for development/production behavior
-- **REPL_ID**: Replit-specific deployment identifier
+#### Option 1: Standard Hosting (Recommended)
+- **Database**: PostgreSQL via Neon or similar
+- **Build**: Vite build + esbuild server bundle
+- **Deployment**: Node.js hosting platform
+- **Commands**: `npm run build && npm start`
 
-The application is designed to be deployed on platforms like Replit with automatic environment detection and appropriate middleware setup for development vs production modes.
+#### Option 2: Spaceship Hosting (cPanel)
+- **Database**: MySQL via cPanel
+- **Schema**: Uses MySQL-specific schema file
+- **Build**: Custom build process for shared hosting
+- **Deployment**: FTP upload with specific configuration
+- **Commands**: Custom scripts in `package-spaceship.json`
+
+### Database Migration Strategy
+- Separate schema files for PostgreSQL and MySQL
+- Drizzle Kit for schema migrations
+- Environment-specific connection strings
+- Fallback handling for database differences
+
+### Asset Management
+- Static assets served through Vite in development
+- Production assets bundled and served via Express
+- Image optimization and fallback handling
+- Multi-environment asset path resolution
+
+The application supports both modern cloud hosting (with PostgreSQL) and traditional shared hosting (with MySQL), making it flexible for different deployment scenarios while maintaining the same codebase.
