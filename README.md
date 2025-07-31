@@ -1,29 +1,25 @@
-# 🏢 FUJI Global Korea Website
+# FUJI Global Korea Website
 
-## 📝 OVERVIEW:
 Professional Korean business website for FUJI Global Korea elevator technology company.
 
-## 📁 FILES:
-- **index.html** (19KB) - Complete Korean business website
-- **UPLOAD-GUIDE.md** - FileZilla FTP upload instructions
+## Live Website
+🌐 **https://username.github.io/fujiglobal-website/**
 
-## 🚀 DEPLOYMENT:
-Upload `index.html` via FTP to fujiglobal.kr/public_html/
-
-## 🎯 WEBSITE FEATURES:
+## Features
 - Modern gradient design
-- Korean language content
-- Company information
-- Product specifications (FCA-9000, TM-800S, SCP-2024)
-- Contact details
+- Korean language content  
+- Company information & products
 - Responsive mobile layout
 - Professional business presentation
 
-## 📤 UPLOAD METHOD:
-**Use FileZilla FTP client:**
-1. Download FileZilla
-2. Connect to ftp.fujiglobal.kr
-3. Upload index.html to /public_html/
-4. Visit fujiglobal.kr/public_html/
+## Deployment
+Hosted on GitHub Pages - automatically deployed from main branch.
 
-**Ready for production deployment!**
+## Technology Stack
+- Static HTML/CSS
+- GitHub Pages hosting
+- Jekyll configuration
+- Mobile-responsive design
+
+---
+© 2025 FUJI Global Korea. All rights reserved.
