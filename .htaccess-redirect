@@ -1,0 +1,21 @@
+# Fix Spaceship hosting document root issue
+# Files exist in /public_html/ but server serves from root
+
+# Redirect root domain to public_html directory
+RewriteEngine On
+
+# Redirect root access to public_html (where files actually are)
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /public_html/ [L,R=301]
+
+# Redirect any file request to public_html if not found in root
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /public_html/$1 [L,R=301]
+
+# Alternative: Internal rewrite (no visible redirect)
+# RewriteCond %{REQUEST_URI} ^/$
+# RewriteRule ^$ /public_html/index.html [L]
+
+# Disable directory listing
+Options -Indexes
