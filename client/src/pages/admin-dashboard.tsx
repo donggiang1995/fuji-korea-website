@@ -22,6 +22,7 @@ import AdminProductManager from '@/components/admin/AdminProductManager';
 import AdminSerialManager from '@/components/admin/AdminSerialManager';
 import AdminInquiries from '@/components/admin/AdminInquiries';
 import ChangePasswordDialog from '@/components/admin/ChangePasswordDialog';
+import DatabaseExport from '@/components/admin/DatabaseExport';
 
 // Product List Manager Component
 function ProductListManager() {
@@ -253,7 +254,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
         {/* Management Tabs */}
         <Tabs defaultValue="products" className="space-y-6">
-          <TabsList className="grid w-full max-w-2xl grid-cols-4">
+          <TabsList className="grid w-full max-w-4xl grid-cols-5">
             <TabsTrigger value="products" className="flex items-center gap-2">
               <Package className="w-4 h-4" />
               Products
@@ -269,6 +270,10 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
             <TabsTrigger value="inquiries" className="flex items-center gap-2">
               <MessageSquare className="w-4 h-4" />
               Inquiries
+            </TabsTrigger>
+            <TabsTrigger value="export" className="flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" />
+              Export DB
             </TabsTrigger>
           </TabsList>
 
@@ -286,6 +291,10 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
           <TabsContent value="inquiries">
             <AdminInquiries />
+          </TabsContent>
+
+          <TabsContent value="export">
+            <DatabaseExport />
           </TabsContent>
         </Tabs>
       </div>

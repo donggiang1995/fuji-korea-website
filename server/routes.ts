@@ -101,6 +101,120 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ error: "Failed to change password" });
     }
   });
+
+  // Export database
+  app.get("/api/admin/export-database", requireAdminAuth, async (req, res) => {
+    try {
+      const format = req.query.format as string;
+      
+      if (format !== 'json' && format !== 'sql') {
+        return res.status(400).json({ error: "Invalid format. Use 'json' or 'sql'" });
+      }
+
+      // Fetch all data
+      const [productsData, serialNumbersData, inquiriesData] = await Promise.all([
+        storage.getProducts(),
+        storage.getSerialNumbers(),
+        storage.getInquiries()
+      ]);
+
+      const timestamp = new Date().toISOString().split('T')[0];
+      
+      if (format === 'json') {
+        const exportData = {
+          metadata: {
+            exportedAt: new Date().toISOString(),
+            version: "1.0.0",
+            source: "FUJI Global Korea Database"
+          },
+          tables: {
+            products: productsData,
+            serialNumbers: serialNumbersData,
+            inquiries: inquiriesData
+          },
+          statistics: {
+            totalProducts: productsData.length,
+            totalSerialNumbers: serialNumbersData.length,
+            totalInquiries: inquiriesData.length
+          }
+        };
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Content-Disposition', `attachment; filename="fuji-database-export-${timestamp}.json"`);
+        res.json(exportData);
+        
+      } else if (format === 'sql') {
+        let sql = `-- FUJI Global Korea Database Export
+-- Exported on: ${new Date().toISOString()}
+
+-- Table: products
+CREATE TABLE IF NOT EXISTS products (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    model TEXT NOT NULL,
+    image TEXT NOT NULL,
+    specifications JSONB NOT NULL,
+    features JSONB NOT NULL,
+    description_ko TEXT NOT NULL,
+    description_en TEXT NOT NULL
+);
+
+`;
+
+        // Export products data
+        if (productsData.length > 0) {
+          sql += `INSERT INTO products (id, name, category, model, image, specifications, features, description_ko, description_en) VALUES\n`;
+          const productValues = productsData.map((p: any) => 
+            `(${p.id}, ${escapeSQL(p.name)}, ${escapeSQL(p.category)}, ${escapeSQL(p.model)}, ${escapeSQL(p.image)}, '${JSON.stringify(p.specifications)}'::jsonb, '${JSON.stringify(p.features)}'::jsonb, ${escapeSQL(p.descriptionKo)}, ${escapeSQL(p.descriptionEn)})`
+          );
+          sql += productValues.join(',\n') + ';\n\n';
+        }
+
+        // Serial Numbers table
+        sql += `-- Table: serial_numbers
+CREATE TABLE IF NOT EXISTS serial_numbers (
+    id SERIAL PRIMARY KEY,
+    serial_number TEXT NOT NULL UNIQUE,
+    product_id INTEGER REFERENCES products(id),
+    installation_date TEXT,
+    location TEXT,
+    status TEXT DEFAULT 'active',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+`;
+
+        // Export serial numbers data
+        if (serialNumbersData.length > 0) {
+          sql += `INSERT INTO serial_numbers (id, serial_number, product_id, installation_date, location, status, created_at) VALUES\n`;
+          const serialValues = serialNumbersData.map((s: any) => 
+            `(${s.id}, ${escapeSQL(s.serialNumber)}, ${s.productId || 'NULL'}, ${escapeSQL(s.installationDate)}, ${escapeSQL(s.location)}, ${escapeSQL(s.status)}, ${escapeSQL(s.createdAt)})`
+          );
+          sql += serialValues.join(',\n') + ';\n\n';
+        }
+
+        // Reset sequences
+        sql += `-- Reset sequences
+SELECT setval('products_id_seq', (SELECT MAX(id) FROM products));
+SELECT setval('serial_numbers_id_seq', (SELECT MAX(id) FROM serial_numbers));
+`;
+
+        res.setHeader('Content-Type', 'application/sql');
+        res.setHeader('Content-Disposition', `attachment; filename="fuji-database-export-${timestamp}.sql"`);
+        res.send(sql);
+      }
+      
+    } catch (error) {
+      console.error('Export error:', error);
+      res.status(500).json({ error: "Failed to export database" });
+    }
+  });
+
+  function escapeSQL(value: string | null): string {
+    if (value === null || value === undefined) return 'NULL';
+    return `'${value.replace(/'/g, "''")}'`;
+  }
   
   // Admin login
   app.post("/api/admin/login", async (req, res) => {
