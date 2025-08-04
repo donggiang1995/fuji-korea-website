@@ -1,8 +1,0 @@
-title: FUJI Global Korea
-description: 혁신적인 엘리베이터 기술의 선두주자
-theme: minima
-markdown: kramdown
-highlighter: rouge
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap

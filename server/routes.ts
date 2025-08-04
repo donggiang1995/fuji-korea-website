@@ -10,7 +10,7 @@ declare global {
     }
   }
 }
-import { storage } from "./storage-postgres";
+import { storage } from "./storage";
 import { adminLoginSchema, insertProductSchema, insertSerialNumberSchema, changePasswordSchema } from "@shared/schema";
 import { AdminAuthService, requireAdminAuth } from "./adminAuth";
 

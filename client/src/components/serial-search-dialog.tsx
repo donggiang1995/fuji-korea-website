@@ -71,7 +71,7 @@ export function SerialSearchDialog({
       }
     } else {
       switch (status) {
-        case 'active': return 'Original';
+        case 'active': return 'Active';
         case 'maintenance': return 'Under Maintenance';
         case 'retired': return 'Retired';
         default: return 'Unknown';

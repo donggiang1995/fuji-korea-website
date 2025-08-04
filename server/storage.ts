@@ -2,18 +2,16 @@ import {
   products, 
   inquiries, 
   serialNumbers,
-  adminUsers
+  adminUsers,
+  type Product, 
+  type Inquiry, 
+  type InsertProduct, 
+  type InsertInquiry, 
+  type SerialNumber,
+  type InsertSerialNumber,
+  type AdminUser,
+  type InsertAdminUser
 } from "@shared/schema";
-
-// Import types from MySQL schema
-type Product = typeof products.$inferSelect;
-type InsertProduct = typeof products.$inferInsert;
-type Inquiry = typeof inquiries.$inferSelect;
-type InsertInquiry = typeof inquiries.$inferInsert;
-type SerialNumber = typeof serialNumbers.$inferSelect;
-type InsertSerialNumber = typeof serialNumbers.$inferInsert;
-type AdminUser = typeof adminUsers.$inferSelect;
-type InsertAdminUser = typeof adminUsers.$inferInsert;
 import { db } from "./db";
 import { eq, ilike, desc } from "drizzle-orm";
 
