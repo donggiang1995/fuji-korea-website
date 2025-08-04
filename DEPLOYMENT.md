@@ -1,4 +1,21 @@
-# Railway Deployment Guide
+# FUJI Global Korea - Railway Deployment Guide
+
+## 🚀 Quick Fix for Railway Database Issues
+
+Dựa trên lỗi bạn gặp phải, tôi đã tạo script tự động để import database an toàn lên Railway.
+
+### ⚡ Giải pháp nhanh:
+
+1. **Copy DATABASE_URL từ Railway**
+2. **Chạy lệnh import tự động:**
+   ```bash
+   export DATABASE_URL="your_railway_database_url_here"
+   tsx scripts/import-to-railway.ts
+   ```
+
+Script sẽ tự động xử lý tất cả vấn đề Railway và import data thành công.
+
+---
 
 ## Prerequisites
 
