@@ -72,6 +72,17 @@ Preferred communication style: Simple, everyday language.
   - Automatic session invalidation and logout after password change
   - Enhanced security validation with custom security code requirement
   - Removed default credentials display from admin login page for enhanced security
+✓ **Product ID Management System (August 4, 2025)**: Enhanced admin panel with product relationship view
+  - Added dedicated "Product List" tab in admin dashboard showing Product ID and Name relationships
+  - Visual display of which serial numbers are associated with each product
+  - Easy-to-read layout showing product details, categories, and associated serial counts
+  - Improved management interface for understanding product-serial number relationships
+✓ **Railway Deployment Support (August 4, 2025)**: Production deployment optimization
+  - Enhanced database connection handling for production environments
+  - Added comprehensive error messages for missing DATABASE_URL
+  - Created deployment configuration files (railway.json, DEPLOYMENT.md)
+  - Improved SSL connection handling for production PostgreSQL
+  - Added deployment troubleshooting guide and setup instructions
 
 ## System Architecture
 
