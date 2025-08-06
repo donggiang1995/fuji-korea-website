@@ -1,5 +1,8 @@
+[variables]
+NPM_CONFIG_PRODUCTION = "false"
+
 [phases.install]
-cmds = ["npm install --omit=dev --no-audit --no-fund"]
+cmds = ["npm ci --no-audit --no-fund"]
 
 [phases.build]
 cmds = ["npm run build"]
