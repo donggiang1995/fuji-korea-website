@@ -119,7 +119,7 @@ export default function Contact() {
             {/* Company Image */}
             <div className="hidden lg:block">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+                src="https://picsum.photos/600/400?random=30"
                 alt="FUJI Global Korea Building"
                 className="rounded-xl shadow-lg w-full h-auto"
               />

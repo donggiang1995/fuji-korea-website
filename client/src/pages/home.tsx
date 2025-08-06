@@ -125,7 +125,7 @@ export default function Home() {
       <section className="py-24 text-white relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={(WEBSITE_IMAGES.products as any).sectionBackground}
+            src={WEBSITE_IMAGES.products.sectionBackground}
             alt="Industrial Technology Background"
             className="w-full h-full object-cover"
             onError={(e) => {
@@ -151,9 +151,12 @@ export default function Home() {
               <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
                 <div className="relative overflow-hidden h-72 flex-shrink-0">
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1688678097510-38711f21668b?q=80&w=897&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={WEBSITE_IMAGES.products.fje1}
                     alt="Smart Elevator System FJE1"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
                   <div className="absolute top-4 left-4">
@@ -182,9 +185,12 @@ export default function Home() {
               <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
                 <div className="relative overflow-hidden h-72 flex-shrink-0">
                   <img
-                    src="https://images.unsplash.com/photo-1645500863298-859a4df01554?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={WEBSITE_IMAGES.products.fje2}
                     alt="Smart Elevator System FJE2" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
                   <div className="absolute top-4 left-4">
@@ -213,9 +219,12 @@ export default function Home() {
               <Card className="group industrial-card border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 flex flex-col w-full">
                 <div className="relative overflow-hidden h-72 flex-shrink-0">
                   <img
-                    src="https://images.unsplash.com/photo-1532707898156-d21be2c005c1?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={WEBSITE_IMAGES.products.fjkSeries}
                     alt="Advanced Elevator Technology"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--industrial-dark))]/90 via-transparent to-transparent"></div>
                   <div className="absolute top-4 left-4">
@@ -273,9 +282,9 @@ export default function Home() {
               const Icon = feature.icon;
               // Hình ảnh công nghệ thang máy cho từng feature
               const featureImages = [
-                "https://plus.unsplash.com/premium_photo-1663099311380-e3e0a548edaf?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",       // Safety Systems - ĐÃ THAY ĐỔI
-                WEBSITE_IMAGES.features.smartTech,    // Smart Technology - GIỮ NGUYÊN
-                "https://plus.unsplash.com/premium_photo-1661277672864-6a57b90858d0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"     // High Performance - ĐÃ THAY ĐỔI
+                WEBSITE_IMAGES.features.safety,
+                WEBSITE_IMAGES.features.smartTech,
+                WEBSITE_IMAGES.features.highPerformance
               ];
               
               return (
@@ -325,9 +334,12 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://plus.unsplash.com/premium_photo-1661933050836-3f9e3d7eda61?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={WEBSITE_IMAGES.gallery.manufacturing}
                   alt="Manufacturing Process"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -337,9 +349,12 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://plus.unsplash.com/premium_photo-1661490182399-62c7de4a07b7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={WEBSITE_IMAGES.gallery.testing}
                   alt="Quality Testing"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -349,9 +364,12 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://images.unsplash.com/photo-1717386255767-52643970d483?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={WEBSITE_IMAGES.gallery.installation}
                   alt="Installation Process"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -361,9 +379,12 @@ export default function Home() {
               
               <div className="relative group overflow-hidden rounded-xl industrial-card">
                 <img
-                  src="https://images.unsplash.com/photo-1566096650255-98ba2641071e?q=80&w=726&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={WEBSITE_IMAGES.gallery.maintenance}
                   alt="Maintenance Service"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = WEBSITE_IMAGES.fallback.default;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">

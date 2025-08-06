@@ -231,7 +231,7 @@ export default function About() {
             <Card className="lg:col-span-2 industrial-card border-0 overflow-hidden group hover:shadow-2xl transition-all duration-500">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1565891741441-64926e441838?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src={WEBSITE_IMAGES.facilities.factory}
                   alt="FUJI Global Korea Factory"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
@@ -316,7 +316,7 @@ export default function About() {
               <CardContent className="p-6">
                 <div className="relative">
                   <img
-                    src="https://images.unsplash.com/photo-1675602488453-c3897a475af5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={WEBSITE_IMAGES.facilities.production}
                     alt="Production Line"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
@@ -345,7 +345,7 @@ export default function About() {
               <CardContent className="p-6">
                 <div className="relative">
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1740363268539-cd9093c3b5d1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={WEBSITE_IMAGES.facilities.research}
                     alt="Research Lab"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
@@ -374,7 +374,7 @@ export default function About() {
               <CardContent className="p-6">
                 <div className="relative">
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1661765887476-c7ff042d66b7?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src={WEBSITE_IMAGES.facilities.team}
                     alt="Expert Team"
                     className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
