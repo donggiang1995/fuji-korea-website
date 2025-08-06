@@ -1,11 +1,16 @@
 [variables]
+NODE_ENV = "production"
 NPM_CONFIG_PRODUCTION = "false"
 
 [phases.install]
-cmds = ["npm ci --no-audit --no-fund"]
+cmds = [
+  "npm ci --no-audit --no-fund"
+]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = [
+  "npm run build"
+]
 
 [start]
-cmd = "npm start"
+cmd = "node start.js"
