@@ -26,15 +26,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       environment: process.env.NODE_ENV || "unknown"
     });
   });
-
-  // Root health check
-  app.get("/", (req, res) => {
-    res.json({ 
-      message: "FUJI Global Korea API Server",
-      status: "running",
-      timestamp: new Date().toISOString()
-    });
-  });
   
   // put application routes here
   // prefix all routes with /api
