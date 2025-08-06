@@ -2,7 +2,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Building2, Users, Award, Globe, Target, Lightbulb, Zap, Shield, Cpu, TrendingUp, Calendar, MapPin, Factory, Cog, Settings, Users2, FlaskConical, HardHat } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
-import { WEBSITE_IMAGES } from '@/config/images';
+import { WEBSITE_IMAGES } from '@/data/images';
 
 export default function About() {
   const { language } = useLanguage();

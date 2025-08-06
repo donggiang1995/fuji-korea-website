@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
 import { useLanguage } from '@/components/language-provider';
 import { Award, Code, Wrench, Palette, ArrowRight, Zap, Shield, Cpu, Gauge } from 'lucide-react';
-import { images as WEBSITE_IMAGES } from '@/data/images';
+import { WEBSITE_IMAGES } from '@/data/images';
 
 export default function Home() {
   const { t, language } = useLanguage();
