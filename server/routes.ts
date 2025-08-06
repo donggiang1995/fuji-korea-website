@@ -18,6 +18,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Add cookie parser middleware
   app.use(cookieParser());
   
+  // Health check endpoint for Railway
+  app.get("/api/health", (req, res) => {
+    res.json({ 
+      status: "ok", 
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || "unknown"
+    });
+  });
+
+  // Root health check
+  app.get("/", (req, res) => {
+    res.json({ 
+      message: "FUJI Global Korea API Server",
+      status: "running",
+      timestamp: new Date().toISOString()
+    });
+  });
+  
   // put application routes here
   // prefix all routes with /api
 
